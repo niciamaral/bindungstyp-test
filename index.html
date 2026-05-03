@@ -462,13 +462,14 @@
 
   .status-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(26px, 5vw, 36px);
+    font-size: clamp(36px, 5vw, 56px);
     font-weight: 300;
     margin-bottom: 8px;
   }
 
   .status-subtitle {
-    font-size: 13px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
     color: var(--text-muted);
     margin-bottom: 40px;
     font-style: italic;
@@ -478,28 +479,41 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    max-width: 480px;
+    max-width: 560px;
     width: 100%;
     margin: 0 auto;
   }
 
   .status-option {
     background: var(--dark-card);
-    border: 1px solid var(--dark-border);
-    padding: 16px 12px;
+    border: 1px solid rgba(var(--gold-rgb),0.25);
+    padding: 20px 16px;
     cursor: pointer;
     font-family: 'Outfit', sans-serif;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--text-light);
     transition: all 0.25s ease;
     text-align: center;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
   }
   .status-option:hover, .status-option.selected {
     border-color: var(--gold);
     color: var(--cream);
     background: rgba(var(--gold-rgb),0.08);
+    text-shadow: 0 0 20px rgba(var(--gold-rgb),0.4);
   }
+
+  #screen-status.active .status-option {
+    animation: fadeUp 0.5s ease both;
+  }
+  #screen-status.active .status-option:nth-child(1) { animation-delay: 0ms; }
+  #screen-status.active .status-option:nth-child(2) { animation-delay: 150ms; }
+  #screen-status.active .status-option:nth-child(3) { animation-delay: 300ms; }
+  #screen-status.active .status-option:nth-child(4) { animation-delay: 450ms; }
+  #screen-status.active .status-option:nth-child(5) { animation-delay: 600ms; }
+  #screen-status.active .status-option:nth-child(6) { animation-delay: 750ms; }
+  #screen-status.active .status-option:nth-child(7) { animation-delay: 900ms; }
+  #screen-status.active .status-option:nth-child(8) { animation-delay: 1050ms; }
 
   /* ==============================
      RESULT SCREEN
