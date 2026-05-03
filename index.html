@@ -1,19 +1,1434 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bindungstyp-Test · BeComeHer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    /* CSS kommt hier rein */
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bindungstyp-Test — BECOME HER</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500&display=swap');
+
+  :root {
+    --sienna: #C17A3A;
+    --gold: #D4A84B;
+    --cream: #F5EFE6;
+    --cream-soft: #EDE4D6;
+    --dark: #0E0A07;
+    --dark-mid: #1A120A;
+    --dark-card: #1E160D;
+    --dark-border: #2E2016;
+    --text-primary: #F5EFE6;
+    --text-muted: #9B8A70;
+    --text-light: #C4B49A;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ---- BACKGROUND TEXTURE ---- */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(193,122,58,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(212,168,75,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .screen {
+    display: none;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+  }
+  .screen.active { display: flex; }
+
+  /* ---- ORNAMENT ---- */
+  .ornament {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+  }
+  .ornament::before, .ornament::after {
+    content: '—';
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto;
+  }
+
+  /* ==============================
+     INTRO SCREEN
+  ============================== */
+  #screen-intro {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .intro-badge {
+    display: inline-block;
+    border: 1px solid rgba(212,168,75,0.3);
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    margin-bottom: 32px;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .intro-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .intro-title em {
+    font-style: italic;
+    color: var(--sienna);
+  }
+
+  .intro-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 4vw, 22px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+
+  .intro-meta {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 24px 0 40px;
+  }
+  .intro-meta-item {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .intro-meta-item span {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .intro-description {
+    max-width: 440px;
+    margin: 0 auto 48px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--sienna);
+    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--sienna);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  .btn-primary:hover::before { transform: scaleX(1); }
+  .btn-primary:hover { color: var(--dark); }
+
+  .intro-disclaimer {
+    margin-top: 32px;
+    font-size: 11px;
+    color: var(--text-muted);
+    max-width: 380px;
+  }
+
+  /* ==============================
+     BLOCK INTRO SCREEN
+  ============================== */
+  #screen-block-intro {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .block-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 100px;
+    font-weight: 300;
+    color: rgba(193,122,58,0.12);
+    line-height: 1;
+    margin-bottom: -20px;
+    font-style: italic;
+  }
+
+  .block-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .block-name em {
+    font-style: italic;
+    color: var(--sienna);
+  }
+
+  .block-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 420px;
+    margin: 24px auto 40px;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+
+  .block-tech {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  /* ==============================
+     QUIZ SCREEN
+  ============================== */
+  #screen-quiz {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    min-height: 100vh;
+  }
+
+  .quiz-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.05);
+    z-index: 100;
+  }
+  .quiz-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--sienna), var(--gold));
+    transition: width 0.5s ease;
+  }
+
+  .quiz-counter {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    z-index: 100;
+  }
+
+  .quiz-block-label {
+    position: fixed;
+    top: 14px;
+    left: 20px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sienna);
+    z-index: 100;
+    opacity: 0.8;
+  }
+
+  .question-container {
+    max-width: 540px;
+    width: 100%;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .question-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--sienna);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .question-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 4.5vw, 28px);
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .question-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+
+  .answers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .answer-option {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: left;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.5;
+    position: relative;
+    overflow: hidden;
+  }
+  .answer-option::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--sienna);
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+  }
+  .answer-option:hover {
+    border-color: rgba(193,122,58,0.4);
+    color: var(--cream);
+    padding-left: 26px;
+  }
+  .answer-option:hover::before { transform: scaleY(1); }
+
+  .answer-option.selected {
+    border-color: var(--sienna);
+    color: var(--cream);
+    background: rgba(193,122,58,0.08);
+    padding-left: 26px;
+  }
+  .answer-option.selected::before { transform: scaleY(1); }
+
+  /* ==============================
+     LOADING SCREEN
+  ============================== */
+  #screen-loading {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .loading-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 1s 0.5s ease both;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .loading-orbs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .loading-orb {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sienna);
+    animation: pulse 1.4s ease infinite;
+  }
+  .loading-orb:nth-child(2) { animation-delay: 0.2s; }
+  .loading-orb:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
+  }
+
+  /* ==============================
+     QUESTION 38 SCREEN
+  ============================== */
+  #screen-q38 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .q38-intro {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .q38-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 5vw, 32px);
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0 auto 24px;
+  }
+
+  .q38-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 40px;
+  }
+
+  .q38-answer {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--sienna);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+    padding: 24px 32px;
+    border: 1px solid rgba(193,122,58,0.2);
+    background: rgba(193,122,58,0.04);
+  }
+
+  /* ==============================
+     STATUS SCREEN
+  ============================== */
+  #screen-status {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  .status-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 5vw, 36px);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .status-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .status-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .status-option {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    padding: 16px 12px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    transition: all 0.25s ease;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  .status-option:hover, .status-option.selected {
+    border-color: var(--sienna);
+    color: var(--cream);
+    background: rgba(193,122,58,0.08);
+  }
+
+  /* ==============================
+     RESULT SCREEN
+  ============================== */
+  #screen-result {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .result-hero {
+    width: 100%;
+    background: var(--dark-mid);
+    padding: 64px 24px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--dark-border);
+    position: relative;
+    overflow: hidden;
+  }
+  .result-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(193,122,58,0.1), transparent);
+  }
+
+  .result-type-code {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: rgba(193,122,58,0.1);
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    font-style: italic;
+    user-select: none;
+  }
+
+  .result-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .result-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .result-subname {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3.5vw, 22px);
+    font-style: italic;
+    color: var(--sienna);
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .result-short {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3.5vw, 20px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .result-body {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 48px 24px;
+  }
+
+  .result-section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sienna);
+    margin-bottom: 20px;
+  }
+
+  .result-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-light);
+  }
+  .result-text p { margin-bottom: 20px; }
+  .result-text em {
+    font-style: italic;
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+  }
+  .result-text strong {
+    color: var(--cream);
+    font-weight: 400;
+  }
+
+  /* Audio player */
+  .audio-section {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    padding: 32px 24px;
+    text-align: center;
+    margin: 32px 0;
+  }
+
+  .audio-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .audio-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    margin-bottom: 8px;
+  }
+
+  .audio-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .audio-player-ui {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .audio-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--sienna);
+    background: transparent;
+    color: var(--sienna);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .audio-btn:hover { background: var(--sienna); color: var(--dark); }
+
+  .audio-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 360px;
+    line-height: 1.6;
+  }
+
+  /* Offers */
+  .offer-primary {
+    background: linear-gradient(135deg, rgba(193,122,58,0.15), rgba(212,168,75,0.08));
+    border: 1px solid rgba(193,122,58,0.4);
+    padding: 32px 24px;
+    margin-bottom: 16px;
+  }
+
+  .offer-secondary {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  .offer-tag {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .offer-primary .offer-tag { color: var(--gold); }
+  .offer-secondary .offer-tag { color: var(--text-muted); }
+
+  .offer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+
+  .offer-price {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .offer-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .btn-offer {
+    display: block;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    transition: all 0.3s;
+  }
+  .btn-offer-primary {
+    background: var(--sienna);
+    color: var(--dark);
+  }
+  .btn-offer-primary:hover { background: var(--gold); }
+  .btn-offer-secondary {
+    background: transparent;
+    border: 1px solid var(--dark-border);
+    color: var(--text-light);
+  }
+  .btn-offer-secondary:hover { border-color: var(--sienna); color: var(--cream); }
+
+  .result-footer {
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid var(--dark-border);
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .result-restart {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-bottom: 24px;
+    display: block;
+    margin: 0 auto 24px;
+  }
+  .result-restart:hover { color: var(--cream); }
+
+  .disclaimer {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* Animations */
+  .fade-in { animation: fadeIn 0.7s ease both; }
+  .fade-in-delay { animation: fadeIn 0.7s 0.3s ease both; opacity: 0; }
+
+  @media (max-width: 420px) {
+    .status-options { grid-template-columns: 1fr; }
+    .result-type-code { font-size: 80px; }
+  }
+</style>
 </head>
 <body>
-  <!-- HTML kommt hier rein -->
 
-  <script>
-    // JavaScript kommt hier rein
-  </script>
+<!-- ==============================
+     SCREEN: INTRO
+============================== -->
+<div id="screen-intro" class="screen active">
+  <div>
+    <div class="intro-badge">BECOME HER · Bindungstyp-Test</div>
+
+    <div class="divider" style="margin-bottom:32px;"></div>
+
+    <h1 class="intro-title">
+      Warum du immer wieder<br>
+      <em>dieselben Beziehungen</em><br>
+      anziehst
+    </h1>
+
+    <p class="intro-subtitle">
+      Was dein Herz schon lange weiß — aber nie in Worte gefasst hat.
+    </p>
+
+    <div class="intro-meta">
+      <span class="intro-meta-item"><span>38</span> Fragen</span>
+      <span class="intro-meta-item"><span>5</span> Blöcke</span>
+      <span class="intro-meta-item"><span>4</span> Bindungstypen</span>
+    </div>
+
+    <div class="divider" style="margin-bottom:32px;"></div>
+
+    <p class="intro-description">
+      Das hier ist kein Persönlichkeitstest. Es ist eine Erfahrung. Du antwortest nicht für ein Ergebnis. Du antwortest — und erkennst dich dabei selbst.
+    </p>
+
+    <button class="btn-primary" onclick="startQuiz()">
+      Ich bin bereit
+    </button>
+
+    <p class="intro-disclaimer">
+      Nimm dir 10–15 Minuten. Antworte mit dem ersten Gefühl — nicht dem, was du denken solltest.
+    </p>
+  </div>
+</div>
+
+<!-- ==============================
+     SCREEN: BLOCK INTRO
+============================== -->
+<div id="screen-block-intro" class="screen">
+  <div style="max-width:520px;width:100%;text-align:center;padding:0 24px;">
+    <div class="block-number" id="block-number-display">I</div>
+    <div class="ornament" id="block-ornament">JETZT</div>
+    <h2 class="block-name" id="block-title-display">Was gerade <em>in dir ist</em></h2>
+    <p class="block-desc" id="block-desc-display"></p>
+    <p class="block-tech" id="block-tech-display"></p>
+    <button class="btn-primary" onclick="startBlock()">Weiter</button>
+  </div>
+</div>
+
+<!-- ==============================
+     SCREEN: QUIZ
+============================== -->
+<div id="screen-quiz" class="screen">
+  <div class="quiz-progress"><div class="quiz-progress-bar" id="progress-bar"></div></div>
+  <div class="quiz-block-label" id="quiz-block-label"></div>
+  <div class="quiz-counter" id="quiz-counter"></div>
+
+  <div class="question-container" id="question-container">
+    <div class="question-number" id="question-number"></div>
+    <div class="question-text" id="question-text"></div>
+    <div class="question-note" id="question-note"></div>
+    <div class="answers-grid" id="answers-grid"></div>
+  </div>
+</div>
+
+<!-- ==============================
+     SCREEN: LOADING
+============================== -->
+<div id="screen-loading" class="screen">
+  <div class="loading-title">"Dein Muster wird erkannt..."</div>
+  <div class="loading-orbs">
+    <div class="loading-orb"></div>
+    <div class="loading-orb"></div>
+    <div class="loading-orb"></div>
+  </div>
+  <p style="font-size:13px;color:var(--text-muted);font-style:italic;max-width:320px;line-height:1.7;">
+    38 Antworten. 5 Blöcke. Eine tiefe Wahrheit — die schon immer in dir war.
+  </p>
+</div>
+
+<!-- ==============================
+     SCREEN: Q38
+============================== -->
+<div id="screen-q38" class="screen">
+  <div style="max-width:540px;width:100%;text-align:center;padding:0 24px;">
+    <div class="q38-intro">Frage 38 · Abschluss</div>
+    <h2 class="q38-question">
+      Wenn du diesem Teil von dir, der gekämpft, gehofft, gewartet, sich verborgen oder weggemacht hat — wenn du ihm einen Satz sagen könntest: Was wäre es?
+    </h2>
+    <p class="q38-note">Kein richtiger Satz. Nur deiner. Diese Frage ist für dich — nicht für das System.</p>
+    <div class="q38-answer" id="q38-answer-text"></div>
+    <button class="btn-primary" onclick="showStatus()">Weiter</button>
+  </div>
+</div>
+
+<!-- ==============================
+     SCREEN: STATUS
+============================== -->
+<div id="screen-status" class="screen">
+  <div style="max-width:520px;width:100%;text-align:center;padding:0 24px;">
+    <div class="ornament" style="margin-bottom:24px;">Eine letzte Frage</div>
+    <h2 class="status-title">Wo bist du gerade?</h2>
+    <p class="status-subtitle">Diese Antwort hilft mir, dir genau das zu zeigen, was du jetzt brauchst.</p>
+
+    <div class="status-options" id="status-options">
+      <button class="status-option" onclick="selectStatus('single')">Single</button>
+      <button class="status-option" onclick="selectStatus('dating')">Dating</button>
+      <button class="status-option" onclick="selectStatus('situationship')">Situationship</button>
+      <button class="status-option" onclick="selectStatus('beziehung')">Beziehung</button>
+      <button class="status-option" onclick="selectStatus('toxisch')">Toxische Dynamik</button>
+      <button class="status-option" onclick="selectStatus('trennung')">Nach Trennung</button>
+      <button class="status-option" onclick="selectStatus('onoff')">On & Off</button>
+      <button class="status-option" onclick="selectStatus('unklar')">Beziehung unklar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==============================
+     SCREEN: RESULT
+============================== -->
+<div id="screen-result" class="screen">
+
+  <div class="result-hero">
+    <div class="result-type-code" id="result-type-code"></div>
+    <div class="result-label">Dein dominantes Muster</div>
+    <h1 class="result-name" id="result-name"></h1>
+    <div class="result-subname" id="result-subname"></div>
+    <div class="divider" style="margin-bottom:24px;"></div>
+    <p class="result-short" id="result-short"></p>
+  </div>
+
+  <div class="result-body">
+
+    <div class="result-section-label">Deine Geschichte</div>
+    <div class="result-text" id="result-text"></div>
+
+    <div class="divider" style="margin:32px auto;"></div>
+
+    <!-- Audio -->
+    <div class="audio-section">
+      <div class="audio-label">Bilaterale Stimulation</div>
+      <div class="audio-title" id="audio-title">Regulierung · Klarheit · Ankommen</div>
+      <div class="audio-subtitle" id="audio-subtitle"></div>
+      <div style="margin-bottom:16px;">
+        <div class="audio-text" id="audio-instruction"></div>
+      </div>
+      <div class="audio-player-ui">
+        <button class="audio-btn" id="audio-play-btn" onclick="toggleAudio()">▶</button>
+        <span style="font-size:12px;color:var(--text-muted);" id="audio-status">Pause kurz inne. Schließ die Augen.</span>
+      </div>
+    </div>
+
+    <div class="divider" style="margin:0 auto 32px;"></div>
+
+    <!-- Status Offer (primary) -->
+    <div class="offer-primary" id="offer-primary">
+      <div class="offer-tag">Dein nächster Schritt · Empfohlen für dich</div>
+      <div class="offer-name" id="offer-primary-name"></div>
+      <div class="offer-price" id="offer-primary-price"></div>
+      <div class="offer-desc" id="offer-primary-desc"></div>
+      <button class="btn-offer btn-offer-primary" id="offer-primary-btn">Jetzt entdecken</button>
+    </div>
+
+    <!-- Type Offer (secondary) -->
+    <div class="offer-secondary" id="offer-secondary">
+      <div class="offer-tag">Tiefer gehen · Dein Muster verstehen</div>
+      <div class="offer-name" id="offer-secondary-name"></div>
+      <div class="offer-price" id="offer-secondary-price"></div>
+      <div class="offer-desc" id="offer-secondary-desc"></div>
+      <button class="btn-offer btn-offer-secondary" id="offer-secondary-btn">Mehr erfahren</button>
+    </div>
+
+  </div>
+
+  <div class="result-footer">
+    <button class="result-restart" onclick="resetQuiz()">↺ Von vorne beginnen</button>
+    <p class="disclaimer">
+      Hinweis: Dieser Test ersetzt keine therapeutische oder ärztliche Beratung. Er ist ein Coaching-Tool zur Selbstreflexion. Wenn du in einer akuten emotionalen Krise bist, wende dich bitte an eine Fachperson.
+    </p>
+  </div>
+
+</div>
+
+<script>
+// ==============================
+// DATA
+// ==============================
+
+const BLOCKS = [
+  {
+    number: 'I',
+    ornament: 'JETZT',
+    title: 'Was gerade <em>in dir ist</em>',
+    desc: 'Diese Fragen gehen nicht in die Vergangenheit. Sie fragen, was gerade — in diesem Moment — in deinem Körper, deinem Kopf, deiner Brust passiert. Antworte nicht mit dem Verstand. Antworte mit dem ersten Gefühl.',
+    tech: 'Somatic Experiencing (Peter Levine) · Gegenwartsfokus',
+    questions: [0,1,2,3,4,5,6]
+  },
+  {
+    number: 'II',
+    ornament: 'ER',
+    title: 'Was du in ihm siehst — <em>und was nicht er ist</em>',
+    desc: 'Diese Fragen gehen nicht darum, ihn zu beurteilen. Sie gehen darum, was du in ihm siehst — und was davon du bist. Manchmal lieben wir nicht ihn. Wir lieben das, was er in uns berührt.',
+    tech: 'Jungianische Projektion · Animus-Arbeit · Objektbeziehungstheorie (Winnicott)',
+    questions: [7,8,9,10,11,12,13]
+  },
+  {
+    number: 'III',
+    ornament: 'DU',
+    title: 'Wer du bist, <em>wenn niemand zuschaut</em>',
+    desc: 'Diese Fragen gehen nicht darum, was du tust. Sie gehen darum, wer du bist — ohne ihn, ohne die Rolle, ohne die Performance. Was bleibt, wenn alles wegfällt?',
+    tech: 'IFS (Internal Family Systems) · Selbst-Konzept · Narzissmus der Bindung (Kohut)',
+    questions: [14,15,16,17,18,19,20]
+  },
+  {
+    number: 'IV',
+    ornament: 'FRÜHER',
+    title: '<em>Wo das alles begann</em>',
+    desc: 'Das hier ist der schwierigste Block. Nicht weil die Fragen kompliziert sind — sondern weil die Antworten oft nicht angenehm sind. Die Bindungsmuster, die du heute lebst, haben eine Geschichte. Sie beginnen nicht mit ihm.',
+    tech: 'Freudsche Wiederholungstheorie · Bindungstheorie Bowlby · Eltern-Kind-Übertragung',
+    questions: [21,22,23,24,25,26,27]
+  },
+  {
+    number: 'V',
+    ornament: 'DANACH',
+    title: 'Was ist, <em>wenn er nicht mehr da ist</em>',
+    desc: 'Das ist der Zukunftsblock. Nicht Hoffnung. Nicht Wunsch. Ehrlichkeit. Was passiert, wenn er morgen weg wäre — für immer? Was bleibt von dir?',
+    tech: 'Zukunfts-Selbst-Projektion (Tony Robbins) · Verlustfragen · Logotherapie (Viktor Frankl)',
+    questions: [28,29,30,31,32,33,34,35,36]
+  }
+];
+
+const QUESTIONS = [
+  // BLOCK 1
+  { q: 'Schließ kurz die Augen. Denk an ihn. Wo spürst du ihn zuerst — im Körper?', note: 'Nicht was du denkst. Wo sitzt das Gefühl?', answers: ['In der Brust — ein Ziehen, ein Druck, manchmal kaum auszuhalten.','Nirgendwo wirklich. Vielleicht im Kopf — aber der Körper bleibt still.','Überall und nirgendwo. Es wechselt. Mal Wärme, mal Enge, mal beides.','In der Mitte — ruhig, warm, geerdet.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn du ehrlich bist — wie viel Prozent deiner täglichen Gedanken gehören ihm?', note: 'Viele Frauen sagen 20% — und meinen 80%.', answers: ['Mehr als mir lieb ist. Er ist fast immer irgendwie da.','Weniger als man denken würde. Ich lasse selten jemanden so nah ran.','Es wechselt extrem — manchmal obsessiv, manchmal komplett abgeschaltet.','Er hat seinen Platz — aber ich habe auch meinen. Es ist ausgewogen.'], types: ['S','U','Z','V'] },
+  { q: 'Er schreibt nicht zurück. Wie lange bevor du anfängst, Erklärungen zu konstruieren?', note: 'Minuten? Stunden? Sofort?', answers: ['Sehr schnell. Ich merke, dass ich anfange, Szenarien zu bauen — obwohl ich weiß, dass es Unsinn ist.','Ich warte. Wenn er will, meldet er sich. Ich brauche das nicht zu verwalten.','Ich wechsle zwischen \'alles okay\' und \'etwas stimmt nicht\' — manchmal innerhalb von Minuten.','Ich gehe davon aus, dass er beschäftigt ist. Wenn es wichtig ist, klärt es sich.'], types: ['S','U','Z','V'] },
+  { q: 'Stell dir vor, du hörst heute Nacht nichts von ihm. Was passiert in dir, kurz bevor du schläfst?', note: '', answers: ['Unruhe. Ich überprüfe das Handy noch einmal. Vielleicht habe ich etwas übersehen.','Nichts Besonderes. Ich schlafe. Das bin ich gewohnt.','Eine Unruhe, die ich nicht benennen kann. Mal Sehnsucht, mal Erleichterung.','Ich vermisse ihn vielleicht — aber ich schlafe trotzdem gut.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn ihr Streit habt — was ist deine erste körperliche Reaktion, noch bevor du ein Wort sagst?', note: 'Der Körper weiß immer zuerst.', answers: ['Enge in der Brust. Panik fast. Ich will den Streit sofort auflösen, koste es, was es wolle.','Distanz. Ich gehe innerlich weg. Der Körper macht dicht.','Chaos. Gleichzeitig kämpfen und weglaufen wollen. Beides.','Anspannung — aber keine Panik. Ich bleibe bei mir.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn die Beziehung gerade gut läuft — wann wartest du auf das, was kommt?', note: 'Eine Klientin sagte: „Wenn es gut ist, mache ich mir die meisten Sorgen."', answers: ['Fast immer. Das Gute fühlt sich wie eine Pause vor dem nächsten Einbruch an.','Ich erwarte das Gute nicht wirklich. Daher warte ich auch nicht darauf, dass es vergeht.','Ich genieße es — aber ein Teil von mir sabotiert es, noch bevor es schief gehen kann.','Ich bin im Guten. Ich warte nicht.'], types: ['S','U','Z','V'] },
+  { q: 'Was ist das Erste, das du tust, wenn du dich bei ihm unsicher fühlst?', note: '', answers: ['Ich suche Bestätigung — durch Nähe, durch ein Gespräch, durch seine Reaktion.','Ich ziehe mich zurück. Unsicherheit verarbeite ich alleine.','Ich wechsle zwischen Nähe suchen und Abstand nehmen — manchmal in derselben Stunde.','Ich spreche es aus. Nicht dramatisch — einfach offen.'], types: ['S','U','Z','V'] },
+
+  // BLOCK 2
+  { q: 'Wenn er ein Wetter wäre — welches?', note: 'Kein richtiges oder falsches Wetter. Das erste Bild.', answers: ['Wechselhaft. Mal Sonne, mal Sturm. Ich weiß nie, was mich erwartet.','Klar, aber kalt. Schön anzusehen — aber man friert dabei.','Gewitter. Intensiv, elektrisch — und ein bisschen gefährlich.','Bewölkt mit Sonnenstellen. Verlässlich, mit Überraschungen.'], types: ['S','U','Z','V'] },
+  { q: 'Was liebst du an ihm — was du dir selbst verbietest?', note: 'Das, was uns an anderen anzieht, ist oft das, was wir in uns nicht erlauben.', answers: ['Seine Freiheit. Er tut, was er will — ohne Schuldgefühle. Das kenne ich nicht.','Seine Wärme, wenn er sie zeigt. Ich habe verlernt, so offen zu sein.','Seine Intensität. Er fühlt laut — ich habe Angst vor meiner eigenen Lautstärke.','Ich mag, was er ist — aber es ist kein Ersatz für das, was ich selbst bin.'], types: ['S','U','Z','V'] },
+  { q: 'Was stört dich an ihm am meisten — und wo kennst du das an dir selbst?', note: 'Was uns an anderen triggert, zeigt uns oft unsere eigene ungelebte Seite.', answers: ['Dass er sich zurückzieht. Und ich? Ich klammere mich — auch das ist eine Form von Abstand.','Dass er emotional nicht verfügbar ist. Aber bin ich das wirklich selbst?','Dass er unberechenbar ist. Und ich merke: Ich bin es auch — nur anders.','Ich sehe, was mich stört. Und ich frage mich, ob ich das auch kenne.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn er sich verändert — ruhiger, verfügbarer, echter — liebst du ihn dann noch?', note: 'Manche Frauen bemerken: Die Intensität war die Attraktion. Nicht er.', answers: ['Ich hoffe ja — aber ich bin nicht sicher. Die Spannung war immer Teil davon.','Vermutlich nicht. Nähe macht mir Angst — auch wenn ich sie will.','Ich weiß es nicht. Stabilität fühlt sich fremd an. Fast langweilig.','Ja. Ich will den echten Menschen — nicht die Projektion.'], types: ['S','U','Z','V'] },
+  { q: 'Was hat er dir gegeben, das du dir nie selbst gegeben hast?', note: '', answers: ['Das Gefühl, gewählt zu werden. Ich weiß nicht, wie ich mich selbst wähle.','Kurze Momente von Wärme, die ich mir selbst nicht erlaube.','Das Gefühl, wirklich gesehen zu werden — auch wenn es manchmal toxisch war.','Er ergänzt mich. Aber er ersetzt nichts, das ich mir nicht auch geben könnte.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn du an euren ersten Moment denkst — was hat dich damals wirklich angezogen?', note: 'Nicht das Offensichtliche. Was darunter.', answers: ['Er hat mich gesehen. Wirklich gesehen. Das war selten in meinem Leben.','Er war distanziert. Es war ein Rätsel. Ich wollte es lösen.','Die Intensität. Es hat sofort gebrannt. Das hat sich vertraut angefühlt.','Er war ruhig. Präsent. Nicht aufgeregt — einfach da.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn er nie mehr zurückschreiben würde — was würde das über dich aussagen?', note: 'Nicht über ihn. Über dich.', answers: ['Dass ich nicht genug war. Dass ich etwas falsch gemacht habe.','Dass Verbindung eben nicht hält. Das kenne ich.','Chaos. Zwischen Verständnis und dem Wunsch, alles zu tun um ihn zurückzuholen.','Dass es vorbei ist. Schmerzhaft — aber ich bliebe trotzdem ich.'], types: ['S','U','Z','V'] },
+
+  // BLOCK 3
+  { q: 'Welcher Teil von dir kämpft darum, diese Beziehung zu halten — und was will dieser Teil wirklich?', note: 'IFS-Technik: Jeder Mensch hat innere „Teile". Der Teil, der klammert, schützt oft einen tieferen Teil, der sich verlassen fühlt.', answers: ['Der Teil, der Angst hat, wieder allein zu sein. Er will Sicherheit, keine Liebe.','Der Teil, der beweisen will, dass er es doch kann — Verbindung halten.','Der Teil, der das Vertraute braucht — auch wenn das Vertraute schmerzt.','Ich kämpfe nicht so sehr. Ich wähle — oder ich lasse los.'], types: ['S','U','Z','V'] },
+  { q: 'Was tust du für ihn, das du niemals für dich selbst tun würdest?', note: 'Eine Frau räumte ihre komplette Wochenplanung um — für jemanden, der sie nie gefragt hatte.', answers: ['Mich verbiegen. Meine Pläne ändern. Meine Meinung zurückhalten.','Zuhören, auch wenn mir nicht danach ist. Nähe zeigen, obwohl es mich kostet.','Alles — in manchen Momenten. Und dann gar nichts. Keine Mitte.','Manchmal mehr als sonst — aber ich verliere mich dabei nicht.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn du dich selbst mit einem Satz beschreiben müsstest — was wärst du ohne eine Liebesgeschichte?', note: 'Was bleibt, wenn kein Mann die Geschichte mitschreibt?', answers: ['Ich weiß es ehrlich gesagt nicht so genau. Viel meines Lebens hat sich um Beziehungen gedreht.','Stärker. Klarer. Aber auch einsamer, als ich zugebe.','Zerrissen auch ohne ihn. Die Beziehung ist vielleicht nicht das Problem.','Ich bin auch ohne ihn ich — vollständig, lebendig, neugierig.'], types: ['S','U','Z','V'] },
+  { q: 'Wann hast du zuletzt etwas getan, das nur dir gehörte — ohne zu denken, was er davon hält?', note: '', answers: ['Ich denke automatisch, was er wohl denken würde. Das passiert unbewusst.','Ich lebe viel für mich — aber manchmal frage ich mich, ob es nicht Flucht ist.','Selten. Entweder ich bin ganz drin in ihm — oder ich spüre mich selbst kaum.','Regelmäßig. Ich brauche das. Das ist nicht Egoismus — das ist Selbstachtung.'], types: ['S','U','Z','V'] },
+  { q: 'Was brauchst du von einer Beziehung — das du dir nie laut gesagt hast?', note: 'Nicht was du dir wünschst. Was du brauchst.', answers: ['Konstanz. Jemanden, der bleibt. Wirklich bleibt.','Raum. Nähe ohne Verlust von mir selbst. Das klingt widersprüchlich.','Sicherheit — aber nicht die langweilige. Sicherheit, die sich noch lebendig anfühlt.','Tiefe. Wachstum. Jemanden, mit dem ich mehr werden kann.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn du dich in einer Beziehung klein machst — wer hat dir beigebracht, dass das Liebe ist?', note: 'Viele Frauen konnten nicht antworten — und dann fiel ihnen ihre Mutter ein.', answers: ['Jemand früh in meinem Leben hat Liebe mit Anpassung verknüpft. Das saß tief.','Niemand hat mir beigebracht, mich klein zu machen — ich habe gelernt, mich wegzumachen.','Die frühen Bezugspersonen haben Liebe widersprüchlich gelebt. Ich auch.','Ich habe gelernt, dass Liebe mich nicht kleiner macht. Das war ein langer Weg.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn deine beste Freundin sich so verhielte wie du — was würdest du zu ihr sagen?', note: 'Sag es ehrlich. Nicht nett.', answers: ['Ich würde ihr sagen, dass sie sich verdient, wirklich gewählt zu werden — nicht abgewartet.','Dass sie das Recht hat, Bedürfnisse zu haben. Und sie auszusprechen.','Dass das Chaos sich nach Liebe anfühlt — aber keins ist.','Ich würde ihr zuhören. Und vielleicht fragen, was sie wirklich will.'], types: ['S','U','Z','V'] },
+
+  // BLOCK 4
+  { q: 'Wenn du an deine Kindheit denkst — was musstest du tun, damit du geliebt wurdest?', note: 'Nicht was du bekommen hast. Was du leisten musstest.', answers: ['Ich musste lieb sein. Keine Ansprüche stellen. Brav und unauffällig.','Stark sein. Nicht weinen. Alleine klarkommen.','Ich weiß es nicht genau. Die Bedingungen wechselten. Manchmal reichte nichts.','Ich musste nicht so viel leisten. Jemand war einfach da.'], types: ['S','U','Z','V'] },
+  { q: 'Wann hast du zum ersten Mal das Gefühl gehabt, dass du jemanden verlieren könntest — bevor er je dein Freund war?', note: 'Das erste Mal, dass Liebe mit Verlustangst verknüpft war.', answers: ['Sehr früh. Vielleicht als Kind. Ich erinnere mich an das Gefühl, auch wenn ich den Moment nicht kenne.','Ich habe Verlust anders gelernt — durch Abwesenheit, nicht durch Angst.','Früh — aber mit Verwirrung. Verlieren und festgehalten werden gleichzeitig.','Das kam — aber es hat mich nicht definiert.'], types: ['S','U','Z','V'] },
+  { q: 'Deine Mutter und Liebe — was verbindest du da?', note: 'Winnicott: Die erste Erfahrung von Liebe prägt das innere Arbeitsmodell — das Template für alle späteren Beziehungen.', answers: ['Unvorhersehbarkeit. Manchmal viel Wärme — manchmal komplette Abwesenheit.','Kühle. Pflicht. Funktionieren. Liebe war da — aber nicht emotional.','Widerspruch. Schutz und Überwältigung gleichzeitig.','Verlässlichkeit — zumindest im Kern. Nicht perfekt, aber da.'], types: ['S','U','Z','V'] },
+  { q: 'Welches Gefühl aus deiner Kindheit kennst du aus deinen Beziehungen wieder?', note: 'Freud nannte das Wiederholungszwang — wir suchen unbewusst das, was wir kennen.', answers: ['Warten. Auf Bestätigung, auf Rückkehr, auf das Signal, dass ich okay bin.','Alleinsein. Die Überzeugung, es alleine schaffen zu müssen.','Das Unberechenbare. Gleichzeitig angelockt und zurückgestoßen.','Grundsätzliches Vertrauen — auch wenn es Schwierigkeiten gab.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn dein jüngeres Ich sehen würde, wie du dich gerade in Beziehungen verhältst — was würde es sagen?', note: 'Tony Robbins: Die Verbindung zum jüngeren Selbst öffnet oft die tiefste Erkenntnis.', answers: ['Es würde mich verstehen. Es hat dasselbe getan — nur war es damals überlebensnotwendig.','Es würde sich wiedererkennen. Stark sein, nicht zeigen, was man braucht.','Es würde verwirrt sein — und gleichzeitig sehr vertraut damit.','Es würde stolz sein — oder zumindest nicken. Das fühlt sich richtig an.'], types: ['S','U','Z','V'] },
+  { q: 'Welche Geschichte hast du dir über Liebe erzählt — bevor du überhaupt verliebt warst?', note: 'Die Geschichte, die du von Eltern, Märchen, Filmen, der Welt übernommen hast.', answers: ['Dass man kämpfen muss. Dass Liebe nie einfach ist. Dass man sich verdienen muss.','Dass man sich nicht zu sehr braucht. Dass Liebe schwächt.','Dass Liebe intensiv ist — oder sie ist keine. Leidenschaft und Schmerz zusammen.','Dass Liebe sein kann. Nicht perfekt, aber real und verlässlich.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn dein Vater — oder die väterliche Figur in deinem Leben — als Liebespartner aufgetreten wäre: Würde er Ähnlichkeit mit deinen heutigen Partnern haben?', note: 'Statistisch sind die Muster erschreckend konsistent — nicht weil wir schwach sind, sondern weil das Nervensystem das Bekannte sucht.', answers: ['Vielleicht. Die Unzuverlässigkeit, die Wärme-Kälte-Wechsel — das kenne ich.','Ja. Emotional abwesend. Ich habe immer jemanden gesucht, der mir gibt, was er nicht konnte.','Ja — und es erschreckt mich. Das Chaotische, das Unberechenbare.','Zum Teil. Aber ich habe auch gelernt, andere Muster zu wählen.'], types: ['S','U','Z','V'] },
+
+  // BLOCK 5
+  { q: 'Er ist weg. Morgen früh. Endgültig. Was ist das erste Gefühl — wirklich?', note: 'Nicht was du sagen solltest. Was du fühlen würdest. Manche Frauen sagen „Trauer" — und meinen „Erleichterung". Beides ist erlaubt.', answers: ['Panik. Leere. Ein Gefühl, als würde ein Boden wegbrechen.','Stille. Vielleicht Trauer — aber auch etwas, das sich fast nach Freiheit anfühlt.','Wechsel. Zuerst Chaos — dann vielleicht Erleichterung — dann Sehnsucht. Alles.','Schmerz. Echter, tiefer Schmerz — und trotzdem: Ich bliebe ich.'], types: ['S','U','Z','V'] },
+  { q: 'Was würdest du tun, wenn du wüsstest, dass er nie zurückkommt?', note: 'Nicht was du dir wünschst. Was du wirklich tun würdest.', answers: ['Ich würde wahrscheinlich warten. Hoffen. Vielleicht versuchen, ihn zurückzugewinnen.','Ich würde funktionieren. Nach außen stark sein. Innen — das ist eine andere Frage.','Irgendwas Impulsives — und dann Abschottung. Der Wechsel ist vorhersehbar.','Trauern. Wirklich. Und dann weiterleben. Das weiß ich.'], types: ['S','U','Z','V'] },
+  { q: 'Was hat diese Beziehung dir über dich selbst gezeigt, das du ohne sie nicht gesehen hättest?', note: '', answers: ['Wie sehr ich Bestätigung von außen brauche. Wie wenig ich mir selbst glaube.','Dass ich Nähe will — und gleichzeitig alles tue, um sie zu verhindern.','Dass meine innere Welt widersprüchlicher ist, als ich dachte.','Dass Beziehung mich wachsen lässt — ohne mich aufzulösen.'], types: ['S','U','Z','V'] },
+  { q: 'Stell dir vor: Du in fünf Jahren. Du bist die Frau, die du wirklich sein willst. Wählt sie diese Beziehung?', note: 'Nicht ob sie ihn liebt. Ob sie diese Dynamik wählt.', answers: ['Wahrscheinlich nicht. Diese Version von mir würde sich nicht so viel Angst zumuten.','Sie würde eine Beziehung wählen, in der sie sich zeigen darf. Das hier ist es nicht ganz.','Nein. Sie hätte das Chaos schon lange verlassen.','Sie würde ehrlich hinschauen — und dann entscheiden. Nicht aus Angst.'], types: ['S','U','Z','V'] },
+  { q: 'Was wäre das Mutigste, das du dir selbst gegenüber tun könntest — in dieser Situation?', note: '', answers: ['Loslassen — ohne zu wissen, ob jemand anderes kommt.','Zulassen. Wirklich zulassen — ohne Flucht.','Ruhe wählen. Bewusst. Auch wenn sie sich fremd anfühlt.','Ehrlich sein — mit mir und mit ihm. Auch wenn das unbequem wird.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn diese Beziehung einen Satz hätte — was wäre er?', note: 'Nicht romantisch. Ehrlich.', answers: ['"Ich hoffe, dass es diesmal anders wird."','"Ich bin dabei — aber nicht ganz."','"Es ist kompliziert — und ich weiß nicht, ob ich das will."','"Wir wachsen. Manchmal gemeinsam, manchmal aneinander."'], types: ['S','U','Z','V'] },
+  { q: 'Was ist das, das du aus dieser Beziehung — egal wie sie ausgeht — mitnehmen willst?', note: 'Viktor Frankl: Selbst im Schmerz liegt Bedeutung. Was ist die deines?', answers: ['Dass ich aufgehört habe, mich um meiner Liebe willen zu verlieren.','Dass ich Nähe zulassen kann — ohne sofort zu flüchten.','Dass Chaos keine Voraussetzung für Liebe ist.','Dass ich gewählt habe — mit offenen Augen.'], types: ['S','U','Z','V'] },
+  { q: 'Was soll in einem Jahr anders sein — nicht in ihm. In dir?', note: '', answers: ['Ich will nicht mehr warten. Auf Nachrichten, auf Klarheit, auf Bestätigung.','Ich will Bedürfnisse fühlen und sie aussprechen — ohne Scham.','Ich will in einer Situation ankommen, die mich nicht zerreißt.','Ich will tiefer sein. In mir und in dem, was ich lebe.'], types: ['S','U','Z','V'] },
+  { q: 'Die Frau, die du werden willst — was würde sie über Liebe sagen, die du dir noch nicht erlaubst zu glauben?', note: 'Das ist vielleicht die wichtigste Frage des ganzen Navigators.', answers: ['Dass Liebe nicht wehtun muss, um echt zu sein.','Dass Nähe nicht Schwäche ist — sondern Mut.','Dass Ruhe sich gut anfühlen darf. Dass Stille nicht leer ist.','Dass ich das, was ich suche, in mir trage. Schon jetzt.'], types: ['S','U','Z','V'] },
+];
+
+const Q38_ANSWERS = {
+  S: 'Du hast gekämpft, weil du liebst. Jetzt darfst du aufhören zu kämpfen.',
+  U: 'Du warst stark genug. Jetzt darfst du dich zeigen.',
+  Z: 'Du hast überlebt. Jetzt darfst du ankommen.',
+  V: 'Du weißt, wer du bist. Bleib das.'
+};
+
+const RESULTS = {
+  S: {
+    code: 'S',
+    name: 'Die Suchende',
+    subname: 'Ängstlich-ambivalent gebunden',
+    short: 'Du liebst mit allem, was du hast. Nicht halb. Nicht vorsichtig. Ganz. Und genau diese Ganzheit — sie ist dein schönstes Geschenk. Und gleichzeitig der Ort, an dem du dich am meisten verletzt hast.',
+    text: `<p><em>Fühl mal rein in deinen Körper, während du das liest.</em></p>
+<p>Du gibst alles. Und fragst dich trotzdem die ganze Zeit, ob du genug bist.</p>
+<p>Du kennst dieses Gefühl: Du hast alles gegeben — und wartest trotzdem. Auf ein Zeichen. Auf Bestätigung. Auf das Gefühl, dass du wirklich gesehen wirst. Nicht weil du schwach bist. Sondern weil in dir etwas so laut nach Verbindung schreit, dass der Verstand einfach nicht dagegen ankommt.</p>
+<p>Spür mal: Wo sitzt das Warten? Dieses Ziehen in der Brust, wenn nichts kommt? Dieser Moment, wenn er sich dann doch meldet — diese Welle von Erleichterung, die sofort wieder zur nächsten Anspannung wird?</p>
+<p>Du hast sehr früh gelernt — vielleicht so früh, dass du dich nicht mal daran erinnern kannst — dass Liebe nicht verlässlich ist. Und das kleine Mädchen in dir hat damals eine Entscheidung getroffen, die vollkommen klug war: Ich muss mehr tun. Ich muss kämpfen — damit sie bleibt.</p>
+<p><strong>Das war kein Fehler. Das war Überleben.</strong> Diese Entscheidung hat dich geschützt, in einer Welt, die sich nicht sicher angefühlt hat. Aber jetzt — jetzt bist du erwachsen. Und dieses Muster läuft noch immer.</p>
+<p>Du ziehst Männer an, die dich in genau diesem Kreislauf halten — nicht weil du das willst, sondern weil das Unzuverlässige sich vertraut anfühlt. Dein Nervensystem hält das für Zuhause.</p>
+<p><em>Das ist nicht deine Schuld. Es ist dein Muster. Und ein Muster ist kein Schicksal.</em></p>
+<p>Ich sehe dich. Nicht die Frau, die zu viel fühlt. Ich sehe die Frau, die immer geliebt hat — mit allem, was sie hat — und die es verdient, genauso geliebt zu werden. Ohne Warten. Ohne Beweis. Ohne Angst.</p>
+<p><em>Was macht das gerade mit dir, wenn du das liest? Wo sitzt das im Körper?</em></p>`,
+    audio: { title: 'Regulierung · Erdung · Ankommen', subtitle: '8 Hz bilateral · Theta-Bereich · 60–90 Sek', instruction: '„Schließ jetzt die Augen. Atme tief ein — und langsam aus. Spür, wo du gerade Spannung hältst. Im Kiefer. In der Brust. Lass die Schultern fallen. Folge jetzt dem Ton — links, rechts. Du musst heute für nichts kämpfen."' },
+    typeCTA: 'Du weißt jetzt, warum du dort immer wieder landest. Der nächste Schritt: Versteh die Dynamik von innen — damit du zum ersten Mal wirklich entscheiden kannst, statt zu warten.',
+    typeProduct: 'situationship'
+  },
+  U: {
+    code: 'U',
+    name: 'Die Unabhängige',
+    subname: 'Vermeidend-distanziert gebunden',
+    short: 'Du bist die Frau, die funktioniert. Die liefert. Die sich selbst nie zur Last fällt. Und hinter dieser Stärke — da ist eine Stille, die du vielleicht sehr lange schon nicht mehr wirklich angeschaut hast.',
+    text: `<p><em>Fühl mal rein in deinen Körper, während du das liest.</em></p>
+<p>Du brauchst niemanden. Das stimmt.</p>
+<p>Und gleichzeitig — ich schaue dich gerade an und sehe etwas, das du vielleicht noch nie so klar gehört hast: <strong>Niemanden zu brauchen ist nicht dasselbe wie frei zu sein.</strong></p>
+<p>Du funktionierst. Du lieferst. Du weinst nicht — zumindest nicht, wenn jemand zuschaut. Und wenn er wirklich nah kommt — dann passiert etwas Merkwürdiges. Plötzlich findest du Dinge, die dich stören. Du wirst innerlich kühler. Du ziehst dich zurück — und weißt selbst nicht ganz warum.</p>
+<p>Das ist kein Zufall. Das ist Schutz.</p>
+<p>Irgendwann früh in deinem Leben hast du gelernt, dass Bedürfnisse gefährlich sind. Dass es sicherer ist, sich selbst zu regulieren. Vielleicht war da jemand Wichtiges — nicht böse — einfach nicht wirklich verfügbar. Emotional zu weit weg. Und du hast daraus etwas Kluges gemacht: Du hast aufgehört zu brauchen.</p>
+<p><strong>Das war so klug. Das hat dich beschützt, als du es brauchtest.</strong></p>
+<p>Gibt es diese Stille? Nachts, wenn du allein bist — nicht die angenehme Stille. Sondern die andere. Die hohle. Das Gefühl, neben jemandem zu liegen und trotzdem ganz allein zu sein.</p>
+<p>Die stärkste Frau im Raum zu sein — das ist nicht dasselbe wie anzukommen.</p>
+<p><em>Ich sehe dich. Die Frau dahinter — die sich nach echter Verbindung sehnt und gleichzeitig nicht weiß, wie sie die Tür aufmacht, ohne sich dabei zu verlieren.</em></p>`,
+    audio: { title: 'Öffnung · Erdung · Ankommen', subtitle: '10 Hz bilateral · Alpha-Theta-Grenze · 60–90 Sek', instruction: '„Schließ die Augen. Atme ein — tief in den Bauch. Nicht in die Brust. In den Bauch. Folge dem Ton — links, rechts. Du musst heute nichts leisten. Nichts beweisen. Lass die Kontrolle für diesen einen Moment los."' },
+    typeCTA: 'Du hast alles erreicht. Und trotzdem schläfst du manchmal allein — in dir selbst. Es geht nicht darum, schwächer zu werden. Es geht darum, endlich wirklich anzukommen.',
+    typeProduct: 'girlboss'
+  },
+  Z: {
+    code: 'Z',
+    name: 'Die Zerrissene',
+    subname: 'Desorganisiert-desorientiert gebunden',
+    short: 'Du willst ihn — und willst gleichzeitig weglaufen. Du liebst intensiv und stößt weg. Du sehnst dich nach Ruhe — und wenn Ruhe kommt, fühlt sie sich leer an. Beides ist wahr. Und beides macht einen tiefen, menschlichen Sinn.',
+    text: `<p><em>Fühl mal rein in deinen Körper, während du das liest.</em></p>
+<p>Du kennst diesen Widerspruch von innen.</p>
+<p>Du willst nah sein — und gleichzeitig weglaufen. Du sehnst dich nach ihm — und weißt nicht, ob du ihm vertraust. Manchmal alles in derselben Stunde. Und dann tust du Dinge, die du dir geschworen hattest nicht mehr zu tun — und verstehst selbst nicht warum.</p>
+<p><strong>Ich möchte, dass du für einen Moment aufhörst, dich dafür zu verurteilen.</strong></p>
+<p>Was in dir passiert, ist kein Zeichen von Schwäche. Es ist das Zeichen eines Nervensystems, das auf Widerspruch trainiert wurde — so früh, dass du dich vielleicht nicht mal daran erinnerst. Die Menschen, die dich schützen sollten — sie waren manchmal auch die, die dir Angst gemacht haben. Und dein kleines Nervensystem hat etwas Unglaubliches gespeichert: Nähe bedeutet Sehnsucht. Und Nähe bedeutet Gefahr. Gleichzeitig.</p>
+<p>Du ziehst Menschen an, die dieselbe Intensität haben. Elektrisch, unberechenbar, brennend. Weil das sich wie Liebe anfühlt — weil es das ist, was du als Liebe kennst.</p>
+<p><em>Das ist kein Fehler in dir. Das ist eine Wunde. Und Wunden — die können heilen.</em></p>
+<p>Und ich möchte dich jetzt ganz ehrlich fragen — nicht im Kopf, sondern ganz unten im Bauch: Wie müde bist du davon? Von dem Hin und Her. Von dem Kreislauf, der immer wieder neu beginnt.</p>
+<p><em>Ich sehe dich. Die Frau, deren Nervensystem sich nie wirklich sicher gefühlt hat — und die trotzdem immer wieder liebt. Das ist kein Chaos. Das ist Mut. Unter einer sehr schweren Last.</em></p>`,
+    audio: { title: 'Sicherheit · Regulierung · Bleiben', subtitle: '6 Hz bilateral · Theta-Bereich · 60–90 Sek', instruction: '„Schließ die Augen. Atme ein — und halte kurz inne. Dann langsam und vollständig aus. Folge dem Ton — langsam, ruhig. Du musst heute gar nichts auflösen. Lass den Ton einfach durch dich hindurchgehen. Bleib."' },
+    typeCTA: 'Dein Muster hat einen Namen. Und einen Ursprung. Das ist keine Diagnose — es ist der Anfang von Freiheit. Der nächste Schritt: Versteh, was dich wirklich hält.',
+    typeProduct: 'trauma'
+  },
+  V: {
+    code: 'V',
+    name: 'Die Verwurzelte',
+    subname: 'Sicher gebunden',
+    short: 'Du liebst auf eine Art, die nicht viele kennen — mit Boden unter den Füßen und echtem Herz. Du bist stabil, ohne kalt zu sein. Präsent, ohne dich zu verlieren. Und trotzdem — da ist eine Sehnsucht, die noch nicht ganz angekommen ist.',
+    text: `<p><em>Fühl mal rein in deinen Körper, während du das liest.</em></p>
+<p>Du bist nicht hierhergekommen, weil etwas falsch ist.</p>
+<p>Du bist hierhergekommen, weil in dir etwas weiß: Da ist noch mehr. Und das — das ist vielleicht die gesündeste Sache, die man überhaupt spüren kann.</p>
+<p>Du liebst auf eine Art, die wirklich selten ist. Du kannst streiten — und danach wieder nah sein. Du kannst Grenzen setzen, ohne dich dafür zu hassen. Du löst dich nicht auf in einer Beziehung. <strong>Das ist ein echtes Geschenk.</strong></p>
+<p>Und trotzdem gibt es diese Sehnsucht. Nicht nach Heilung — du bist nicht gebrochen. Sondern nach Tiefe. Vielleicht bist du mit jemandem zusammen, der unsicherer gebunden ist als du — und du merkst, wie du immer wieder ausgleichst, auffängst, hältst. Und irgendwann fragst du dich: Ist das alles?</p>
+<p>Du hast früh gelernt, dass Liebe verlässlich sein kann. Das hat dir ein Fundament gegeben — eines, das viele Menschen ihr ganzes Leben lang suchen. <strong>Aber ein Fundament ist nicht das Feuer.</strong></p>
+<p>Was du suchst, ist Verkörperung. Nicht die sichere Version von dir — sondern die lebendige. Die Frau, die nicht nur stabil liebt, sondern die sich in der Liebe auch selbst tiefer spürt.</p>
+<p><em>Ich sehe dich. Als Frau, die bereits weiß, wer sie ist — und die jetzt bereit ist, die Version zu werden, die sie innerlich schon lange kennt.</em></p>`,
+    audio: { title: 'Vertiefung · Verkörperung · Wachstum', subtitle: '12 Hz bilateral · Alpha-Bereich · 60–90 Sek', instruction: '„Schließ die Augen. Atme ein — ruhig, tief, ohne Eile. Folge dem Ton. Du bist bereits geerdet. Lass das jetzt tiefer sinken — in den Bauch, in die Beine, in den Boden unter dir. Das hier ist kein Anfang. Das ist eine Vertiefung."' },
+    typeCTA: 'Du bist die Basis. Jetzt entfalten wir, was schon in dir ist — 30 Tage zurück zu dir. Nicht Heilung. Tiefe.',
+    typeProduct: 'feminin'
+  }
+};
+
+const PRODUCTS = {
+  feminin:       { name: 'Feminin Reset',        price: '27€', desc: 'Sanfter Einstieg — 30 Tage zurück zu dir. Nicht Heilung. Tiefe.' },
+  textHim:       { name: 'TEXT HIM',              price: '47€', desc: 'Curated Answer Library — was du in welcher Situation schreibst. Klar. Souverän. Echt.' },
+  situationship: { name: 'Situationship Decode',  price: '47€', desc: 'Die Dynamik von innen verstehen. Damit du zum ersten Mal wirklich entscheiden kannst.' },
+  obsession:     { name: 'Obsession Reset',       price: '47€', desc: 'Loslassen, ohne ihn vergessen zu müssen. Für die Frau, die endlich aufhören will zu warten.' },
+  trauma:        { name: 'Trauma Bond Erkennen',  price: '47€', desc: 'Das Muster benennen können. Das ist keine Diagnose — es ist der Anfang von Freiheit.' },
+  girlboss:      { name: 'Girlboss Reset',        price: '47€', desc: 'Ankommen, statt zu funktionieren. Für die Frau, die alles hat — und sich trotzdem allein fühlt.' },
+  becomeHer:     { name: 'BECOME HER',            price: '197–297€', desc: 'Das Flaggschiff-Programm. Für die Frau, die weiß, wer sie ist — und bereit ist, die nächste Version zu werden.' }
+};
+
+const STATUS_OFFERS = {
+  single:       'feminin',
+  dating:       'textHim',
+  situationship:'situationship',
+  beziehung:    'feminin',
+  toxisch:      'trauma',
+  trennung:     'obsession',
+  onoff:        'obsession',
+  unklar:       'situationship'
+};
+
+const TYPE_OFFERS = {
+  S: { primary: 'situationship', fallback: 'trauma' },
+  U: { primary: 'girlboss',      fallback: 'feminin' },
+  Z: { primary: 'trauma',        fallback: 'obsession' },
+  V: { primary: 'feminin',       fallback: 'becomeHer' }
+};
+
+// ==============================
+// STATE
+// ==============================
+let scores = { S: 0, U: 0, Z: 0, V: 0 };
+let currentBlockIndex = 0;
+let currentQuestionIndex = 0; // index into QUESTIONS array
+let currentBlockQuestionIndex = 0; // index within block
+let userStatus = null;
+let dominantType = null;
+let audioPlaying = false;
+
+// ==============================
+// NAVIGATION
+// ==============================
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function startQuiz() {
+  scores = { S: 0, U: 0, Z: 0, V: 0 };
+  currentBlockIndex = 0;
+  currentQuestionIndex = 0;
+  currentBlockQuestionIndex = 0;
+  showBlockIntro(0);
+}
+
+function showBlockIntro(blockIdx) {
+  const block = BLOCKS[blockIdx];
+  document.getElementById('block-number-display').textContent = block.number;
+  document.getElementById('block-ornament').textContent = block.ornament;
+  document.getElementById('block-title-display').innerHTML = block.title;
+  document.getElementById('block-desc-display').textContent = block.desc;
+  document.getElementById('block-tech-display').textContent = block.tech;
+  showScreen('screen-block-intro');
+}
+
+function startBlock() {
+  showScreen('screen-quiz');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const block = BLOCKS[currentBlockIndex];
+  const qIdx = block.questions[currentBlockQuestionIndex];
+  const q = QUESTIONS[qIdx];
+  const totalDone = getTotalDone();
+  const total = 37;
+
+  // Progress
+  document.getElementById('progress-bar').style.width = ((totalDone / total) * 100) + '%';
+  document.getElementById('quiz-counter').textContent = totalDone + ' / ' + total;
+  document.getElementById('quiz-block-label').textContent = 'Block ' + BLOCKS[currentBlockIndex].number + ' · ' + BLOCKS[currentBlockIndex].ornament;
+
+  // Question
+  document.getElementById('question-number').textContent = 'Frage ' + (totalDone + 1);
+  document.getElementById('question-text').textContent = q.q;
+  document.getElementById('question-note').textContent = q.note;
+
+  // Answers
+  const grid = document.getElementById('answers-grid');
+  grid.innerHTML = '';
+  q.answers.forEach((ans, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'answer-option';
+    btn.textContent = ans;
+    btn.onclick = () => selectAnswer(btn, q.types[i]);
+    grid.appendChild(btn);
+  });
+
+  // Re-animate
+  const container = document.getElementById('question-container');
+  container.style.animation = 'none';
+  container.offsetHeight;
+  container.style.animation = '';
+}
+
+function getTotalDone() {
+  let done = 0;
+  for (let b = 0; b < currentBlockIndex; b++) done += BLOCKS[b].questions.length;
+  done += currentBlockQuestionIndex;
+  return done;
+}
+
+function selectAnswer(btn, type) {
+  document.querySelectorAll('.answer-option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  scores[type]++;
+
+  setTimeout(() => {
+    nextQuestion();
+  }, 400);
+}
+
+function nextQuestion() {
+  const block = BLOCKS[currentBlockIndex];
+  currentBlockQuestionIndex++;
+
+  if (currentBlockQuestionIndex < block.questions.length) {
+    renderQuestion();
+  } else {
+    // end of block
+    currentBlockIndex++;
+    currentBlockQuestionIndex = 0;
+
+    if (currentBlockIndex < BLOCKS.length) {
+      showBlockIntro(currentBlockIndex);
+    } else {
+      // All 37 done
+      showLoadingThenQ38();
+    }
+  }
+}
+
+function showLoadingThenQ38() {
+  showScreen('screen-loading');
+  setTimeout(() => {
+    calcDominantType();
+    showQ38();
+  }, 3000);
+}
+
+function calcDominantType() {
+  // Priority on tie: Z > S > U > V
+  const priority = ['Z','S','U','V'];
+  let max = -1;
+  dominantType = 'V';
+  priority.forEach(t => {
+    if (scores[t] > max) { max = scores[t]; dominantType = t; }
+  });
+}
+
+function showQ38() {
+  document.getElementById('q38-answer-text').textContent = '"' + Q38_ANSWERS[dominantType] + '"';
+  showScreen('screen-q38');
+}
+
+function showStatus() {
+  showScreen('screen-status');
+}
+
+function selectStatus(status) {
+  userStatus = status;
+  document.querySelectorAll('.status-option').forEach(b => b.classList.remove('selected'));
+  event.target.classList.add('selected');
+  setTimeout(showResult, 500);
+}
+
+function showResult() {
+  const result = RESULTS[dominantType];
+
+  // Hero
+  document.getElementById('result-type-code').textContent = dominantType;
+  document.getElementById('result-name').textContent = result.name;
+  document.getElementById('result-subname').textContent = result.subname;
+  document.getElementById('result-short').textContent = result.short;
+
+  // Body
+  document.getElementById('result-text').innerHTML = result.text;
+
+  // Audio
+  document.getElementById('audio-title').textContent = result.audio.title;
+  document.getElementById('audio-subtitle').textContent = result.audio.subtitle;
+  document.getElementById('audio-instruction').textContent = result.audio.instruction;
+
+  // Offers
+  const statusProductKey = STATUS_OFFERS[userStatus];
+  const typeProductKey = getTypeOffer(dominantType, statusProductKey);
+
+  const statusProduct = PRODUCTS[statusProductKey];
+  const typeProduct = PRODUCTS[typeProductKey];
+
+  document.getElementById('offer-primary-name').textContent = statusProduct.name;
+  document.getElementById('offer-primary-price').textContent = statusProduct.price;
+  document.getElementById('offer-primary-desc').textContent = statusProduct.desc;
+
+  document.getElementById('offer-secondary-name').textContent = typeProduct.name;
+  document.getElementById('offer-secondary-price').textContent = typeProduct.price;
+  document.getElementById('offer-secondary-desc').textContent = result.typeCTA;
+
+  showScreen('screen-result');
+}
+
+function getTypeOffer(type, statusKey) {
+  const offer = TYPE_OFFERS[type];
+  if (offer.primary === statusKey) return offer.fallback;
+  return offer.primary;
+}
+
+function toggleAudio() {
+  audioPlaying = !audioPlaying;
+  const btn = document.getElementById('audio-play-btn');
+  const status = document.getElementById('audio-status');
+  if (audioPlaying) {
+    btn.textContent = '⏸';
+    status.textContent = 'Schließ die Augen. Folge dem Ton.';
+    simulateAudio();
+  } else {
+    btn.textContent = '▶';
+    status.textContent = 'Pause kurz inne. Schließ die Augen.';
+  }
+}
+
+function simulateAudio() {
+  // Visual pulse simulation while "playing"
+  let count = 0;
+  const colors = ['left','right'];
+  const interval = setInterval(() => {
+    if (!audioPlaying) { clearInterval(interval); return; }
+    count++;
+    const side = colors[count % 2];
+    const btn = document.getElementById('audio-play-btn');
+    btn.style.borderColor = side === 'left' ? 'var(--gold)' : 'var(--sienna)';
+    if (count > 180) { // ~90 sec at 500ms
+      clearInterval(interval);
+      audioPlaying = false;
+      document.getElementById('audio-play-btn').textContent = '✓';
+      document.getElementById('audio-play-btn').style.borderColor = 'var(--gold)';
+      document.getElementById('audio-status').textContent = 'Übung abgeschlossen. Wie fühlst du dich?';
+    }
+  }, 500);
+}
+
+function resetQuiz() {
+  scores = { S: 0, U: 0, Z: 0, V: 0 };
+  currentBlockIndex = 0;
+  currentQuestionIndex = 0;
+  currentBlockQuestionIndex = 0;
+  userStatus = null;
+  dominantType = null;
+  audioPlaying = false;
+  showScreen('screen-intro');
+}
+</script>
 </body>
 </html>
