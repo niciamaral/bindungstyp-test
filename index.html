@@ -449,20 +449,6 @@
     margin-bottom: 40px;
   }
 
-  .q38-answer {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 4vw, 24px);
-    font-weight: 400;
-    font-style: italic;
-    color: var(--gold);
-    max-width: 480px;
-    margin: 0 auto 48px;
-    line-height: 1.6;
-    padding: 24px 32px;
-    border: 1px solid rgba(var(--gold-rgb),0.2);
-    background: rgba(var(--gold-rgb),0.04);
-  }
-
   /* ==============================
      STATUS SCREEN
   ============================== */
@@ -904,7 +890,7 @@
       Wenn du diesem Teil von dir, der gekämpft, gehofft, gewartet, sich verborgen oder weggemacht hat — wenn du ihm einen Satz sagen könntest: Was wäre es?
     </h2>
     <p class="q38-note">Kein richtiger Satz. Nur deiner. Diese Frage ist für dich — nicht für das System.</p>
-    <div class="q38-answer" id="q38-answer-text"></div>
+    <div class="answers-grid" id="q38-answers-grid"></div>
     <button class="btn-primary" onclick="showStatus()">Weiter</button>
   </div>
 </div>
@@ -1349,7 +1335,28 @@ function calcDominantType() {
 }
 
 function showQ38() {
-  document.getElementById('q38-answer-text').textContent = '"' + Q38_ANSWERS[dominantType] + '"';
+  const grid = document.getElementById('q38-answers-grid');
+  grid.innerHTML = '';
+
+  // Fisher-Yates shuffle (kein Scoring auf Q38)
+  const types = ['S', 'U', 'Z', 'V'];
+  for (let i = types.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [types[i], types[j]] = [types[j], types[i]];
+  }
+
+  types.forEach(type => {
+    const btn = document.createElement('button');
+    btn.className = 'answer-option';
+    btn.textContent = '"' + Q38_ANSWERS[type] + '"';
+    btn.onclick = () => {
+      document.querySelectorAll('.answer-option').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      setTimeout(showStatus, 400);
+    };
+    grid.appendChild(btn);
+  });
+
   showScreen('screen-q38');
 }
 
