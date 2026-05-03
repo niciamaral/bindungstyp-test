@@ -1269,11 +1269,21 @@ function renderQuestion() {
   // Answers
   const grid = document.getElementById('answers-grid');
   grid.innerHTML = '';
-  q.answers.forEach((ans, i) => {
+
+  // Fisher-Yates shuffle (answers + types parallel)
+  const answers = [...q.answers];
+  const types = [...q.types];
+  for (let i = answers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [answers[i], answers[j]] = [answers[j], answers[i]];
+    [types[i], types[j]] = [types[j], types[i]];
+  }
+
+  answers.forEach((ans, i) => {
     const btn = document.createElement('button');
     btn.className = 'answer-option';
     btn.textContent = ans;
-    btn.onclick = () => selectAnswer(btn, q.types[i]);
+    btn.onclick = () => selectAnswer(btn, types[i]);
     grid.appendChild(btn);
   });
 
