@@ -8,8 +8,10 @@
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500&display=swap');
 
   :root {
-    --sienna: #C17A3A;
-    --gold: #D4A84B;
+    --gold: #c4963a;
+    --gold-rgb: 196, 150, 58;
+    --gold-1: #e8c06a;
+    --gold-1-rgb: 232, 192, 106;
     --cream: #F5EFE6;
     --cream-soft: #EDE4D6;
     --dark: #0E0A07;
@@ -40,8 +42,8 @@
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(193,122,58,0.08) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(212,168,75,0.05) 0%, transparent 50%);
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(var(--gold-rgb),0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(var(--gold-rgb),0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
   }
@@ -89,7 +91,7 @@
 
   .intro-badge {
     display: inline-block;
-    border: 1px solid rgba(212,168,75,0.3);
+    border: 1px solid rgba(var(--gold-rgb),0.3);
     color: var(--gold);
     font-size: 10px;
     letter-spacing: 3px;
@@ -109,7 +111,7 @@
   }
   .intro-title em {
     font-style: italic;
-    color: var(--sienna);
+    color: var(--gold-1);
   }
 
   .intro-subtitle {
@@ -152,7 +154,7 @@
   .btn-primary {
     display: inline-block;
     background: transparent;
-    border: 1px solid var(--sienna);
+    border: 1px solid var(--gold);
     color: var(--cream);
     font-family: 'Outfit', sans-serif;
     font-size: 11px;
@@ -169,7 +171,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--sienna);
+    background: var(--gold);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -200,7 +202,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 100px;
     font-weight: 300;
-    color: rgba(193,122,58,0.12);
+    color: rgba(var(--gold-rgb),0.12);
     line-height: 1;
     margin-bottom: -20px;
     font-style: italic;
@@ -215,7 +217,7 @@
   }
   .block-name em {
     font-style: italic;
-    color: var(--sienna);
+    color: var(--gold-1);
   }
 
   .block-desc {
@@ -259,7 +261,7 @@
   }
   .quiz-progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--sienna), var(--gold));
+    background: linear-gradient(90deg, var(--gold-1), var(--gold));
     transition: width 0.5s ease;
   }
 
@@ -280,7 +282,7 @@
     font-size: 10px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--sienna);
+    color: var(--gold);
     z-index: 100;
     opacity: 0.8;
   }
@@ -299,7 +301,7 @@
   .question-number {
     font-size: 11px;
     letter-spacing: 3px;
-    color: var(--sienna);
+    color: var(--gold);
     text-transform: uppercase;
     margin-bottom: 20px;
     font-family: 'Outfit', sans-serif;
@@ -347,21 +349,21 @@
     position: absolute;
     left: 0; top: 0; bottom: 0;
     width: 2px;
-    background: var(--sienna);
+    background: var(--gold);
     transform: scaleY(0);
     transition: transform 0.25s ease;
   }
   .answer-option:hover {
-    border-color: rgba(193,122,58,0.4);
+    border-color: rgba(var(--gold-rgb),0.4);
     color: var(--cream);
     padding-left: 26px;
   }
   .answer-option:hover::before { transform: scaleY(1); }
 
   .answer-option.selected {
-    border-color: var(--sienna);
+    border-color: var(--gold);
     color: var(--cream);
-    background: rgba(193,122,58,0.08);
+    background: rgba(var(--gold-rgb),0.08);
     padding-left: 26px;
   }
   .answer-option.selected::before { transform: scaleY(1); }
@@ -402,7 +404,7 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--sienna);
+    background: var(--gold);
     animation: pulse 1.4s ease infinite;
   }
   .loading-orb:nth-child(2) { animation-delay: 0.2s; }
@@ -453,13 +455,13 @@
     font-size: clamp(18px, 4vw, 24px);
     font-weight: 400;
     font-style: italic;
-    color: var(--sienna);
+    color: var(--gold);
     max-width: 480px;
     margin: 0 auto 48px;
     line-height: 1.6;
     padding: 24px 32px;
-    border: 1px solid rgba(193,122,58,0.2);
-    background: rgba(193,122,58,0.04);
+    border: 1px solid rgba(var(--gold-rgb),0.2);
+    background: rgba(var(--gold-rgb),0.04);
   }
 
   /* ==============================
@@ -509,9 +511,9 @@
     letter-spacing: 0.5px;
   }
   .status-option:hover, .status-option.selected {
-    border-color: var(--sienna);
+    border-color: var(--gold);
     color: var(--cream);
-    background: rgba(193,122,58,0.08);
+    background: rgba(var(--gold-rgb),0.08);
   }
 
   /* ==============================
@@ -536,14 +538,14 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(193,122,58,0.1), transparent);
+    background: radial-gradient(ellipse 100% 100% at 50% 0%, rgba(var(--gold-rgb),0.1), transparent);
   }
 
   .result-type-code {
     font-family: 'Cormorant Garamond', serif;
     font-size: 120px;
     font-weight: 300;
-    color: rgba(193,122,58,0.1);
+    color: rgba(var(--gold-rgb),0.1);
     position: absolute;
     top: -10px;
     left: 50%;
@@ -575,7 +577,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(16px, 3.5vw, 22px);
     font-style: italic;
-    color: var(--sienna);
+    color: var(--gold);
     margin-bottom: 32px;
     position: relative;
   }
@@ -603,7 +605,7 @@
     font-size: 10px;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--sienna);
+    color: var(--gold);
     margin-bottom: 20px;
   }
 
@@ -665,9 +667,9 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 1px solid var(--sienna);
+    border: 1px solid var(--gold);
     background: transparent;
-    color: var(--sienna);
+    color: var(--gold);
     cursor: pointer;
     font-size: 18px;
     display: flex;
@@ -675,7 +677,7 @@
     justify-content: center;
     transition: all 0.2s;
   }
-  .audio-btn:hover { background: var(--sienna); color: var(--dark); }
+  .audio-btn:hover { background: var(--gold); color: var(--dark); }
 
   .audio-text {
     font-size: 13px;
@@ -687,8 +689,8 @@
 
   /* Offers */
   .offer-primary {
-    background: linear-gradient(135deg, rgba(193,122,58,0.15), rgba(212,168,75,0.08));
-    border: 1px solid rgba(193,122,58,0.4);
+    background: linear-gradient(135deg, rgba(var(--gold-1-rgb),0.15), rgba(var(--gold-rgb),0.08));
+    border: 1px solid rgba(var(--gold-rgb),0.4);
     padding: 32px 24px;
     margin-bottom: 16px;
   }
@@ -744,7 +746,7 @@
     transition: all 0.3s;
   }
   .btn-offer-primary {
-    background: var(--sienna);
+    background: var(--gold);
     color: var(--dark);
   }
   .btn-offer-primary:hover { background: var(--gold); }
@@ -753,7 +755,7 @@
     border: 1px solid var(--dark-border);
     color: var(--text-light);
   }
-  .btn-offer-secondary:hover { border-color: var(--sienna); color: var(--cream); }
+  .btn-offer-secondary:hover { border-color: var(--gold); color: var(--cream); }
 
   .result-footer {
     padding: 32px 24px;
@@ -1408,7 +1410,7 @@ function simulateAudio() {
     count++;
     const side = colors[count % 2];
     const btn = document.getElementById('audio-play-btn');
-    btn.style.borderColor = side === 'left' ? 'var(--gold)' : 'var(--sienna)';
+    btn.style.borderColor = side === 'left' ? 'var(--gold)' : 'var(--gold)';
     if (count > 180) { // ~90 sec at 500ms
       clearInterval(interval);
       audioPlaying = false;
