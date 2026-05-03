@@ -103,7 +103,7 @@
 
   .intro-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 8vw, 64px);
+    font-size: clamp(48px, 7vw, 80px);
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.5px;
@@ -116,7 +116,7 @@
 
   .intro-subtitle {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: clamp(20px, 3vw, 28px);
     font-weight: 300;
     font-style: italic;
     color: var(--text-light);
@@ -146,7 +146,7 @@
   .intro-description {
     max-width: 440px;
     margin: 0 auto 48px;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.8;
     color: var(--text-light);
   }
@@ -221,7 +221,7 @@
   }
 
   .block-desc {
-    font-size: 14px;
+    font-size: clamp(17px, 2vw, 21px);
     line-height: 1.8;
     color: var(--text-light);
     max-width: 420px;
@@ -309,7 +309,7 @@
 
   .question-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(20px, 4.5vw, 28px);
+    font-size: clamp(26px, 3.5vw, 38px);
     font-weight: 400;
     line-height: 1.45;
     color: var(--cream);
@@ -317,7 +317,7 @@
   }
 
   .question-note {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--text-muted);
     font-style: italic;
     margin-bottom: 32px;
@@ -338,7 +338,7 @@
     transition: all 0.25s ease;
     text-align: left;
     font-family: 'Outfit', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--text-light);
     line-height: 1.5;
     position: relative;
@@ -795,6 +795,15 @@
   @media (max-width: 420px) {
     .status-options { grid-template-columns: 1fr; }
     .result-type-code { font-size: 80px; }
+  }
+
+  @media (max-width: 768px) {
+    .intro-title { font-size: clamp(38px, 10vw, 56px); }
+    .intro-subtitle { font-size: clamp(18px, 4.5vw, 22px); }
+    .intro-description { font-size: 17px; }
+    .block-desc { font-size: clamp(16px, 4vw, 19px); }
+    .question-text { font-size: clamp(22px, 5.5vw, 30px); }
+    .answer-option { font-size: 15px; }
   }
 </style>
 </head>
