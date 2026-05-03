@@ -528,6 +528,20 @@
     padding: 0;
   }
 
+  #screen-audio {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  #screen-offers {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
   .result-hero {
     width: 100%;
     background: var(--dark-mid);
@@ -614,7 +628,7 @@
   }
 
   .result-text {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.9;
     color: var(--text-light);
   }
@@ -626,7 +640,7 @@
     font-size: 17px;
   }
   .result-text strong {
-    color: var(--cream);
+    color: var(--gold);
     font-weight: 400;
   }
 
@@ -637,14 +651,6 @@
     padding: 32px 24px;
     text-align: center;
     margin: 32px 0;
-  }
-
-  .audio-label {
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
   }
 
   .audio-title {
@@ -953,15 +959,23 @@
   </div>
 
   <div class="result-body">
-
     <div class="result-section-label">Deine Geschichte</div>
     <div class="result-text" id="result-text"></div>
+    <div style="text-align:center;margin-top:40px;">
+      <button class="btn-primary" onclick="showScreen('screen-audio')">Weiter</button>
+    </div>
+  </div>
 
-    <div class="divider" style="margin:32px auto;"></div>
+</div>
 
-    <!-- Audio -->
+<!-- ==============================
+     SCREEN: AUDIO
+============================== -->
+<div id="screen-audio" class="screen">
+  <div style="max-width:540px;width:100%;">
+    <div class="ornament" style="margin-bottom:32px;">Bilaterale Stimulation</div>
+
     <div class="audio-section">
-      <div class="audio-label">Bilaterale Stimulation</div>
       <div class="audio-title" id="audio-title">Regulierung · Klarheit · Ankommen</div>
       <div class="audio-subtitle" id="audio-subtitle"></div>
       <div style="margin-bottom:16px;">
@@ -973,9 +987,19 @@
       </div>
     </div>
 
-    <div class="divider" style="margin:0 auto 32px;"></div>
+    <div style="margin-top:40px;">
+      <button class="btn-primary" onclick="showScreen('screen-offers')">Weiter zu deinen Empfehlungen</button>
+    </div>
+  </div>
+</div>
 
-    <!-- Status Offer (primary) -->
+<!-- ==============================
+     SCREEN: OFFERS
+============================== -->
+<div id="screen-offers" class="screen">
+
+  <div class="result-body">
+
     <div class="offer-primary" id="offer-primary">
       <div class="offer-tag">Dein nächster Schritt · Empfohlen für dich</div>
       <div class="offer-name" id="offer-primary-name"></div>
@@ -984,7 +1008,6 @@
       <button class="btn-offer btn-offer-primary" id="offer-primary-btn">Jetzt entdecken</button>
     </div>
 
-    <!-- Type Offer (secondary) -->
     <div class="offer-secondary" id="offer-secondary">
       <div class="offer-tag">Tiefer gehen · Dein Muster verstehen</div>
       <div class="offer-name" id="offer-secondary-name"></div>
