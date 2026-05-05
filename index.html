@@ -636,11 +636,19 @@
     width: 100%;
   }
 
+  .abschluss-badge {
+    font-size: 13px;
+    letter-spacing: 4px;
+    padding: 10px 24px;
+    opacity: 0;
+    animation: fadeIn 1s 0.3s ease both;
+  }
+
   .abschluss-text {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: clamp(18px, 2.5vw, 22px);
-    color: var(--text-light);
+    color: var(--cream);
     line-height: 1.65;
     margin: 0 auto 24px;
     max-width: 480px;
@@ -648,7 +656,7 @@
 
   .abschluss-statement {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 4vw, 44px);
+    font-size: clamp(24px, 3.5vw, 38px);
     font-weight: 300;
     line-height: 1.2;
     letter-spacing: -0.5px;
@@ -662,7 +670,7 @@
 
   .abschluss-main {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 62px);
+    font-size: clamp(22px, 3vw, 34px);
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.5px;
@@ -676,7 +684,7 @@
 
   .abschluss-subline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 4vw, 44px);
+    font-size: clamp(22px, 3vw, 34px);
     font-weight: 300;
     line-height: 1.2;
     letter-spacing: -0.5px;
@@ -1488,7 +1496,7 @@
 <div id="screen-abschluss" class="screen">
   <div class="abschluss-container">
 
-    <div class="intro-badge">DANKE, DASS DU SO MUTIG WARST — UND HINGESCHAUT HAST</div>
+    <div class="intro-badge abschluss-badge">DANKE, DASS DU SO MUTIG WARST — UND HINGESCHAUT HAST</div>
 
     <div class="divider" style="margin-bottom:24px;"></div>
 
