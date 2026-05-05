@@ -530,6 +530,112 @@
     justify-content: center;
     padding: 48px 24px;
     text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(180,120,20,0.2), transparent 70%), var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .audio-screen-content {
+    max-width: 540px;
+    width: 100%;
+    position: relative;
+  }
+
+  .audio-screen-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 24px;
+  }
+
+  .audio-screen-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 32px;
+    line-height: 1.2;
+  }
+  .audio-screen-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .affirmation-box {
+    background: var(--dark-card);
+    border: 1px solid rgba(var(--gold-rgb),0.2);
+    padding: 32px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .affirmation-box p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 22px);
+    line-height: 1.7;
+    color: var(--gold);
+    margin: 0;
+  }
+
+  .bilateral-stage {
+    height: 80px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0 16px;
+    overflow: visible;
+  }
+
+  .bilateral-ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--gold-1), var(--gold));
+    box-shadow:
+      0 0 40px rgba(var(--gold-rgb),0.8),
+      0 0 80px rgba(var(--gold-rgb),0.4);
+    animation: bilateralMove 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes bilateralMove {
+    from { transform: translateX(-200px); }
+    to { transform: translateX(200px); }
+  }
+
+  .bilateral-hint {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .audio-screen-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn-order {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    border-radius: 40px;
+    padding: 16px 48px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-order:hover {
+    background: var(--gold-1);
   }
 
   #screen-offers {
@@ -1160,26 +1266,31 @@
 </div>
 
 <!-- ==============================
-     SCREEN: AUDIO
+     SCREEN: AUDIO (Bilaterale Stimulation)
 ============================== -->
 <div id="screen-audio" class="screen">
-  <div style="max-width:540px;width:100%;">
-    <div class="ornament" style="margin-bottom:32px;">Bilaterale Stimulation</div>
+  <div class="audio-screen-content">
+    <div class="audio-screen-label">DEINE SESSION</div>
 
-    <div class="audio-section">
-      <div class="audio-title" id="audio-title">Regulierung · Klarheit · Ankommen</div>
-      <div class="audio-subtitle" id="audio-subtitle"></div>
-      <div style="margin-bottom:16px;">
-        <div class="audio-text" id="audio-instruction"></div>
-      </div>
-      <div class="audio-player-ui">
-        <button class="audio-btn" id="audio-play-btn" onclick="toggleAudio()">▶</button>
-        <span style="font-size:12px;color:var(--text-muted);" id="audio-status">Pause kurz inne. Schließ die Augen.</span>
-      </div>
+    <h2 class="audio-screen-title">Verankere <em>deine Wahrheit</em></h2>
+
+    <div class="affirmation-box">
+      <p>
+        Ich bin die Frau, die Liebe bereits in ihrem Leben hat.<br>
+        Ich fühle mich sicher. Es ist auf dem Weg zu mir.
+      </p>
     </div>
 
-    <div style="margin-top:40px;">
-      <button class="btn-primary" onclick="showScreen('screen-offers')">Weiter zu deinen Empfehlungen</button>
+    <div class="divider" style="margin:32px auto;"></div>
+
+    <div class="bilateral-stage">
+      <div class="bilateral-ball" id="bilateral-ball"></div>
+    </div>
+    <p class="bilateral-hint">Folge der Kugel mit deinen Augen. Atme ruhig.</p>
+
+    <div class="audio-screen-actions">
+      <button class="btn-primary" onclick="restartBilateral()">SESSION STARTEN</button>
+      <button class="btn-order" onclick="showScreen('screen-offers')">BESTELLUNG ABSENDEN</button>
     </div>
   </div>
 </div>
@@ -1435,7 +1546,6 @@ let currentQuestionIndex = 0; // index into QUESTIONS array
 let currentBlockQuestionIndex = 0; // index within block
 let userStatus = null;
 let dominantType = null;
-let audioPlaying = false;
 
 // ==============================
 // NAVIGATION
@@ -1623,11 +1733,6 @@ function showResult() {
   // Body
   document.getElementById('result-text').innerHTML = result.text;
 
-  // Audio
-  document.getElementById('audio-title').textContent = result.audio.title;
-  document.getElementById('audio-subtitle').textContent = result.audio.subtitle;
-  document.getElementById('audio-instruction').textContent = result.audio.instruction;
-
   // Offers
   const statusProductKey = STATUS_OFFERS[userStatus];
   const typeProductKey = getTypeOffer(dominantType, statusProductKey);
@@ -1652,38 +1757,12 @@ function getTypeOffer(type, statusKey) {
   return offer.primary;
 }
 
-function toggleAudio() {
-  audioPlaying = !audioPlaying;
-  const btn = document.getElementById('audio-play-btn');
-  const status = document.getElementById('audio-status');
-  if (audioPlaying) {
-    btn.textContent = '⏸';
-    status.textContent = 'Schließ die Augen. Folge dem Ton.';
-    simulateAudio();
-  } else {
-    btn.textContent = '▶';
-    status.textContent = 'Pause kurz inne. Schließ die Augen.';
-  }
-}
-
-function simulateAudio() {
-  // Visual pulse simulation while "playing"
-  let count = 0;
-  const colors = ['left','right'];
-  const interval = setInterval(() => {
-    if (!audioPlaying) { clearInterval(interval); return; }
-    count++;
-    const side = colors[count % 2];
-    const btn = document.getElementById('audio-play-btn');
-    btn.style.borderColor = side === 'left' ? 'var(--gold)' : 'var(--gold)';
-    if (count > 180) { // ~90 sec at 500ms
-      clearInterval(interval);
-      audioPlaying = false;
-      document.getElementById('audio-play-btn').textContent = '✓';
-      document.getElementById('audio-play-btn').style.borderColor = 'var(--gold)';
-      document.getElementById('audio-status').textContent = 'Übung abgeschlossen. Wie fühlst du dich?';
-    }
-  }, 500);
+function restartBilateral() {
+  const ball = document.getElementById('bilateral-ball');
+  if (!ball) return;
+  ball.style.animation = 'none';
+  void ball.offsetHeight;
+  ball.style.animation = '';
 }
 
 function resetQuiz() {
@@ -1693,7 +1772,6 @@ function resetQuiz() {
   currentBlockQuestionIndex = 0;
   userStatus = null;
   dominantType = null;
-  audioPlaying = false;
   showScreen('screen-intro');
 }
 </script>
