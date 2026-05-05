@@ -998,13 +998,56 @@
     font-style: italic;
   }
 
-  .session-prep-feeling-grid {
+  .chips-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 8px;
+    max-width: 620px;
+    margin: 0 auto;
   }
-  .session-prep-feeling-grid .answer-option {
+  .chips-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .chips-grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+  .chip {
+    padding: 11px 8px;
+    border: 1px solid var(--dark-border);
+    background: var(--dark-card);
+    font-size: 14px;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-light);
     text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  .chip.active {
+    border-color: var(--gold);
+    color: var(--cream);
+    background: rgba(var(--gold-rgb), 0.1);
+  }
+
+  .chip-textarea {
+    background: var(--dark-card);
+    border: 1px solid rgba(var(--gold-rgb), 0.3);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    padding: 14px 16px;
+    width: 100%;
+    min-height: 56px;
+    resize: vertical;
+    margin-top: 12px;
+    display: none;
+    transition: border-color 0.2s ease;
+  }
+  .chip-textarea.active { display: block; }
+  .chip-textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .chip-textarea::placeholder {
+    color: var(--text-muted);
+    font-style: italic;
   }
 
   .session-prep-instructions {
@@ -1231,22 +1274,38 @@
     <div class="session-prep-step">
       <div class="session-prep-step-label">SCHRITT 4</div>
       <p class="session-prep-step-question">Wo im Körper spürst du dieses Bild, diese neue Version?</p>
-      <div class="answers-grid">
-        <button class="answer-option" onclick="selectSessionOption(this)">In der Brust — ein Weiten, ein Aufgehen.</button>
-        <button class="answer-option" onclick="selectSessionOption(this)">Im Bauch — ruhig, geerdet, sicher.</button>
-        <button class="answer-option" onclick="selectSessionOption(this)">In den Schultern — leichter, freier.</button>
-        <button class="answer-option" onclick="selectSessionOption(this)">Überall — wie eine Welle durch den ganzen Körper.</button>
+      <div class="chips-grid chips-grid-4">
+        <button class="chip" onclick="toggleChip(this)">Brust</button>
+        <button class="chip" onclick="toggleChip(this)">Bauch</button>
+        <button class="chip" onclick="toggleChip(this)">Kopf</button>
+        <button class="chip" onclick="toggleChip(this)">Herz</button>
+        <button class="chip" onclick="toggleChip(this)">Beine</button>
+        <button class="chip" onclick="toggleChip(this)">Füße</button>
+        <button class="chip" onclick="toggleChip(this)">Arme</button>
+        <button class="chip" onclick="toggleChip(this)">Hals</button>
+        <button class="chip" onclick="toggleChip(this)">Hände</button>
+        <button class="chip" onclick="toggleChip(this)">Rücken</button>
+        <button class="chip" data-target="step4-custom" onclick="toggleChip(this)">Eigenes</button>
       </div>
+      <textarea id="step4-custom" class="chip-textarea" placeholder="Wo sonst..."></textarea>
     </div>
 
     <div class="session-prep-step">
       <div class="session-prep-step-label">SCHRITT 5</div>
       <p class="session-prep-step-question">Wie fühlt es sich an?</p>
-      <div class="session-prep-feeling-grid">
-        <button class="answer-option" onclick="selectSessionOption(this)">Sicher</button>
-        <button class="answer-option" onclick="selectSessionOption(this)">Weit</button>
-        <button class="answer-option" onclick="selectSessionOption(this)">Warm</button>
+      <div class="chips-grid chips-grid-5">
+        <button class="chip" onclick="toggleChip(this)">Sicher</button>
+        <button class="chip" onclick="toggleChip(this)">Weit</button>
+        <button class="chip" onclick="toggleChip(this)">Warm</button>
+        <button class="chip" onclick="toggleChip(this)">Beschützt</button>
+        <button class="chip" onclick="toggleChip(this)">Geliebt</button>
+        <button class="chip" onclick="toggleChip(this)">Gehalten</button>
+        <button class="chip" onclick="toggleChip(this)">Stark</button>
+        <button class="chip" onclick="toggleChip(this)">Frei</button>
+        <button class="chip" onclick="toggleChip(this)">Leicht</button>
+        <button class="chip" data-target="step5-custom" onclick="toggleChip(this)">Eigenes</button>
       </div>
+      <textarea id="step5-custom" class="chip-textarea" placeholder="Wie noch..."></textarea>
     </div>
 
     <div class="divider" style="margin:32px auto;"></div>
@@ -1711,9 +1770,12 @@ function showStatus() {
   showScreen('screen-status');
 }
 
-function selectSessionOption(btn) {
-  btn.parentElement.querySelectorAll('.answer-option').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
+function toggleChip(btn) {
+  btn.classList.toggle('active');
+  const targetId = btn.dataset.target;
+  if (targetId) {
+    document.getElementById(targetId).classList.toggle('active');
+  }
 }
 
 function selectStatus(status) {
