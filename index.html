@@ -597,12 +597,28 @@
     box-shadow:
       0 0 40px rgba(var(--gold-rgb),0.8),
       0 0 80px rgba(var(--gold-rgb),0.4);
-    animation: bilateralMove 3s ease-in-out infinite alternate;
+    animation: none;
+  }
+  .bilateral-ball.running {
+    animation: bilateralMove 4s ease-in-out infinite alternate;
   }
 
   @keyframes bilateralMove {
-    from { transform: translateX(-200px); }
-    to { transform: translateX(200px); }
+    from { transform: translateX(-600px); }
+    to { transform: translateX(600px); }
+  }
+
+  .bilateral-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+  .bilateral-overlay.active {
+    display: flex;
   }
 
   .bilateral-hint {
@@ -1262,7 +1278,7 @@
     <div class="session-prep-step">
       <div class="session-prep-step-label">SCHRITT 2</div>
       <p class="session-prep-step-question">Wenn du einen Satz wählen müsstest — welche Überzeugung hat deine neue Version?</p>
-      <textarea class="session-prep-textarea" placeholder="z.B. Ich bin es wert, geliebt zu werden — ohne mich dafür zu verbiegen."></textarea>
+      <textarea id="step2-textarea" class="session-prep-textarea" placeholder="z.B. Ich bin es wert, geliebt zu werden — ohne mich dafür zu verbiegen."></textarea>
     </div>
 
     <div class="session-prep-step">
@@ -1321,7 +1337,7 @@
     </div>
 
     <div class="session-prep-cta">
-      <button class="btn-primary" onclick="showScreen('screen-audio')">SESSION STARTEN</button>
+      <button class="btn-primary" onclick="goToAudioScreen()">SESSION STARTEN</button>
     </div>
   </div>
 </div>
@@ -1336,7 +1352,7 @@
     <h2 class="audio-screen-title">Verankere <em>deine Wahrheit</em></h2>
 
     <div class="affirmation-box">
-      <p>
+      <p id="affirmation-text">
         Ich bin die Frau, die Liebe bereits in ihrem Leben hat.<br>
         Ich fühle mich sicher. Es ist auf dem Weg zu mir.
       </p>
@@ -1350,10 +1366,15 @@
     <p class="bilateral-hint">Folge der Kugel mit deinen Augen. Atme ruhig.</p>
 
     <div class="audio-screen-actions">
-      <button class="btn-primary" onclick="restartBilateral()">SESSION STARTEN</button>
-      <button class="btn-order" onclick="showScreen('screen-offers')">BESTELLUNG ABSENDEN</button>
+      <button class="btn-primary" onclick="startBilateralSession()">SESSION STARTEN</button>
+      <button class="btn-order" onclick="showScreen('screen-offers')">DAS IST MEINE WAHRHEIT</button>
     </div>
   </div>
+</div>
+
+<!-- Fullscreen Bilateral Overlay -->
+<div id="bilateral-overlay" class="bilateral-overlay">
+  <div id="bilateral-ball-overlay" class="bilateral-ball"></div>
 </div>
 
 <!-- ==============================
@@ -1821,12 +1842,29 @@ function getTypeOffer(type, statusKey) {
   return offer.primary;
 }
 
-function restartBilateral() {
-  const ball = document.getElementById('bilateral-ball');
-  if (!ball) return;
-  ball.style.animation = 'none';
+function goToAudioScreen() {
+  const step2 = document.getElementById('step2-textarea');
+  const affirmation = document.getElementById('affirmation-text');
+  if (step2 && affirmation && step2.value.trim()) {
+    affirmation.textContent = step2.value.trim();
+  }
+  showScreen('screen-audio');
+}
+
+let bilateralTimer = null;
+function startBilateralSession() {
+  const overlay = document.getElementById('bilateral-overlay');
+  const ball = document.getElementById('bilateral-ball-overlay');
+  if (!overlay || !ball) return;
+  overlay.classList.add('active');
+  ball.classList.remove('running');
   void ball.offsetHeight;
-  ball.style.animation = '';
+  ball.classList.add('running');
+  if (bilateralTimer) clearTimeout(bilateralTimer);
+  bilateralTimer = setTimeout(() => {
+    overlay.classList.remove('active');
+    ball.classList.remove('running');
+  }, 30000);
 }
 
 function resetQuiz() {
