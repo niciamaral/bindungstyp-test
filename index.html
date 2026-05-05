@@ -621,6 +621,98 @@
     display: flex;
   }
 
+  /* ==============================
+     ABSCHLUSS SCREEN
+  ============================== */
+  #screen-abschluss {
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 32px;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(var(--gold-rgb),0.08) 0%, transparent 60%);
+  }
+
+  .abschluss-container {
+    max-width: 620px;
+    width: 100%;
+  }
+
+  .abschluss-headline {
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: clamp(13px, 1.5vw, 16px);
+    color: var(--gold);
+    margin-bottom: 40px;
+  }
+
+  .abschluss-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 22px);
+    color: var(--text-light);
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+
+  .abschluss-statement {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+    letter-spacing: 1px;
+    margin-bottom: 32px;
+  }
+
+  .abschluss-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .abschluss-subline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--cream);
+    margin-bottom: 48px;
+  }
+
+  .abschluss-fineprint {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(17px, 2vw, 20px);
+    color: var(--text-muted);
+    margin-bottom: 48px;
+  }
+
+  .abschluss-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 36px);
+    color: var(--cream);
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+  }
+
+  .abschluss-restart {
+    margin-top: 16px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .abschluss-restart:hover {
+    color: var(--cream);
+  }
+
   .bilateral-hint {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -1367,7 +1459,7 @@
 
     <div class="audio-screen-actions">
       <button class="btn-primary" onclick="startBilateralSession()">SESSION STARTEN</button>
-      <button class="btn-order" onclick="showScreen('screen-offers')">DAS IST MEINE WAHRHEIT</button>
+      <button class="btn-order" onclick="showScreen('screen-abschluss')">DAS IST MEINE WAHRHEIT</button>
     </div>
   </div>
 </div>
@@ -1375,6 +1467,57 @@
 <!-- Fullscreen Bilateral Overlay -->
 <div id="bilateral-overlay" class="bilateral-overlay">
   <div id="bilateral-ball-overlay" class="bilateral-ball"></div>
+</div>
+
+<!-- ==============================
+     SCREEN: ABSCHLUSS
+============================== -->
+<div id="screen-abschluss" class="screen">
+  <div class="abschluss-container">
+    <div class="abschluss-headline">DANKE, DASS DU SO MUTIG WARST — UND HINGESCHAUT HAST.</div>
+
+    <p class="abschluss-text">
+      Vielleicht wusstest du einiges schon. Und einiges ist vielleicht neu. Aber darum geht es weniger — um die Worte. Es geht darum, was die Worte mit dir machen.
+      <br><br>
+      Nimm dir den heutigen Tag. Geh bewusst in dich. Fühl, was in deinem Körper passiert. Denn das ist es, was dir die Antworten gibt.
+      <br><br>
+      Du hast heute eine Übung gemacht, die du vielleicht noch nicht kanntest — deinen ganzen Körper mitzunehmen auf deine Erkenntnisreise.
+      <br><br>
+      Oft versuchen wir, etwas zu verstehen. Wir analysieren, lesen, denken — und merken, dass sich nicht viel ändert. Die bilaterale Stimulation öffnet einen anderen Weg. Direkt in dein Nervensystem.
+    </p>
+
+    <div class="divider" style="margin:32px auto;"></div>
+
+    <h2 class="abschluss-statement">
+      WARUM WOLLEN WIR NICHTS LÖSEN —<br>
+      SONDERN GLEICH ETWAS NEUES ERSCHAFFEN?
+    </h2>
+
+    <p class="abschluss-text" style="margin-bottom:48px;">
+      Weil der Weg einfacher ist. Und schneller.<br>
+      Die Vergangenheit gibt dir keine neue Zukunft.<br>
+      Die kannst du selbst erschaffen.
+    </p>
+
+    <div class="divider" style="margin:32px auto;"></div>
+
+    <h1 class="abschluss-main">
+      WELCHE BEZIEHUNG<br>
+      MÖCHTEST DU ERSCHAFFEN?
+    </h1>
+
+    <div class="abschluss-subline">ALLES BEGINNT IN DIR.</div>
+
+    <p class="abschluss-fineprint">Egal in welcher Beziehung du gerade bist.</p>
+
+    <div class="divider" style="margin:32px auto;"></div>
+
+    <p class="abschluss-question">BIST DU BEREIT FÜR DEN NÄCHSTEN SCHRITT?</p>
+
+    <button class="btn-primary" onclick="showScreen('screen-offers')">ICH WILL MEHR</button>
+    <br>
+    <button class="abschluss-restart" onclick="resetQuiz()">Test neu starten</button>
+  </div>
 </div>
 
 <!-- ==============================
