@@ -627,23 +627,13 @@
   #screen-abschluss {
     flex-direction: column;
     align-items: center;
-    padding: 64px 32px;
+    padding: 28px 32px;
     text-align: center;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(var(--gold-rgb),0.08) 0%, transparent 60%);
   }
 
   .abschluss-container {
-    max-width: 620px;
+    max-width: 540px;
     width: 100%;
-  }
-
-  .abschluss-headline {
-    font-family: 'Outfit', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: clamp(13px, 1.5vw, 16px);
-    color: var(--gold);
-    margin-bottom: 40px;
   }
 
   .abschluss-text {
@@ -652,33 +642,50 @@
     font-size: clamp(18px, 2.5vw, 22px);
     color: var(--text-light);
     line-height: 1.65;
-    margin-bottom: 32px;
+    margin: 0 auto 24px;
+    max-width: 480px;
   }
 
   .abschluss-statement {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(28px, 4vw, 44px);
     font-weight: 300;
-    color: var(--cream);
     line-height: 1.2;
-    letter-spacing: 1px;
-    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .abschluss-statement em {
+    font-style: italic;
+    color: var(--gold-1);
   }
 
   .abschluss-main {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 5vw, 60px);
+    font-size: clamp(36px, 5vw, 62px);
     font-weight: 300;
-    color: var(--gold);
-    line-height: 1.15;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--cream);
     margin-bottom: 16px;
+  }
+  .abschluss-main em {
+    font-style: italic;
+    color: var(--gold-1);
   }
 
   .abschluss-subline {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
     color: var(--cream);
-    margin-bottom: 48px;
+    margin-bottom: 24px;
+  }
+  .abschluss-subline em {
+    font-style: italic;
+    color: var(--gold-1);
   }
 
   .abschluss-fineprint {
@@ -686,15 +693,17 @@
     font-style: italic;
     font-size: clamp(17px, 2vw, 20px);
     color: var(--text-muted);
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
 
   .abschluss-question {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(24px, 3.5vw, 36px);
-    color: var(--cream);
-    letter-spacing: 1px;
-    margin-bottom: 40px;
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 28px;
   }
 
   .abschluss-restart {
@@ -1478,26 +1487,24 @@
 ============================== -->
 <div id="screen-abschluss" class="screen">
   <div class="abschluss-container">
-    <div class="abschluss-headline">DANKE, DASS DU SO MUTIG WARST — UND HINGESCHAUT HAST.</div>
 
-    <p class="abschluss-text">
-      Vielleicht wusstest du einiges schon. Und einiges ist vielleicht neu. Aber darum geht es weniger — um die Worte. Es geht darum, was die Worte mit dir machen.
-      <br><br>
-      Nimm dir den heutigen Tag. Geh bewusst in dich. Fühl, was in deinem Körper passiert. Denn das ist es, was dir die Antworten gibt.
-      <br><br>
-      Du hast heute eine Übung gemacht, die du vielleicht noch nicht kanntest — deinen ganzen Körper mitzunehmen auf deine Erkenntnisreise.
-      <br><br>
-      Oft versuchen wir, etwas zu verstehen. Wir analysieren, lesen, denken — und merken, dass sich nicht viel ändert. Die bilaterale Stimulation öffnet einen anderen Weg. Direkt in dein Nervensystem.
-    </p>
+    <div class="intro-badge">DANKE, DASS DU SO MUTIG WARST — UND HINGESCHAUT HAST</div>
+
+    <div class="divider" style="margin-bottom:24px;"></div>
+
+    <p class="abschluss-text">Vielleicht wusstest du einiges schon. Und einiges ist vielleicht neu. Aber darum geht es weniger — um die Worte. Es geht darum, was die Worte mit dir machen.</p>
+    <p class="abschluss-text">Nimm dir den heutigen Tag. Geh bewusst in dich. Fühl, was in deinem Körper passiert. Denn das ist es, was dir die Antworten gibt.</p>
+    <p class="abschluss-text">Du hast heute eine Übung gemacht, die du vielleicht noch nicht kanntest — deinen ganzen Körper mitzunehmen auf deine Erkenntnisreise.</p>
+    <p class="abschluss-text">Oft versuchen wir, etwas zu verstehen. Wir analysieren, lesen, denken — und merken, dass sich nicht viel ändert. Die bilaterale Stimulation öffnet einen anderen Weg. Direkt in dein Nervensystem.</p>
 
     <div class="divider" style="margin:32px auto;"></div>
 
     <h2 class="abschluss-statement">
       WARUM WOLLEN WIR NICHTS LÖSEN —<br>
-      SONDERN GLEICH ETWAS NEUES ERSCHAFFEN?
+      SONDERN GLEICH <em>ETWAS NEUES ERSCHAFFEN</em>?
     </h2>
 
-    <p class="abschluss-text" style="margin-bottom:48px;">
+    <p class="abschluss-text">
       Weil der Weg einfacher ist. Und schneller.<br>
       Die Vergangenheit gibt dir keine neue Zukunft.<br>
       Die kannst du selbst erschaffen.
@@ -1507,18 +1514,18 @@
 
     <h1 class="abschluss-main">
       WELCHE BEZIEHUNG<br>
-      MÖCHTEST DU ERSCHAFFEN?
+      MÖCHTEST DU <em>ERSCHAFFEN</em>?
     </h1>
 
-    <div class="abschluss-subline">ALLES BEGINNT IN DIR.</div>
+    <div class="abschluss-subline">ALLES BEGINNT <em>IN DIR</em>.</div>
 
     <p class="abschluss-fineprint">Egal in welcher Beziehung du gerade bist.</p>
 
     <div class="divider" style="margin:32px auto;"></div>
 
-    <p class="abschluss-question">BIST DU BEREIT FÜR DEN NÄCHSTEN SCHRITT?</p>
+    <p class="abschluss-question">Bist du bereit für den nächsten Schritt?</p>
 
-    <button class="btn-primary" onclick="showScreen('screen-offers')">ICH WILL MEHR</button>
+    <button class="btn-primary" onclick="showScreen('screen-offers')">Ich will mehr</button>
     <br>
     <button class="abschluss-restart" onclick="resetQuiz()">Test neu starten</button>
   </div>
