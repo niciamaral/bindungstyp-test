@@ -936,6 +936,29 @@
     font-weight: 400;
   }
 
+  .result-text .highlight {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 300;
+    color: var(--cream);
+    display: block;
+    margin: 24px 0;
+    line-height: 1.3;
+    animation: scaleIn 0.8s ease both;
+    opacity: 0;
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .result-text p {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
   .percent-bar-row {
     display: flex;
     align-items: center;
@@ -2172,8 +2195,11 @@ function showResult() {
 
   renderPercentBars();
 
-  // Body
-  document.getElementById('result-text').innerHTML = result.text;
+  // Body — strong[font-size:1.3em] -> span.highlight für Scale-In-Animation
+  document.getElementById('result-text').innerHTML = result.text.replace(
+    /<strong style="font-size:1\.3em;">([\s\S]*?)<\/strong>/g,
+    '<span class="highlight">$1</span>'
+  );
 
   // Second type (if >= 30%)
   const secondTypeBlock = document.getElementById('result-second-type');
@@ -2202,6 +2228,27 @@ function showResult() {
   document.getElementById('offer-secondary-desc').textContent = result.typeCTA;
 
   showScreen('screen-result');
+
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        animObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.result-text .highlight').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    animObserver.observe(el);
+  });
+
+  document.querySelectorAll('.result-text p').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.1) + 's';
+    animObserver.observe(el);
+  });
 }
 
 function getTypeOffer(type, statusKey) {
