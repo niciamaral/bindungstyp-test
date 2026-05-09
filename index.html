@@ -936,6 +936,47 @@
     font-weight: 400;
   }
 
+  .percent-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .percent-bar-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    width: 140px;
+    flex-shrink: 0;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 1px;
+  }
+  .percent-bar-label.dominant {
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .percent-bar-track {
+    flex: 1;
+    height: 3px;
+    background: rgba(var(--gold-rgb), 0.15);
+    border-radius: 2px;
+  }
+  .percent-bar-track.dominant {
+    height: 4px;
+  }
+  .percent-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+  .percent-bar-value {
+    font-size: 12px;
+    color: var(--text-muted);
+    width: 36px;
+    text-align: right;
+    font-family: 'Outfit', sans-serif;
+  }
+
   /* Audio player */
   .audio-section {
     background: var(--dark-card);
@@ -1428,11 +1469,20 @@
     <div class="result-subname" id="result-subname"></div>
     <div class="divider" style="margin-bottom:24px;"></div>
     <p class="result-short" id="result-short"></p>
+    <div id="result-percent-bars" style="max-width:480px;margin:32px auto 0;text-align:left;"></div>
   </div>
 
   <div class="result-body">
     <div class="result-section-label">Deine Geschichte</div>
     <div class="result-text" id="result-text"></div>
+
+    <div id="result-second-type" style="display:none;margin-top:32px;padding:24px;border:1px solid rgba(var(--gold-rgb),0.2);background:rgba(var(--gold-rgb),0.04);">
+      <div style="font-size:10px;letter-spacing:4px;color:var(--gold);margin-bottom:12px;">DEIN ZWEITES MUSTER</div>
+      <div id="result-second-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:8px;"></div>
+      <div id="result-second-percent" style="font-size:13px;color:var(--text-muted);margin-bottom:12px;"></div>
+      <div id="result-second-short" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--text-light);line-height:1.6;"></div>
+    </div>
+
     <div style="text-align:center;margin-top:40px;">
       <button class="btn-primary" onclick="showScreen('screen-session-prep')">Weiter zur Übung</button>
     </div>
@@ -1996,6 +2046,17 @@ function calcDominantType() {
   priority.forEach(t => {
     if (scores[t] > max) { max = scores[t]; dominantType = t; }
   });
+
+  const total = scores.S + scores.U + scores.Z + scores.V;
+  window.scorePercents = {
+    S: Math.round((scores.S / total) * 100),
+    U: Math.round((scores.U / total) * 100),
+    Z: Math.round((scores.Z / total) * 100),
+    V: Math.round((scores.V / total) * 100)
+  };
+
+  const sorted = Object.entries(window.scorePercents).sort((a,b) => b[1]-a[1]);
+  window.secondType = (sorted[1][1] >= 30) ? sorted[1][0] : null;
 }
 
 function showQ38() {
@@ -2052,8 +2113,21 @@ function showResult() {
   document.getElementById('result-subname').textContent = result.subname;
   document.getElementById('result-short').textContent = result.short;
 
+  renderPercentBars();
+
   // Body
   document.getElementById('result-text').innerHTML = result.text;
+
+  // Second type (if >= 30%)
+  const secondTypeBlock = document.getElementById('result-second-type');
+  if (window.secondType) {
+    secondTypeBlock.style.display = 'block';
+    document.getElementById('result-second-name').textContent = RESULTS[window.secondType].name;
+    document.getElementById('result-second-percent').textContent = window.scorePercents[window.secondType] + '% Anteil in dir';
+    document.getElementById('result-second-short').textContent = RESULTS[window.secondType].short;
+  } else {
+    secondTypeBlock.style.display = 'none';
+  }
 
   // Offers
   const statusProductKey = STATUS_OFFERS[userStatus];
@@ -2077,6 +2151,28 @@ function getTypeOffer(type, statusKey) {
   const offer = TYPE_OFFERS[type];
   if (offer.primary === statusKey) return offer.fallback;
   return offer.primary;
+}
+
+function renderPercentBars() {
+  const container = document.getElementById('result-percent-bars');
+  container.innerHTML = '';
+  const order = ['S', 'U', 'Z', 'V'];
+  order.forEach(type => {
+    const percent = window.scorePercents[type];
+    const isDominant = type === dominantType;
+    const row = document.createElement('div');
+    row.className = 'percent-bar-row';
+    row.innerHTML =
+      '<div class="percent-bar-label' + (isDominant ? ' dominant' : '') + '">' + RESULTS[type].name + '</div>' +
+      '<div class="percent-bar-track' + (isDominant ? ' dominant' : '') + '"><div class="percent-bar-fill" style="width:0%"></div></div>' +
+      '<div class="percent-bar-value">' + percent + '%</div>';
+    container.appendChild(row);
+  });
+  setTimeout(() => {
+    container.querySelectorAll('.percent-bar-fill').forEach((fill, i) => {
+      fill.style.width = window.scorePercents[order[i]] + '%';
+    });
+  }, 300);
 }
 
 function goToAudioScreen() {
