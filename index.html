@@ -245,6 +245,20 @@
     box-shadow: 0 0 30px 4px rgba(232,192,106,0.45), 0 0 70px 14px rgba(232,192,106,0.25);
     animation: breathe 7s ease-in-out infinite;
     margin: 0 auto 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #breath-text,
+  .breath-circle > span {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,248,236,0.9);
+    text-align: center;
   }
 
   @keyframes breathe {
@@ -1467,7 +1481,7 @@
 ============================== -->
 <div id="screen-breath-0" class="breath-screen">
   <div class="breath-label">Atme</div>
-  <div class="breath-circle"></div>
+  <div class="breath-circle"><span id="breath-text">Einatmen</span></div>
   <p class="breath-text">Komm einen Moment bei dir an.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
   <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
@@ -1475,7 +1489,7 @@
 
 <div id="screen-breath-1" class="breath-screen">
   <div class="breath-label">Atme</div>
-  <div class="breath-circle"></div>
+  <div class="breath-circle"><span>Einatmen</span></div>
   <p class="breath-text">Lass los, was du gerade festhältst.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
   <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
@@ -1483,7 +1497,7 @@
 
 <div id="screen-breath-2" class="breath-screen">
   <div class="breath-label">Atme</div>
-  <div class="breath-circle"></div>
+  <div class="breath-circle"><span>Einatmen</span></div>
   <p class="breath-text">Spür den Boden unter dir.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
   <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
@@ -1491,7 +1505,7 @@
 
 <div id="screen-breath-3" class="breath-screen">
   <div class="breath-label">Atme</div>
-  <div class="breath-circle"></div>
+  <div class="breath-circle"><span>Einatmen</span></div>
   <p class="breath-text">Bleib offen für das, was kommt.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
   <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
@@ -1499,7 +1513,7 @@
 
 <div id="screen-breath-4" class="breath-screen">
   <div class="breath-label">Atme</div>
-  <div class="breath-circle"></div>
+  <div class="breath-circle"><span>Einatmen</span></div>
   <p class="breath-text">Du bist fast am Ziel.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
   <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
@@ -2108,6 +2122,34 @@ function showScreen(id) {
   document.querySelectorAll('.screen, .breath-screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
+
+  if (id.startsWith('screen-breath-')) {
+    startBreathCycle();
+  } else {
+    stopBreathCycle();
+  }
+}
+
+let breathTimers = [];
+
+function setBreathText(text) {
+  document.querySelectorAll('.breath-circle > span').forEach(el => el.textContent = text);
+}
+
+function startBreathCycle() {
+  stopBreathCycle();
+  const runCycle = () => {
+    setBreathText('Einatmen');
+    breathTimers.push(setTimeout(() => setBreathText('Halten'), 2800));
+    breathTimers.push(setTimeout(() => setBreathText('Ausatmen'), 4550));
+  };
+  runCycle();
+  breathTimers.push(setInterval(runCycle, 7000));
+}
+
+function stopBreathCycle() {
+  breathTimers.forEach(t => { clearTimeout(t); clearInterval(t); });
+  breathTimers = [];
 }
 
 function startQuiz() {
