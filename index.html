@@ -14,13 +14,13 @@
     --gold-1-rgb: 212, 170, 80;
     --cream: #F5EFE6;
     --cream-soft: #EDE4D6;
-    --dark: #000000;
-    --dark-mid: #0A0A0A;
-    --dark-card: #1E160D;
-    --dark-border: #2E2016;
-    --text-primary: #F5EFE6;
-    --text-muted: #9B8A70;
-    --text-light: #C4B49A;
+    --dark: #f5efe6;
+    --dark-mid: #ede3d6;
+    --dark-card: #ffffff;
+    --dark-border: #d4c4ae;
+    --text-primary: #2a1f18;
+    --text-muted: #7a5e4e;
+    --text-light: #a8907e;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -171,9 +171,9 @@
   .btn-primary {
     display: inline-block;
     background: transparent;
-    border: 1px solid var(--gold);
+    border: 1px solid #c4963a;
     border-radius: 40px;
-    color: var(--cream);
+    color: #2a1f18;
     font-family: 'Outfit', sans-serif;
     font-size: 11px;
     font-weight: 500;
@@ -189,14 +189,14 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--gold);
+    background: #c4963a;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
     z-index: -1;
   }
   .btn-primary:hover::before { transform: scaleX(1); }
-  .btn-primary:hover { color: var(--dark); }
+  .btn-primary:hover { background: #c4963a; color: #ffffff; }
 
   .intro-disclaimer {
     margin-top: 20px;
@@ -241,7 +241,7 @@
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 32%, #fff8ec 0%, var(--gold-1) 35%, var(--gold) 75%, #8b3a2a 100%);
+    background: radial-gradient(circle at 35% 32%, #fff8ec 0%, var(--gold-1) 35%, var(--gold) 75%, #c4963a 100%);
     box-shadow: 0 0 30px 4px rgba(232,192,106,0.45), 0 0 70px 14px rgba(232,192,106,0.25);
     animation: breathe 7s ease-in-out infinite;
     margin: 0 auto 40px;
@@ -465,15 +465,15 @@
     transition: transform 0.25s ease;
   }
   .answer-option:hover {
-    border-color: #C49A3C;
+    border-color: #c4963a;
     background: #FAFAFA;
     padding-left: 22px;
   }
   .answer-option:hover::before { display: none; }
 
   .answer-option.selected {
-    background: linear-gradient(135deg, #C49A3C, #D4AA50);
-    border-color: #C49A3C;
+    background: #c4963a;
+    border-color: #c4963a;
     color: #ffffff;
     padding-left: 22px;
   }
