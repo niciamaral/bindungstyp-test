@@ -243,7 +243,7 @@
     border-radius: 50%;
     background: radial-gradient(circle at 35% 32%, #fff8ec 0%, var(--gold-1) 35%, var(--gold) 75%, #c4963a 100%);
     box-shadow: 0 0 30px 4px rgba(232,192,106,0.45), 0 0 70px 14px rgba(232,192,106,0.25);
-    animation: breathe 7s ease-in-out infinite;
+    animation: breathe 14s ease-in-out infinite;
     margin: 0 auto 40px;
     display: flex;
     align-items: center;
@@ -262,8 +262,10 @@
   }
 
   @keyframes breathe {
-    0%, 100% { transform: scale(0.85); opacity: 0.7; }
-    40%, 65% { transform: scale(1.2); opacity: 1; }
+    0%   { transform: scale(0.85); opacity: 0.7; }
+    36%  { transform: scale(1.2); opacity: 1; }
+    64%  { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0.85); opacity: 0.7; }
   }
 
   .breath-label {
@@ -2140,11 +2142,11 @@ function startBreathCycle() {
   stopBreathCycle();
   const runCycle = () => {
     setBreathText('Einatmen');
-    breathTimers.push(setTimeout(() => setBreathText('Halten'), 2800));
-    breathTimers.push(setTimeout(() => setBreathText('Ausatmen'), 4550));
+    breathTimers.push(setTimeout(() => setBreathText('Halten'), 4000));
+    breathTimers.push(setTimeout(() => setBreathText('Ausatmen'), 8000));
   };
   runCycle();
-  breathTimers.push(setInterval(runCycle, 7000));
+  breathTimers.push(setInterval(runCycle, 14000));
 }
 
 function stopBreathCycle() {
