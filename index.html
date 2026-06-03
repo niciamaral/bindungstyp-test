@@ -81,7 +81,8 @@
   /* ==============================
      INTRO SCREEN
   ============================== */
-  #screen-intro {
+  #screen-intro,
+  #screen-intro-2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -90,9 +91,13 @@
     position: relative;
     overflow: hidden;
   }
-  #screen-intro > * {
+  #screen-intro > *,
+  #screen-intro-2 > * {
     position: relative;
     z-index: 1;
+  }
+  #screen-intro-2 > div {
+    max-width: 560px;
   }
 
   .intro-badge {
@@ -1387,11 +1392,13 @@
   }
 
   @media (max-width: 768px) {
-    .intro-title { font-size: clamp(38px, 10vw, 56px); }
-    .intro-subtitle { font-size: clamp(18px, 4.5vw, 22px); }
-    .intro-description { font-size: 17px; }
-    .block-desc { font-size: clamp(21px, 4.5vw, 24px); color: var(--text-primary); }
-    .question-text { font-size: clamp(22px, 5.5vw, 30px); }
+    .intro-title { font-size: clamp(44px, 12vw, 72px); }
+    .intro-subtitle { font-size: clamp(20px, 5vw, 26px); font-weight: 400; }
+    .intro-description { font-size: clamp(18px, 4.5vw, 22px); font-weight: 400; }
+    .block-desc { font-size: clamp(19px, 4.5vw, 23px); font-weight: 400; color: var(--text-primary); }
+    .question-text { font-size: clamp(22px, 5.5vw, 30px); font-weight: 400; }
+    .question-note { font-weight: 400; font-size: 15px; }
+    .result-short { font-size: clamp(18px, 4vw, 22px); font-weight: 400; }
     .answer-option { font-size: 15px; padding: 16px 18px; border-radius: 10px; }
 
     #screen-abschluss {
@@ -1418,8 +1425,6 @@
 ============================== -->
 <div id="screen-intro" class="screen active">
   <div>
-    <div class="intro-badge">BECOME HER · Bindungstyp-Test</div>
-
     <h1 class="intro-title">
       Warum du immer wieder<br>
       <em>dieselben Beziehungen</em><br>
@@ -1430,25 +1435,40 @@
       Was dein Herz schon lange weiß — aber nie in Worte gefasst hat.
     </p>
 
-    <div class="intro-meta">
-      <span class="intro-meta-item"><span>38</span> Fragen</span>
-      <span class="intro-meta-item"><span>5</span> Blöcke</span>
-      <span class="intro-meta-item"><span>4</span> Bindungstypen</span>
-    </div>
+    <button class="btn-primary" onclick="showScreen('screen-intro-2')">
+      Ich bin bereit
+    </button>
+  </div>
+</div>
 
-    <div class="divider" style="margin-bottom:20px;"></div>
+<!-- ==============================
+     SCREEN: INTRO 2
+============================== -->
+<div id="screen-intro-2" class="screen">
+  <div>
+    <div class="intro-badge">BECOME HER · Bindungstyp-Test</div>
 
-    <p class="intro-description">
+    <p class="intro-description" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3.5vw,34px);line-height:1.5;">
       Das hier ist kein Persönlichkeitstest. Es ist eine Erfahrung. Du antwortest nicht für ein Ergebnis. Du antwortest — und erkennst dich dabei selbst.
     </p>
 
-    <button class="btn-primary" onclick="startQuiz()">
-      Ich bin bereit
-    </button>
+    <div class="divider" style="margin:32px auto;"></div>
 
-    <p class="intro-disclaimer">
-      Nimm dir 10–15 Minuten. Antworte mit dem ersten Gefühl — nicht dem, was du denken solltest.
+    <p class="intro-description">
+      38 Fragen · 5 Blöcke · eine Analyse, die du vielleicht so noch nie gehört hast.
     </p>
+    <p class="intro-description">
+      Zwischen den Blöcken kommen Atembereiche — weil es wichtig ist, dass du nicht aus dem Kopf antwortest, sondern aus deinem Körper.
+    </p>
+    <p class="intro-description">
+      Deswegen verbinden wir uns zuerst mit dir.
+    </p>
+
+    <div class="divider" style="margin:32px auto;"></div>
+
+    <button class="btn-primary" onclick="startQuiz()">
+      Lass uns anfangen
+    </button>
   </div>
 </div>
 
