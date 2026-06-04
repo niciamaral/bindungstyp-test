@@ -21,6 +21,8 @@
     --text-primary: #2a1f18;
     --text-muted: #7a5e4e;
     --text-light: #a8907e;
+    --text: #2a1f18;
+    --mid: #7a5e4e;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -319,6 +321,15 @@
     margin: 24px auto 40px;
     font-style: italic;
     font-family: 'Cormorant Garamond', serif;
+  }
+
+  .block-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(19px, 2.2vw, 24px);
+    line-height: 1.7;
+    color: var(--text);
   }
 
   .block-tech {
@@ -1400,7 +1411,16 @@
     .intro-title { font-size: clamp(44px, 12vw, 72px); }
     .intro-subtitle { font-size: clamp(20px, 5vw, 26px); font-weight: 400; }
     .intro-description { font-size: clamp(18px, 4.5vw, 22px); font-weight: 400; }
-    .block-desc { font-size: clamp(19px, 4.5vw, 23px); font-weight: 400; color: var(--text-primary); }
+    .block-desc {
+      font-size: clamp(19px, 4.5vw, 23px) !important;
+      font-weight: 400 !important;
+      line-height: 1.7 !important;
+      color: var(--text) !important;
+    }
+    .block-tech {
+      font-size: 11px;
+      color: var(--mid);
+    }
     .question-text { font-size: clamp(22px, 5.5vw, 30px); font-weight: 400; }
     .question-note { font-weight: 400; font-size: 15px; }
     .result-short { font-size: clamp(18px, 4vw, 22px); font-weight: 400; }
