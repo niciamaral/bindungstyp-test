@@ -1466,6 +1466,203 @@
       -webkit-font-smoothing: antialiased;
     }
   }
+
+/* ===== RAUMREISE — Seite 2 ===== */
+.rr-stage{
+  position:relative;z-index:1;
+  max-width:600px;margin:0 auto;
+  min-height:100svh;
+  padding:4.5rem 1.8rem 2.5rem;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+}
+.rr-particles{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.rr-particle{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,192,106,.85) 0%,rgba(232,192,106,0) 70%);
+  animation:rrDrift linear infinite;opacity:0;
+}
+@keyframes rrDrift{
+  0%{transform:translateY(12vh) translateX(0);opacity:0;}
+  12%{opacity:.55;}
+  85%{opacity:.35;}
+  100%{transform:translateY(-110vh) translateX(6vw);opacity:0;}
+}
+.rr-fade{
+  opacity:0;transform:translateY(16px);
+  animation:rrRise 1.6s cubic-bezier(.22,1,.36,1) forwards;
+}
+.rr-fade.rr-d1{animation-delay:.2s;}
+.rr-fade.rr-d2{animation-delay:.7s;}
+.rr-fade.rr-d3{animation-delay:1.3s;}
+.rr-fade.rr-d4{animation-delay:2s;}
+@keyframes rrRise{to{opacity:1;transform:translateY(0);}}
+
+.rr-eyebrow{
+  font-size:.64rem;letter-spacing:.42em;text-transform:uppercase;
+  color:#b8842a;font-weight:400;margin-bottom:2.2rem;
+  font-family:'Outfit',sans-serif;
+}
+.rr-headline{
+  font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(1.8rem,6vw,2.5rem);line-height:1.36;
+  color:#2a1f18;max-width:24ch;
+}
+.rr-headline em{font-style:italic;color:#b8842a;}
+.rr-lead{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(1.15rem,4.4vw,1.45rem);line-height:1.55;
+  color:#7a5e4e;margin-top:1.8rem;
+}
+.rr-gate{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  font-size:.98rem;color:#2a1f18;margin-top:2.8rem;
+}
+.rr-gate strong{font-weight:400;color:#b8842a;}
+
+/* Der Weg */
+.rr-journey{position:relative;width:100%;max-width:440px;height:90px;margin:1.6rem auto 0;}
+.rr-rail{
+  position:absolute;top:50%;left:4%;right:4%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(196,150,58,.4),rgba(196,150,58,.4),transparent);
+  transform:translateY(-50%);
+}
+.rr-trail{
+  position:absolute;top:50%;left:8%;height:1px;width:0;
+  background:linear-gradient(90deg,rgba(232,192,106,.15),#e8c06a);
+  box-shadow:0 0 8px rgba(232,192,106,.5);
+  transform:translateY(-50%);
+  transition:width 1.2s cubic-bezier(.45,0,.25,1);
+}
+.rr-station{
+  position:absolute;top:50%;transform:translate(-50%,-50%);
+  width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;background:none;border:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.rr-station .rr-pin{
+  width:9px;height:9px;border-radius:50%;
+  background:#d4c4ae;transition:all .8s ease;
+}
+.rr-station .rr-halo{
+  position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,192,106,.4) 0%,transparent 70%);
+  opacity:0;transform:scale(.4);transition:all .9s ease;
+}
+.rr-station.rr-lit .rr-pin{
+  background:#c4963a;box-shadow:0 0 12px rgba(196,150,58,.7);
+}
+.rr-station.rr-current .rr-pin{
+  background:#e8c06a;transform:scale(1.35);
+  box-shadow:0 0 18px rgba(232,192,106,.9);
+}
+.rr-station.rr-current .rr-halo{
+  opacity:1;transform:scale(1);
+  animation:rrHalo 2.4s ease-in-out infinite;
+}
+@keyframes rrHalo{
+  0%,100%{transform:scale(.85);opacity:.7;}
+  50%{transform:scale(1.15);opacity:1;}
+}
+
+/* Das wandernde Licht */
+.rr-orb{
+  position:absolute;top:50%;
+  width:30px;height:30px;margin-top:-15px;margin-left:-15px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 32%,#fff8ec 0%,#e8c06a 40%,#c4963a 80%,#b8842a 100%);
+  box-shadow:
+    inset 0 0 6px rgba(255,248,236,.4),
+    0 0 18px 2px rgba(232,192,106,.55),
+    0 0 44px 8px rgba(232,192,106,.3);
+  transition:left 1.2s cubic-bezier(.45,0,.25,1);
+  z-index:2;
+}
+.rr-orb::after{
+  content:'';position:absolute;inset:-22px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,192,106,.25) 0%,transparent 70%);
+  filter:blur(6px);
+  animation:rrOrbPulse 2.4s ease-in-out infinite;
+}
+@keyframes rrOrbPulse{
+  0%,100%{opacity:.6;transform:scale(.9);}
+  50%{opacity:1;transform:scale(1.1);}
+}
+
+/* Raum-Texte (übereinander, einer aktiv) */
+.rr-rooms{position:relative;width:100%;min-height:128px;margin-top:.6rem;}
+.rr-room{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:flex-start;gap:.55rem;
+  opacity:0;transform:translateY(14px);
+  transition:opacity .8s ease,transform 1.1s cubic-bezier(.22,1,.36,1);
+  pointer-events:none;
+}
+.rr-room.rr-active{
+  opacity:1;transform:translateY(0);
+  transition:opacity .6s ease .5s,transform 1.1s cubic-bezier(.22,1,.36,1) .5s;
+}
+.rr-room .rr-num{
+  font-family:'Outfit',sans-serif;
+  font-size:.56rem;letter-spacing:.36em;text-transform:uppercase;
+  color:#a8907e;font-weight:400;
+}
+.rr-room .rr-name{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(2rem,7vw,2.6rem);line-height:1;color:#b8842a;
+}
+.rr-room .rr-sub{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  font-size:.95rem;line-height:1.65;color:#7a5e4e;max-width:30ch;
+}
+
+/* Finale */
+.rr-finale{
+  opacity:0;transform:translateY(18px);
+  transition:opacity 1.6s ease,transform 1.6s cubic-bezier(.22,1,.36,1);
+  display:flex;flex-direction:column;align-items:center;
+}
+.rr-finale.rr-visible{opacity:1;transform:translateY(0);}
+.rr-breathnote{
+  font-family:'Outfit',sans-serif;font-weight:300;
+  font-size:.92rem;line-height:1.75;color:#7a5e4e;
+  max-width:32ch;margin-top:1.6rem;
+}
+.rr-close{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:clamp(1.5rem,5.2vw,1.95rem);line-height:1.4;
+  color:#b8842a;margin-top:1.8rem;
+}
+.rr-btn{
+  margin-top:2.2rem;display:inline-block;
+  padding:1.05rem 2.6rem;min-height:48px;
+  background:#c4963a;color:#f5efe6;
+  border:none;border-radius:40px;
+  font-family:'Outfit',sans-serif;
+  font-size:.7rem;font-weight:500;
+  letter-spacing:.26em;text-transform:uppercase;
+  cursor:pointer;transition:all .35s ease;text-decoration:none;
+}
+.rr-btn:hover{
+  background:#e8c06a;color:#2a1f18;
+  transform:translateY(-2px);
+  box-shadow:0 10px 28px rgba(196,150,58,.3);
+}
+
+/* Mobile Italic-Fix (PFLICHT) */
+@media (max-width:768px){
+  .rr-headline em,.rr-lead,.rr-close,.rr-room .rr-name{font-weight:400 !important;}
+  .rr-stage{padding:3.8rem 1.4rem 2rem;}
+  .rr-journey{max-width:340px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .rr-fade{animation:none;opacity:1;transform:none;}
+  .rr-particle,.rr-orb::after,.rr-station.rr-current .rr-halo{animation:none;}
+  .rr-orb,.rr-trail{transition:none;}
+}
 </style>
 </head>
 <body>
@@ -1505,31 +1702,77 @@
 ============================== -->
 <div id="screen-intro-2" class="screen">
 <div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S2</div>
-  <div>
-    <div class="intro-badge">BECOME HER · Bindungstyp-Test</div>
+<div class="rr-particles" id="rrParticles"></div>
 
-    <p class="intro-description" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,3.5vw,34px);line-height:1.5;">
-      Das hier ist kein Persönlichkeitstest. Es ist eine Erfahrung. Du antwortest nicht für ein Ergebnis. Du antwortest — und erkennst dich dabei selbst.
-    </p>
+<div class="rr-stage">
 
-    <div class="divider" style="margin:32px auto;"></div>
+  <div class="rr-eyebrow rr-fade rr-d1">BECOME HER · Bindungstyp-Test</div>
 
-    <p class="intro-description">
-      38 Fragen · 5 Blöcke · eine Analyse, die du vielleicht so noch nie gehört hast.
-    </p>
-    <p class="intro-description">
-      Zwischen den Blöcken kommen Atembereiche — weil es wichtig ist, dass du nicht aus dem Kopf antwortest, sondern aus deinem Körper.
-    </p>
-    <p class="intro-description">
-      Deswegen verbinden wir uns zuerst mit dir.
-    </p>
+  <h2 class="rr-headline rr-fade rr-d2">
+    Das hier ist kein Quiz.<br>
+    Es ist eine Einladung — dein Herz zu öffnen<br>
+    und deinen Körper <em>antworten zu lassen</em>.
+  </h2>
 
-    <div class="divider" style="margin:32px auto;"></div>
+  <p class="rr-lead rr-fade rr-d3">
+    Es geht weniger um deine Antwort.<br>
+    Es geht um das, was die Frage in dir bewegt.
+  </p>
 
-    <button class="btn-primary" onclick="startQuiz()">
-      Lass uns anfangen
-    </button>
+  <p class="rr-gate rr-fade rr-d4">Wir gehen durch <strong>fünf Räume</strong>.</p>
+
+  <div class="rr-journey rr-fade rr-d4">
+    <div class="rr-rail"></div>
+    <div class="rr-trail" id="rrTrail"></div>
+    <button type="button" class="rr-station" data-i="0" style="left:8%"><span class="rr-halo"></span><span class="rr-pin"></span></button>
+    <button type="button" class="rr-station" data-i="1" style="left:29%"><span class="rr-halo"></span><span class="rr-pin"></span></button>
+    <button type="button" class="rr-station" data-i="2" style="left:50%"><span class="rr-halo"></span><span class="rr-pin"></span></button>
+    <button type="button" class="rr-station" data-i="3" style="left:71%"><span class="rr-halo"></span><span class="rr-pin"></span></button>
+    <button type="button" class="rr-station" data-i="4" style="left:92%"><span class="rr-halo"></span><span class="rr-pin"></span></button>
+    <div class="rr-orb" id="rrOrb" style="left:8%"></div>
   </div>
+
+  <div class="rr-rooms rr-fade rr-d4" id="rrRooms">
+    <div class="rr-room" data-i="0">
+      <span class="rr-num">Raum I</span>
+      <span class="rr-name">Jetzt</span>
+      <span class="rr-sub">Wie es sich anfühlt, du zu sein. Heute.</span>
+    </div>
+    <div class="rr-room" data-i="1">
+      <span class="rr-num">Raum II</span>
+      <span class="rr-name">Er</span>
+      <span class="rr-sub">Was Nähe in dir auslöst, wenn er da ist.</span>
+    </div>
+    <div class="rr-room" data-i="2">
+      <span class="rr-num">Raum III</span>
+      <span class="rr-name">Du</span>
+      <span class="rr-sub">Wer du bist, wenn niemand hinsieht.</span>
+    </div>
+    <div class="rr-room" data-i="3">
+      <span class="rr-num">Raum IV</span>
+      <span class="rr-name">Früher</span>
+      <span class="rr-sub">Wo alles seinen Anfang nahm.</span>
+    </div>
+    <div class="rr-room" data-i="4">
+      <span class="rr-num">Raum V</span>
+      <span class="rr-name">Danach</span>
+      <span class="rr-sub">Was bleibt, wenn alle Fragen gestellt sind.</span>
+    </div>
+  </div>
+
+  <div class="rr-finale" id="rrFinale">
+    <p class="rr-breathnote">
+      Zwischen den Räumen liegt eine Atempause.
+      Damit dein Körper mitkommt — nicht nur dein Kopf.
+    </p>
+    <p class="rr-close">
+      Nimm dir Zeit. Niemand wartet auf dich.<br>
+      Außer du selbst.
+    </p>
+    <button type="button" class="rr-btn" onclick="startQuiz()">Den ersten Raum betreten</button>
+  </div>
+
+</div>
 </div>
 
 <!-- ==============================
@@ -2199,6 +2442,8 @@ function showScreen(id) {
   } else {
     stopBreathCycle();
   }
+
+  if (id === 'screen-intro-2') initRaumreise();
 }
 
 let breathTimers = [];
@@ -2532,6 +2777,89 @@ function resetQuiz() {
   userStatus = null;
   dominantType = null;
   showScreen('screen-intro');
+}
+/* ===== RAUMREISE — Seite 2 ===== */
+const RR_POSITIONS = [8, 29, 50, 71, 92];
+const RR_HOLD = 2200;
+const RR_TRAVEL = 1200;
+
+let rrCurrent = -1;
+let rrTimer = null;
+let rrDone = false;
+let rrStarted = false;
+
+function rrShowRoom(i){
+  rrCurrent = i;
+  const orb = document.getElementById('rrOrb');
+  const trail = document.getElementById('rrTrail');
+  orb.style.left = RR_POSITIONS[i] + '%';
+  trail.style.width = Math.max(0, RR_POSITIONS[i] - 8) + '%';
+  document.querySelectorAll('.rr-station').forEach((s, idx) => {
+    s.classList.toggle('rr-lit', idx <= i);
+    s.classList.toggle('rr-current', idx === i);
+  });
+  document.querySelectorAll('.rr-room').forEach((t, idx) => {
+    t.classList.toggle('rr-active', idx === i);
+  });
+}
+
+function rrAdvance(){
+  const next = rrCurrent + 1;
+  if(next >= RR_POSITIONS.length){
+    if(!rrDone){
+      rrDone = true;
+      document.getElementById('rrFinale').classList.add('rr-visible');
+    }
+    rrTimer = setTimeout(() => { rrShowRoom(0); rrSchedule(); }, 4000);
+    return;
+  }
+  rrShowRoom(next);
+  rrSchedule();
+}
+
+function rrSchedule(){
+  clearTimeout(rrTimer);
+  rrTimer = setTimeout(rrAdvance, RR_HOLD + RR_TRAVEL);
+}
+
+function initRaumreise(){
+  if(rrStarted) return;   // nur einmal starten
+  rrStarted = true;
+
+  // Goldstaub
+  const wrap = document.getElementById('rrParticles');
+  if(wrap){
+    const count = window.innerWidth < 600 ? 12 : 18;
+    for(let i = 0; i < count; i++){
+      const p = document.createElement('div');
+      p.className = 'rr-particle';
+      const size = 2 + Math.random() * 4;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = (60 + Math.random() * 50) + '%';
+      p.style.animationDuration = (16 + Math.random() * 18) + 's';
+      p.style.animationDelay = (Math.random() * 18) + 's';
+      wrap.appendChild(p);
+    }
+  }
+
+  // Stationen antippbar
+  document.querySelectorAll('.rr-station').forEach(s => {
+    s.addEventListener('click', () => {
+      clearTimeout(rrTimer);
+      rrShowRoom(parseInt(s.dataset.i, 10));
+      rrSchedule();
+    });
+  });
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced){
+    rrShowRoom(0);
+    document.getElementById('rrFinale').classList.add('rr-visible');
+  } else {
+    setTimeout(() => { rrShowRoom(0); rrSchedule(); }, 2200);
+  }
 }
 </script>
 </body>
