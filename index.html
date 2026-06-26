@@ -277,15 +277,15 @@
     margin-bottom: 48px;
   }
 
-  .breath-text {
+    .breath-text {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 22px;
-    color: var(--cream);
+    font-size: clamp(24px, 5.5vw, 30px);
+    color: var(--text-primary);
   }
 
   .breath-subtext {
-    font-size: 13px;
+    font-size: clamp(16px, 4vw, 18px);
     color: var(--text-muted);
     font-style: italic;
     margin-bottom: 48px;
@@ -424,7 +424,7 @@
 
   .question-note {
     font-size: 15px;
-    color: rgba(255,255,255,0.7);
+    color: var(--gold);
     font-style: italic;
     margin-bottom: 32px;
     line-height: 1.5;
@@ -492,7 +492,7 @@
     font-size: clamp(24px, 5vw, 36px);
     font-weight: 300;
     font-style: italic;
-    color: var(--cream);
+    color: var(--text-primary);
     margin-bottom: 40px;
     opacity: 0;
     animation: fadeIn 1s 0.5s ease both;
@@ -544,10 +544,10 @@
 
   .q38-question {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 3vw, 24px);
+    font-size: clamp(28px, 6.5vw, 44px);
     font-weight: 300;
     line-height: 1.3;
-    max-width: 520px;
+    max-width: 620px;
     margin: 0 auto 24px;
   }
 
@@ -578,7 +578,7 @@
 
   .status-subtitle {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    font-size: clamp(19px, 4.5vw, 23px);
     color: var(--text-muted);
     margin-bottom: 40px;
     font-style: italic;
@@ -608,7 +608,7 @@
   }
   .status-option:hover, .status-option.selected {
     border-color: var(--gold);
-    color: var(--cream);
+    color: var(--text-primary);
     background: rgba(var(--gold-rgb),0.08);
     text-shadow: 0 0 20px rgba(var(--gold-rgb),0.4);
   }
@@ -664,7 +664,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(36px, 6vw, 56px);
     font-weight: 300;
-    color: var(--cream);
+    color: var(--text-primary);
     margin-bottom: 32px;
     line-height: 1.2;
   }
@@ -783,11 +783,12 @@
   }
 
   .abschluss-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(18px, 2.5vw, 22px);
-    color: var(--cream);
-    line-height: 1.65;
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: clamp(18px, 4.6vw, 20px);
+    color: var(--text-primary);
+    line-height: 1.8;
     margin: 0 auto 24px;
     max-width: 720px;
   }
@@ -798,7 +799,7 @@
     font-weight: 300;
     line-height: 1.2;
     letter-spacing: -0.5px;
-    color: var(--cream);
+    color: var(--text-primary);
     margin-bottom: 24px;
   }
   .abschluss-statement em {
@@ -812,7 +813,7 @@
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.5px;
-    color: var(--cream);
+    color: var(--text-primary);
     margin-bottom: 16px;
   }
   .abschluss-main em {
@@ -826,7 +827,7 @@
     font-weight: 300;
     line-height: 1.2;
     letter-spacing: -0.5px;
-    color: var(--cream);
+    color: var(--text-primary);
     margin-bottom: 24px;
   }
   .abschluss-subline em {
@@ -865,7 +866,7 @@
     transition: color 0.2s;
   }
   .abschluss-restart:hover {
-    color: var(--cream);
+    color: var(--text-primary);
   }
 
   .bilateral-hint {
@@ -1014,7 +1015,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(20px, 3vw, 28px);
     font-weight: 300;
-    color: var(--cream);
+    color: var(--text-primary);
     display: block;
     margin: 24px 0;
     line-height: 1.3;
@@ -1196,7 +1197,7 @@
     border: 1px solid var(--dark-border);
     color: var(--text-light);
   }
-  .btn-offer-secondary:hover { border-color: var(--gold); color: var(--cream); }
+  .btn-offer-secondary:hover { border-color: var(--gold); color: var(--text-primary); }
 
   .result-footer {
     padding: 32px 24px;
@@ -1220,7 +1221,7 @@
     display: block;
     margin: 0 auto 24px;
   }
-  .result-restart:hover { color: var(--cream); }
+  .result-restart:hover { color: var(--text-primary); }
 
   .disclaimer {
     font-size: 11px;
@@ -1258,7 +1259,7 @@
     font-size: clamp(28px, 4.5vw, 42px);
     font-weight: 300;
     text-align: center;
-    color: var(--cream);
+    color: var(--text-primary);
     margin-bottom: 12px;
   }
 
@@ -1299,7 +1300,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(20px, 3vw, 26px);
     font-weight: 400;
-    color: var(--cream);
+    color: var(--text-primary);
     margin-bottom: 16px;
     line-height: 1.4;
   }
@@ -1307,7 +1308,7 @@
   .session-prep-textarea {
     background: var(--dark-card);
     border: 1px solid rgba(var(--gold-rgb),0.3);
-    color: var(--cream);
+    color: var(--text-primary);
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 17px;
@@ -1349,14 +1350,14 @@
   }
   .chip.active {
     border-color: var(--gold);
-    color: var(--cream);
+    color: var(--text-primary);
     background: rgba(var(--gold-rgb), 0.1);
   }
 
   .chip-textarea {
     background: var(--dark-card);
     border: 1px solid rgba(var(--gold-rgb), 0.3);
-    color: var(--cream);
+    color: var(--text-primary);
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 16px;
@@ -1379,18 +1380,21 @@
   }
 
   .session-prep-instructions {
-    background: var(--dark-card);
-    border: 1px solid rgba(var(--gold-rgb),0.4);
-    padding: 32px;
+    background: rgba(253, 250, 246, 0.7);
+    border: 1px solid rgba(var(--gold-rgb),0.3);
+    border-radius: 18px;
+    padding: 30px 26px;
     text-align: center;
     margin: 32px auto 40px;
+    max-width: 560px;
   }
   .session-prep-instructions p {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(18px, 2.5vw, 22px);
-    line-height: 1.7;
-    color: var(--cream);
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: clamp(17px, 4.4vw, 19px);
+    line-height: 1.9;
+    color: var(--text-primary);
     margin: 0;
   }
 
@@ -1663,6 +1667,938 @@
   .rr-particle,.rr-orb::after,.rr-station.rr-current .rr-halo{animation:none;}
   .rr-orb,.rr-trail{transition:none;}
 }
+
+  /* ==============================
+     ERLEBNIS-UMBAU — Schwelle · Pfad · Verdichtung · Zeremonie
+  ============================== */
+
+  /* ---- Schwelle (Block-Intro): gestaffelte Ankunft ---- */
+  .thr-anim-num {
+    opacity: 0;
+    animation: thrFadeUp 1.4s 0.2s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .thr-anim-eyebrow {
+    opacity: 0;
+    animation: thrFadeUp 1.4s 0.6s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .thr-anim-name {
+    opacity: 0;
+    transform: scale(1.5);
+    filter: blur(10px);
+    animation: thrSchleier 2.2s 1s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .thr-anim-desc {
+    opacity: 0;
+    animation: thrFadeUp 1.6s 2.3s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .thr-anim-cta {
+    opacity: 0;
+    animation: thrFadeUp 1.6s 3.2s ease forwards;
+  }
+  @keyframes thrFadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes thrSchleier {
+    to { opacity: 1; transform: scale(1); filter: blur(0); }
+  }
+
+  /* ---- Atem-Screens: Button erscheint erst nach dem Atemzug ---- */
+  .breath-cta {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.6s ease;
+  }
+  .breath-cta.ready {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ---- Raum-Pfad im Quiz (ersetzt Block-Label) ---- */
+  .mini-path {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 100;
+  }
+  .mini-path .mp-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(122,94,78,0.25);
+    transition: all 0.8s ease;
+  }
+  .mini-path .mp-line {
+    width: 14px; height: 1px;
+    background: rgba(196,150,58,0.25);
+  }
+  .mini-path .mp-dot.done {
+    background: var(--gold);
+    box-shadow: 0 0 8px rgba(196,150,58,0.5);
+  }
+  .mini-path .mp-dot.now {
+    background: var(--gold-1, #e8c06a);
+    animation: mpBreathe 3.5s ease-in-out infinite;
+    box-shadow: 0 0 12px rgba(232,192,106,0.8);
+  }
+  @keyframes mpBreathe {
+    0%, 100% { transform: scale(1); opacity: 0.75; }
+    50%      { transform: scale(1.5); opacity: 1; }
+  }
+
+  /* ---- Antwort: Nachklang + sanfter Übergang ---- */
+  .answer-option.selected {
+    box-shadow: 0 0 24px rgba(196,150,58,0.35);
+  }
+  .question-container.leaving {
+    opacity: 0;
+    transform: translateY(-16px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  /* ---- Verdichtung (ersetzt Lade-Punkte) ---- */
+  .vd-track {
+    position: relative;
+    width: 100%; max-width: 380px; height: 100px;
+    margin: 0 auto 24px;
+  }
+  .vd-rail {
+    position: absolute; top: 50%; left: 8%; right: 8%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(196,150,58,0.35), transparent);
+    transform: translateY(-50%);
+  }
+  .vd-orb {
+    position: absolute; top: 50%; left: 50%;
+    width: 46px; height: 46px;
+    margin: -23px 0 0 -23px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 32%, #fff8ec 0%, var(--gold-1, #e8c06a) 40%, var(--gold) 80%, #b8842a 100%);
+    box-shadow:
+      inset 0 0 8px rgba(255,248,236,0.4),
+      0 0 24px 3px rgba(232,192,106,0.55),
+      0 0 60px 12px rgba(232,192,106,0.3);
+    animation: vdBilat 2.6s cubic-bezier(0.45,0,0.55,1) infinite;
+  }
+  @keyframes vdBilat {
+    0%, 100% { transform: translateX(-130px); }
+    50%      { transform: translateX(130px); }
+  }
+  .vd-lines {
+    position: relative;
+    min-height: 80px; width: 100%; max-width: 460px;
+    margin: 2.4rem auto 0;
+  }
+  .vd-line {
+    position: absolute; left: 0; right: 0; top: 0;
+    display: block; text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-weight: 400;
+    font-size: clamp(23px, 5.6vw, 30px);
+    line-height: 1.45;
+    color: var(--text-primary);
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 1.1s ease, transform 1.3s cubic-bezier(0.22,1,0.36,1);
+    padding: 0 24px;
+  }
+  .vd-line em { display: inline; white-space: normal; }
+  .vd-line.on { opacity: 1; transform: translateY(0); }
+  .vd-line.off { opacity: 0; transform: translateY(-14px); transition: opacity 0.9s ease, transform 1.1s ease; }
+  .vd-line em { color: #c4963a; font-style: italic; }
+
+  /* ---- Ergebnis: Zeremonie ---- */
+  .rs-a1 {
+    opacity: 0;
+    animation: thrSchleier 2.4s 0.3s cubic-bezier(0.22,1,0.36,1) forwards;
+    transform: translateX(-50%) scale(1.4);
+    filter: blur(8px);
+  }
+  @keyframes rsSchleierCode {
+    to { opacity: 1; transform: translateX(-50%) scale(1); filter: blur(0); }
+  }
+  .result-type-code.rs-a1 { animation-name: rsSchleierCode; }
+  .rs-a2 { opacity: 0; animation: thrFadeUp 1.4s 1.4s ease forwards; }
+  .rs-a3 { opacity: 0; animation: thrFadeUp 1.6s 1.8s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .rs-a4 { opacity: 0; animation: thrFadeUp 1.6s 2.2s ease forwards; }
+  .rs-a5 { opacity: 0; animation: thrFadeUp 1.6s 2.6s ease forwards; }
+  .rs-a6 { opacity: 0; animation: thrFadeUp 1.8s 3.1s ease forwards; }
+
+  @media (max-width: 420px) {
+    @keyframes vdBilat {
+      0%, 100% { transform: translateX(-100px); }
+      50%      { transform: translateX(100px); }
+    }
+  }
+  @media (max-width: 768px) {
+    .vd-line, .thr-anim-name em { font-weight: 400 !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .thr-anim-num, .thr-anim-eyebrow, .thr-anim-name, .thr-anim-desc, .thr-anim-cta,
+    .rs-a1, .rs-a2, .rs-a3, .rs-a4, .rs-a5, .rs-a6 {
+      animation-duration: 0.01s !important;
+      animation-delay: 0s !important;
+    }
+    .breath-cta { opacity: 1; pointer-events: auto; transition: none; }
+    .vd-orb, .mini-path .mp-dot.now { animation: none; }
+  }
+
+  /* ==============================
+     ERLEBNIS-PAKET 2 — Raumlicht · Staffelung · Spirale · Fixes
+  ============================== */
+
+  /* S1: mittig, mit Raum */
+  #screen-intro { justify-content: center; }
+
+  /* S2: ohne Eyebrow rückt alles hoch, Texte größer */
+  .rr-stage { padding-top: 2.2rem; }
+  .rr-lead { font-size: clamp(1.3rem, 5vw, 1.65rem); }
+  .rr-gate { font-size: 1.12rem; }
+  .rr-room .rr-sub { font-size: clamp(1.05rem, 4.2vw, 1.2rem); }
+
+  /* Raumlicht: jeder Block hat seine Atmosphäre */
+  #screen-quiz { transition: background 2.4s ease; }
+  #screen-quiz[data-block="0"] { background: radial-gradient(ellipse 85% 55% at 50% 0%, rgba(232,192,106,.22), transparent 60%), var(--cream); }
+  #screen-quiz[data-block="1"] { background: radial-gradient(ellipse 80% 60% at 50% 10%, rgba(196,150,58,.20), transparent 62%), #f2e9dc; }
+  #screen-quiz[data-block="2"] { background: radial-gradient(ellipse 90% 50% at 50% 0%, rgba(253,250,246,.9), transparent 65%), #f7f2ea; }
+  #screen-quiz[data-block="3"] { background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(122,94,78,.16), transparent 65%), #ece2d2; }
+  #screen-quiz[data-block="4"] { background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(255,252,246,.95), transparent 70%), #faf6ef; }
+
+  .room-mark {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -54%);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-weight: 300;
+    font-size: clamp(16rem, 55vw, 24rem); line-height: 1;
+    color: rgba(196,150,58,.07);
+    pointer-events: none; user-select: none; z-index: 0;
+  }
+  .question-container { position: relative; z-index: 1; }
+
+  /* Frage in Sinneinheiten */
+  .question-text .unit { opacity: 0; transform: translateY(8px); display: inline; }
+  .question-text .unit.on {
+    opacity: 1; transform: translateY(0);
+    transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);
+  }
+  .question-note { opacity: 0; }
+  .question-note.on { opacity: 1; transition: opacity 1s ease .15s; }
+
+  /* Antworten: Glas, gestaffelt, Wahl mit Gewicht */
+  .answer-option {
+    background: rgba(253,250,246,.62) !important;
+    border: 1px solid rgba(196,150,58,.22) !important;
+    border-radius: 14px !important;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(42,31,24,.04);
+    opacity: 0; transform: translateY(16px);
+    transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .5s ease,
+      border-color .4s ease, box-shadow .5s ease, color .4s ease, background .5s ease !important;
+  }
+  .answer-option.in { opacity: 1; transform: translateY(0); }
+  @media (hover:hover) {
+    .answer-option:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196,150,58,.5) !important;
+      box-shadow: 0 8px 26px rgba(196,150,58,.14);
+    }
+  }
+  .answer-option.selected {
+    background: rgba(253,250,246,.95) !important;
+    border-color: var(--gold) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 0 0 1px rgba(196,150,58,.4), 0 10px 36px rgba(196,150,58,.3);
+    transform: translateY(-2px) scale(1.012);
+  }
+  .answers-grid.decided .answer-option:not(.selected) {
+    opacity: .32; transform: scale(.99); filter: saturate(.6);
+  }
+
+  /* Q38: Spirale + Eingabefeld */
+  /* Alte Spirale (Q38 nutzt sie nicht mehr) */
+  .spiral-wrap {
+    position: relative; width: 210px; height: 210px;
+    margin: 0 auto 1.6rem;
+  }
+  .spiral-glow {
+    position: absolute; inset: -30px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,192,106,.30) 0%, rgba(232,192,106,.08) 50%, transparent 70%);
+  }
+  .spiral-wrap svg { position: relative; width: 100%; height: 100%; }
+  #spiralLine {
+    fill: none; stroke: var(--gold-1, #e8c06a); stroke-width: 1.3;
+    stroke-linecap: round; opacity: .85;
+  }
+  #spiralDot { fill: #fff8ec; }
+  .spiral-wrap-sm { width: 170px; height: 170px; }
+
+  /* ============================================
+     VISION — glühende Spirale (Verdichtung S10)
+  ============================================ */
+  .vision-wrap {
+    position: relative;
+    width: min(78vw, 300px);
+    height: min(78vw, 300px);
+    margin: 0 auto;
+  }
+  .vision-aura {
+    position: absolute; inset: -12%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,243,214,.55) 0%, rgba(232,192,106,.28) 38%, rgba(232,192,106,.06) 62%, transparent 75%);
+    animation: visionBreath 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .vision-aura-2 {
+    inset: 4%;
+    background: radial-gradient(circle, rgba(255,253,248,.6) 0%, rgba(255,238,191,.25) 40%, transparent 70%);
+    animation: visionBreath 6s ease-in-out infinite 1.2s;
+    opacity: .8;
+  }
+  @keyframes visionBreath {
+    0%,100% { opacity: .5; transform: scale(.9); }
+    50%     { opacity: 1; transform: scale(1.08); }
+  }
+  .vision-svg {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    overflow: visible;
+  }
+  .vision-trail {
+    stroke: url(#lineGrad);
+    stroke-width: 5.5;
+    stroke-linecap: round;
+    opacity: .35;
+    filter: blur(3px) drop-shadow(0 0 8px rgba(232,192,106,.6));
+  }
+  .vision-line {
+    stroke: url(#lineGrad);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 3px rgba(255,238,191,.9)) drop-shadow(0 0 7px rgba(232,192,106,.7));
+  }
+  .vision-head {
+    fill: url(#coreGrad);
+    filter: drop-shadow(0 0 6px rgba(255,243,214,1)) drop-shadow(0 0 16px rgba(232,192,106,.9)) drop-shadow(0 0 28px rgba(196,150,58,.6));
+  }
+  .vision-spark { position: absolute; inset: 0; pointer-events: none; }
+  .vision-spark i {
+    position: absolute;
+    width: 3px; height: 3px; border-radius: 50%;
+    background: #fff3d6;
+    box-shadow: 0 0 6px 1px rgba(255,238,191,.9);
+    opacity: 0;
+    animation: sparkRise var(--dur,3s) ease-out var(--del,0s) infinite;
+  }
+  @keyframes sparkRise {
+    0%   { opacity: 0; transform: translateY(0) scale(.6); }
+    20%  { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-46px) scale(1.1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vision-aura, .vision-aura-2, .vision-spark i { animation: none; }
+  }
+  .q38-input {
+    width: 100%; max-width: 560px;
+    min-height: 110px;
+    margin: 0 auto 24px;
+    padding: 20px 22px;
+    background: rgba(253,250,246,.8);
+    border: 1px solid rgba(196,150,58,.35);
+    border-radius: 14px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(18px, 4.5vw, 22px);
+    line-height: 1.6;
+    color: var(--text-primary);
+    resize: vertical;
+    text-align: center;
+  }
+  .q38-input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 24px rgba(196,150,58,.18); }
+  .q38-input::placeholder { color: var(--text-light); }
+
+  /* Beziehungs-Reframe */
+  .breath-reframe, .block-reframe {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(17px, 4.2vw, 20px);
+    line-height: 1.6;
+    color: var(--gold);
+    max-width: 460px;
+    margin: 0 auto 40px;
+  }
+  .block-reframe { margin: -16px auto 36px; }
+  .block-reframe:empty { display: none; }
+
+  /* Ergebnis: Kursiv-Zitate mittig */
+  .result-text em { text-align: center; }
+
+  /* Session: Kugel an den Rändern begrenzen (überschreibt ±600px) */
+  .bilateral-stage { overflow: hidden; width: 100%; }
+
+  /* Session: dezenter Beenden-Button */
+  .bilateral-end {
+    position: absolute;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    left: 50%; transform: translateX(-50%);
+    background: none; border: none; cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--text-light);
+    opacity: .55; transition: opacity .3s ease;
+    padding: 10px 16px;
+  }
+  .bilateral-end:hover { opacity: 1; }
+
+  /* S15: Quer-Hinweis + Disclaimer */
+  .audio-hint {
+    font-size: 14px; font-style: italic;
+    color: var(--text-muted);
+    margin-top: 20px; line-height: 1.6;
+  }
+  .audio-disclaimer {
+    font-size: 12px; font-style: italic;
+    color: var(--text-light);
+    margin-top: 14px; line-height: 1.6;
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .audio-disclaimer strong {
+    font-style: normal; font-weight: 500; color: var(--gold);
+  }
+
+  /* S14: Lesbarkeit Web + Mobil */
+  .session-prep-intro { font-size: clamp(18px, 4.5vw, 21px); }
+  .session-prep-textarea { font-size: 16px !important; }
+  .chip { font-size: 15px !important; min-height: 44px; }
+
+  @media (max-width: 768px) {
+    .question-text .unit, .q38-input, .breath-reframe, .block-reframe { font-weight: 400 !important; }
+    .room-mark { font-weight: 400 !important; }
+    .session-prep-step-question { font-size: clamp(19px, 5vw, 23px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .question-text .unit, .answer-option { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .question-note { opacity: 1 !important; }
+    .spiral-glow { animation: none; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF — Zwei Stimmen · Mobile-Größen · Abstände
+     Stimme 1: Outfit, dunkel (Inhalt)
+     Stimme 2: Cormorant kursiv, gold (Akzent)
+  ============================== */
+
+  /* Fragen: Inhalt beginnt oben, keine Leere */
+  #screen-quiz {
+    justify-content: flex-start;
+    padding-top: 96px;
+  }
+
+  /* Atem-Screens: eine Stimme unter der Kugel */
+  .breath-text {
+    color: #b8842a;
+    font-size: clamp(26px, 6vw, 32px);
+  }
+  .breath-subtext { display: none; }
+  .breath-reframe {
+    color: #b8842a;
+    opacity: .85;
+    font-size: clamp(16px, 4.2vw, 19px);
+    margin-top: 8px;
+  }
+
+  /* Ergebnis-Kopf: lesbar */
+  .result-short {
+    color: rgba(42,31,24,.85);
+  }
+
+  /* Ergebnis-Geschichte: eine Inhalts-Stimme (Outfit dunkel),
+     eine Akzent-Stimme (Cormorant gold, mittig) */
+  .result-text {
+    color: rgba(42,31,24,.88);
+  }
+  .result-text p {
+    font-family: 'Outfit', sans-serif;
+    color: rgba(42,31,24,.88);
+  }
+  .result-text strong {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-family: 'Outfit', sans-serif;
+    font-size: inherit;
+  }
+  .result-text em {
+    font-family: 'Cormorant Garamond', serif;
+    color: #b8842a;
+    display: block;
+    text-align: center;
+    margin: 18px 0;
+  }
+
+  /* Session-Vorbereitung & Abschluss: gleiche zwei Stimmen */
+  .session-prep-intro { color: #b8842a; }
+  .session-prep-step-question { color: var(--text-primary); }
+
+  /* ===== MOBILE: alles eine Stufe größer ===== */
+  @media (max-width: 768px) {
+    .question-text {
+      font-size: 23px !important;
+      line-height: 1.45 !important;
+    }
+    .question-note { font-size: 17px !important; }
+    .answer-option {
+      font-size: 17px !important;
+      line-height: 1.6 !important;
+      padding: 18px 20px !important;
+    }
+    #screen-quiz { padding-top: 84px; }
+    .quiz-counter { font-size: 13px; }
+
+    .breath-text { font-weight: 400 !important; }
+    .breath-reframe { font-weight: 400 !important; }
+
+    .block-desc { font-size: 20px !important; }
+    .block-reframe { font-size: 17px !important; }
+
+    .result-short { font-size: 20px !important; line-height: 1.65 !important; font-weight: 400 !important; }
+    .result-text { font-size: 17px !important; line-height: 1.8 !important; }
+    .result-text p { font-size: 17px !important; }
+    .result-text em { font-size: 21px !important; font-weight: 400 !important; }
+    .result-section-label { font-size: 12px; }
+    .percent-bar-label { font-size: 15px !important; }
+    .percent-bar-value { font-size: 14px !important; }
+
+    .q38-note { font-size: 16px !important; }
+    .status-option { font-size: 16px !important; padding: 18px 12px !important; }
+
+    .session-prep-intro { font-size: 19px !important; font-weight: 400 !important; }
+    .session-prep-step-question { font-size: 21px !important; }
+    .session-prep-textarea { font-size: 17px !important; }
+
+    .audio-screen-title { font-size: clamp(30px, 8vw, 40px) !important; }
+    .affirmation-box p { font-size: 20px !important; font-weight: 400 !important; }
+    .audio-hint { font-size: 15px !important; }
+
+    .abschluss-container p { font-size: 17px !important; line-height: 1.75 !important; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF 2 — Atem-Screens · Reframe-Kästen · Fragen-Maß
+  ============================== */
+
+  /* "Komm einen Moment bei dir an." in der ATME-Schrift */
+  .breath-text {
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    font-size: clamp(14px, 3.8vw, 17px) !important;
+    line-height: 1.8;
+    max-width: 22ch;
+    margin: 0 auto;
+  }
+
+  /* Reframe-Texte: heller Kasten, leicht transparent, größer */
+  .breath-reframe, .block-reframe {
+    background: rgba(253, 250, 246, 0.6);
+    border: 1px solid rgba(196, 150, 58, 0.25);
+    border-radius: 14px;
+    padding: 20px 22px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-size: clamp(17px, 4.4vw, 20px);
+    line-height: 1.65;
+    opacity: 1;
+    max-width: 480px;
+  }
+  .breath-reframe { margin: 28px auto 40px; }
+  .block-reframe { margin: 0 auto 36px; }
+  .block-reframe:empty { display: none; padding: 0; border: none; }
+
+  /* Atem-Screens: Weiter-Button braucht Luft */
+  .breath-cta { margin-top: 48px; }
+
+  /* Raumreise: Atempausen-Notiz größer */
+  .rr-breathnote { font-size: clamp(16px, 4.2vw, 18px) !important; }
+
+  /* Fragen: eine Spur kleiner, engere Zeilen */
+  @media (max-width: 768px) {
+    .question-text {
+      font-size: 21px !important;
+      line-height: 1.4 !important;
+    }
+    .breath-reframe, .block-reframe { font-size: 17px !important; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF 3 — Atem rein · Seite 2 enger · Reframe unten
+  ============================== */
+
+  /* Seite 2: oberer Block engmaschiger */
+  .rr-headline { line-height: 1.22 !important; }
+  .rr-lead { line-height: 1.4 !important; margin-top: 1.2rem !important; }
+  .rr-gate { margin-top: 1.8rem !important; }
+
+  /* Reframe-Box auf Seite 2, ganz unten vor dem Button */
+  .rr-reframe-box {
+    background: rgba(253, 250, 246, 0.6);
+    border: 1px solid rgba(196, 150, 58, 0.25);
+    border-radius: 14px;
+    padding: 18px 20px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(16px, 4.2vw, 19px);
+    line-height: 1.6;
+    color: #b8842a;
+    max-width: 440px;
+    margin: 2.4rem auto 0;
+  }
+  @media (max-width: 768px) {
+    .rr-reframe-box { font-weight: 400 !important; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF 5 — Chips · S16 · Spiralen · Verankerung · Session-Rotation
+  ============================== */
+
+  /* Chips: kein horizontaler Überlauf, 5er-Grid bricht sauber */
+  .chips-grid-5 { grid-template-columns: repeat(4, 1fr) !important; }
+  @media (max-width: 480px) {
+    .chips-grid-4, .chips-grid-5 { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+  .chip { white-space: normal; word-break: break-word; }
+
+  /* S16 Abschluss: Fließtext lesbar groß */
+  .abschluss-container p {
+    font-size: clamp(18px, 4.6vw, 21px);
+    line-height: 1.8;
+  }
+
+  /* Verdichtungs-Spirale: größer & imposanter mit Goldlicht */
+
+
+  /* Verankerung (S14): goldener Intro-Text lesbar */
+  .session-prep-intro {
+    color: #9c6f1f !important;
+  }
+
+
+  @media (max-width: 768px) {
+    .abschluss-container p { font-size: 18px !important; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF 6 — S1 höher · S2-Kopf gestaffelt · Reframe lesbar
+  ============================== */
+
+  /* S1: Inhalt etwas höher, nicht ganz oben */
+  #screen-intro { justify-content: flex-start; padding-top: 16vh; }
+
+  /* S2: Eröffnung wie eine Schwelle — Zeilen erscheinen nacheinander, mit Größenstaffel */
+  .rr-opening { margin-bottom: 2.6rem; }
+  .rr-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    color: var(--text-primary);
+    line-height: 1.28;
+    margin: 0 auto 0.5rem;
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .rr-line em { font-style: italic; color: #b8842a; }
+  .rr-l1 { font-size: clamp(1.7rem, 6vw, 2.3rem); }
+  .rr-l2 { font-size: clamp(1.9rem, 6.8vw, 2.6rem); }
+  .rr-l3 { font-size: clamp(1.5rem, 5vw, 2rem); margin-top: 0.4rem; }
+  .rr-l4 {
+    font-style: italic;
+    font-size: clamp(1.15rem, 4vw, 1.4rem);
+    color: var(--text-muted);
+    max-width: 26ch;
+    margin-top: 1.6rem;
+  }
+  .rr-line.on {
+    opacity: 1; transform: translateY(0);
+    transition: opacity 1.2s cubic-bezier(.22,1,.36,1), transform 1.2s cubic-bezier(.22,1,.36,1);
+  }
+
+  /* Reframe-Box auf S2: lesbarer, dunkleres Gold, größer */
+  .rr-reframe-box {
+    color: #8a5e1a !important;
+    font-size: clamp(17px, 4.4vw, 20px) !important;
+    line-height: 1.65 !important;
+    background: rgba(253, 250, 246, 0.75) !important;
+  }
+
+  @media (max-width: 768px) {
+    .rr-line em { font-weight: 400 !important; }
+    .rr-l4 { font-weight: 400 !important; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF 7 — S2 als eine ruhige Reise
+  ============================== */
+
+  /* Untertitel-Zeile größer */
+  .rr-l4 { font-size: clamp(1.3rem, 4.6vw, 1.6rem) !important; }
+
+  /* Alles auf S2 erscheint über eine Sequenz — kein Block-Sprung */
+  .rr-seq {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  .rr-seq.on {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.6s cubic-bezier(.22,1,.36,1), transform 1.6s cubic-bezier(.22,1,.36,1);
+  }
+
+  /* ==============================
+     SESSION — echtes Querformat-Popup (ohne Gerät drehen)
+  ============================== */
+  .bilateral-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: var(--cream);
+    z-index: 99999;
+    overflow: hidden;
+  }
+  .bilateral-overlay.active { display: block; }
+
+  /* Rotor: dreht den Inhalt um 90°, sodass die Kugel im Hochformat
+     waagerecht über die lange Bildschirmseite läuft */
+  .bilateral-rotor {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 100vh;
+    height: 100vw;
+    transform: translate(-50%, -50%) rotate(90deg);
+    transform-origin: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Auf echten Querformat-Geräten (Tablet quer) nicht drehen */
+  @media (orientation: landscape) and (min-width: 760px) {
+    .bilateral-rotor {
+      width: 100vw; height: 100vh;
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+
+  .bilateral-track {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .bilateral-overlay .bilateral-ball {
+    background: radial-gradient(circle at 35% 32%, #fff8ec 0%, var(--gold-1) 40%, var(--gold) 80%, #b8842a 100%);
+  }
+  .bilateral-overlay .bilateral-ball.running {
+    animation: bilatOverlayMove 2.6s ease-in-out infinite alternate;
+  }
+  @keyframes bilatOverlayMove {
+    from { transform: translateX(calc(-44vh + 30px)); }
+    to   { transform: translateX(calc(44vh - 30px)); }
+  }
+  @media (orientation: landscape) and (min-width: 760px) {
+    @keyframes bilatOverlayMove {
+      from { transform: translateX(calc(-44vw + 30px)); }
+      to   { transform: translateX(calc(44vw - 30px)); }
+    }
+  }
+
+  .bilateral-end {
+    margin-bottom: 24px;
+    background: none; border: 1px solid rgba(196,150,58,.4);
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold-d, #b8842a);
+    opacity: .8; transition: opacity .3s ease;
+    padding: 12px 28px;
+  }
+  .bilateral-end:hover { opacity: 1; background: rgba(196,150,58,.08); }
+
+  /* ==============================
+     FEINSCHLIFF 8 — Abschluss (S16) & Upsell (S17) Fließtexte größer
+  ============================== */
+  .abschluss-container p {
+    font-size: clamp(19px, 4.8vw, 22px) !important;
+    line-height: 1.85 !important;
+  }
+  .offer-desc {
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    color: var(--text-muted) !important;
+  }
+  .offer-price { font-size: 15px !important; }
+  .cta-question { font-size: clamp(17px, 4.4vw, 20px) !important; }
+
+  @media (max-width: 768px) {
+    .abschluss-container p { font-size: 19px !important; }
+    .offer-desc { font-size: 16px !important; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF 9 — S2 Untertitel & Reframe-Box dunkel/lesbar
+  ============================== */
+  .rr-l4 { color: var(--text-primary) !important; }
+  .rr-lead { color: var(--text-primary) !important; }
+  .rr-reframe-box {
+    color: var(--text-primary) !important;
+    background: rgba(253, 250, 246, 0.85) !important;
+    border-color: rgba(196, 150, 58, 0.35) !important;
+  }
+
+  /* ==============================
+     FEINSCHLIFF 10 — Goldkursive überall lesbar (mobil)
+     dunkleres, sattes Gold + festeres Gewicht + größer
+  ============================== */
+  .session-prep-intro,
+  .audio-affirmation,
+  .affirmation-box p,
+  .rr-reframe-box,
+  .breath-reframe,
+  .block-reframe,
+  .vd-line em,
+  .result-text em,
+  .rr-l4,
+  .q38-note {
+    color: #a87521 !important;
+  }
+  @media (max-width: 768px) {
+    .session-prep-intro { font-size: 20px !important; line-height: 1.7 !important; font-weight: 500 !important; }
+    .affirmation-box p, .audio-affirmation { font-size: 21px !important; font-weight: 500 !important; line-height: 1.6 !important; }
+    .vd-line { font-weight: 500 !important; }
+    .vd-line em { font-weight: 500 !important; }
+    .result-text em { font-size: 22px !important; font-weight: 500 !important; }
+    .rr-reframe-box { font-size: 19px !important; font-weight: 500 !important; }
+    .rr-l4 { font-weight: 500 !important; }
+    .q38-note { font-size: 17px !important; }
+    .session-prep-instruction, .session-prep-instruction p { font-size: 18px !important; line-height: 1.7 !important; }
+  }
+
+  /* ==============================
+     FEINSCHLIFF 11 — S13 Reihenfolge & Gold satter
+  ============================== */
+  .rs-body-anim {
+    opacity: 0;
+    animation: thrFadeUp 1.6s 3.9s ease forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rs-body-anim { opacity: 1; animation: none; }
+  }
+  .result-subname,
+  .result-tagline,
+  .session-prep-label,
+  .result-section-label,
+  .audio-screen-label,
+  .eyebrow,
+  .block-eyebrow {
+    color: #b8842a !important;
+  }
+  .rr-name, .thr-anim-name em { color: #c4963a !important; }
+
+
+  /* ==============================
+     S17 — schlanke Feminin-Reset-Einladung
+  ============================== */
+  .offer-single {
+    background: #ffffff;
+    border: 1px solid rgba(196,150,58,.28);
+    border-radius: 18px;
+    padding: 40px 28px 34px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px rgba(176,132,42,.10);
+  }
+  .offer-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px; letter-spacing: .32em; text-transform: uppercase;
+    color: #b8842a; text-align: center; margin-bottom: 14px;
+  }
+  .offer-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400; font-style: italic;
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    color: var(--text-primary);
+    text-align: center; line-height: 1.1; margin: 0 0 10px;
+  }
+  .offer-sub {
+    font-family: 'Outfit', sans-serif; font-weight: 300;
+    font-size: clamp(15px, 4vw, 17px);
+    color: #a87521; text-align: center;
+    margin: 0 auto 26px; max-width: 30ch;
+  }
+  .offer-text p {
+    font-family: 'Outfit', sans-serif; font-weight: 300;
+    font-size: clamp(16px, 4.4vw, 18px);
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin: 0 0 18px;
+  }
+  .offer-text em {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: #b8842a; font-size: 1.12em;
+  }
+  .offer-single .btn-offer-primary {
+    display: block; width: 100%;
+    margin-top: 28px;
+    background: var(--gold); color: #fff;
+    border: none; border-radius: 50px;
+    padding: 17px 24px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; letter-spacing: .22em; text-transform: uppercase;
+    cursor: pointer; transition: all .3s ease;
+  }
+  .offer-single .btn-offer-primary:hover {
+    background: #b8842a; transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(176,132,42,.3);
+  }
+  /* Disclaimer/Restart lesbarer */
+  #screen-offers .disclaimer { color: var(--text-muted); }
+  #screen-offers .result-restart { color: #b8842a; }
+  @media (max-width: 768px) {
+    .offer-text p { font-size: 17px !important; }
+    .offer-text em { font-weight: 500; }
+  }
+
+
+  /* ==============================
+     FEINSCHLIFF 12 — Abschlussseite größer + Akzent
+  ============================== */
+  .abschluss-text {
+    font-size: clamp(18px, 4.6vw, 20px) !important;
+    line-height: 1.8 !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-style: normal !important;
+  }
+  /* Hervorgehobener Schluss-Satz */
+  .abschluss-akzent {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(26px, 6.5vw, 34px) !important;
+    line-height: 1.4 !important;
+    color: #b8842a !important;
+    text-align: center;
+    margin: 2.4rem auto 0 !important;
+    max-width: 22ch;
+  }
+  @media (max-width: 768px) {
+    .abschluss-text { font-size: 19px !important; }
+    .abschluss-akzent { font-size: 26px !important; font-weight: 400 !important; }
+  }
+
 </style>
 </head>
 <body>
@@ -1675,7 +2611,6 @@
      SCREEN: INTRO
 ============================== -->
 <div id="screen-intro" class="screen active">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S1</div>
   <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.35;">
     <source src="fotos/video1.mp4" type="video/mp4">
   </video>
@@ -1701,27 +2636,20 @@
      SCREEN: INTRO 2
 ============================== -->
 <div id="screen-intro-2" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S2</div>
 <div class="rr-particles" id="rrParticles"></div>
 
 <div class="rr-stage">
 
-  <div class="rr-eyebrow rr-fade rr-d1">BECOME HER · Bindungstyp-Test</div>
+  <div class="rr-opening">
+    <p class="rr-line rr-l1">Das hier ist kein Quiz.</p>
+    <p class="rr-line rr-l2">Es ist eine <em>Einladung</em> —</p>
+    <p class="rr-line rr-l3">dein Herz zu öffnen und deinen Körper antworten zu lassen.</p>
+    <p class="rr-line rr-l4">Es geht weniger um deine Antwort. Es geht um das, was die Frage in dir <em>bewegt</em>.</p>
+  </div>
 
-  <h2 class="rr-headline rr-fade rr-d2">
-    Das hier ist kein Quiz.<br>
-    Es ist eine Einladung — dein Herz zu öffnen<br>
-    und deinen Körper <em>antworten zu lassen</em>.
-  </h2>
+  <p class="rr-gate rr-seq">Wir gehen durch <strong>fünf Räume</strong>.</p>
 
-  <p class="rr-lead rr-fade rr-d3">
-    Es geht weniger um deine Antwort.<br>
-    Es geht um das, was die Frage in dir bewegt.
-  </p>
-
-  <p class="rr-gate rr-fade rr-d4">Wir gehen durch <strong>fünf Räume</strong>.</p>
-
-  <div class="rr-journey rr-fade rr-d4">
+  <div class="rr-journey rr-seq">
     <div class="rr-rail"></div>
     <div class="rr-trail" id="rrTrail"></div>
     <button type="button" class="rr-station" data-i="0" style="left:8%"><span class="rr-halo"></span><span class="rr-pin"></span></button>
@@ -1732,7 +2660,7 @@
     <div class="rr-orb" id="rrOrb" style="left:8%"></div>
   </div>
 
-  <div class="rr-rooms rr-fade rr-d4" id="rrRooms">
+  <div class="rr-rooms rr-seq" id="rrRooms">
     <div class="rr-room" data-i="0">
       <span class="rr-num">Raum I</span>
       <span class="rr-name">Jetzt</span>
@@ -1761,15 +2689,16 @@
   </div>
 
   <div class="rr-finale" id="rrFinale">
-    <p class="rr-breathnote">
+    <p class="rr-breathnote rr-seq">
       Zwischen den Räumen liegt eine Atempause.
       Damit dein Körper mitkommt — nicht nur dein Kopf.
     </p>
-    <p class="rr-close">
+    <p class="rr-close rr-seq">
       Nimm dir Zeit. Niemand wartet auf dich.<br>
       Außer du selbst.
     </p>
-    <button type="button" class="rr-btn" onclick="startQuiz()">Den ersten Raum betreten</button>
+    <p class="rr-reframe-box rr-seq">Du musst nicht in einer Beziehung sein. Denk an ihn — den letzten, oder den, der innerlich noch präsent ist. Dein Körper kennt den Weg.</p>
+    <button type="button" class="rr-btn rr-seq" onclick="startQuiz()">Den ersten Raum betreten</button>
   </div>
 
 </div>
@@ -1779,62 +2708,55 @@
      SCREEN: ATEM (vor jedem Block)
 ============================== -->
 <div id="screen-breath-0" class="breath-screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S3</div>
   <div class="breath-label">Atme</div>
   <div class="breath-circle"><span id="breath-text">Einatmen</span></div>
   <p class="breath-text">Komm einen Moment bei dir an.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
-  <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
+  <button class="btn-primary breath-cta" onclick="showScreen('screen-block-intro')">Weiter</button>
 </div>
 
 <div id="screen-breath-1" class="breath-screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S6</div>
   <div class="breath-label">Atme</div>
   <div class="breath-circle"><span>Einatmen</span></div>
   <p class="breath-text">Lass los, was du gerade festhältst.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
-  <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
+  <button class="btn-primary breath-cta" onclick="showScreen('screen-block-intro')">Weiter</button>
 </div>
 
 <div id="screen-breath-2" class="breath-screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S7</div>
   <div class="breath-label">Atme</div>
   <div class="breath-circle"><span>Einatmen</span></div>
   <p class="breath-text">Spür den Boden unter dir.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
-  <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
+  <button class="btn-primary breath-cta" onclick="showScreen('screen-block-intro')">Weiter</button>
 </div>
 
 <div id="screen-breath-3" class="breath-screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S8</div>
   <div class="breath-label">Atme</div>
   <div class="breath-circle"><span>Einatmen</span></div>
-  <p class="breath-text">Bleib offen für das, was kommt.</p>
+  <p class="breath-text">Du bist sicher, egal was kommt.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
-  <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
+  <button class="btn-primary breath-cta" onclick="showScreen('screen-block-intro')">Weiter</button>
 </div>
 
 <div id="screen-breath-4" class="breath-screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S9</div>
   <div class="breath-label">Atme</div>
   <div class="breath-circle"><span>Einatmen</span></div>
-  <p class="breath-text">Du bist fast am Ziel.</p>
+  <p class="breath-text">Du bist vollkommen, egal was du erlebt hast.</p>
   <p class="breath-subtext">Atme ein — und langsam wieder aus.</p>
-  <button class="btn-primary" onclick="showScreen('screen-block-intro')">Weiter</button>
+  <button class="btn-primary breath-cta" onclick="showScreen('screen-block-intro')">Weiter</button>
 </div>
 
 <!-- ==============================
      SCREEN: BLOCK INTRO
 ============================== -->
 <div id="screen-block-intro" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S4</div>
   <div style="max-width:520px;width:100%;text-align:center;padding:0 24px;">
-    <div class="block-number" id="block-number-display">I</div>
-    <div class="ornament" id="block-ornament">JETZT</div>
-    <h2 class="block-name" id="block-title-display">Was gerade <em>in dir ist</em></h2>
-    <p class="block-desc" id="block-desc-display"></p>
-    <p class="block-tech" id="block-tech-display"></p>
-    <button class="btn-primary" onclick="startBlock()">Weiter</button>
+    <div class="block-number thr-anim-num" id="block-number-display">I</div>
+    <div class="ornament thr-anim-eyebrow" id="block-ornament">JETZT</div>
+    <h2 class="block-name thr-anim-name" id="block-title-display">Was gerade <em>in dir ist</em></h2>
+    <p class="block-desc thr-anim-desc" id="block-desc-display"></p>
+    <button class="btn-primary thr-anim-cta" onclick="startBlock()">Raum betreten</button>
   </div>
 </div>
 
@@ -1842,10 +2764,17 @@
      SCREEN: QUIZ
 ============================== -->
 <div id="screen-quiz" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S5</div>
   <div class="quiz-progress"><div class="quiz-progress-bar" id="progress-bar"></div></div>
-  <div class="quiz-block-label" id="quiz-block-label"></div>
+  <div class="mini-path" id="mini-path">
+    <span class="mp-dot"></span><span class="mp-line"></span>
+    <span class="mp-dot"></span><span class="mp-line"></span>
+    <span class="mp-dot"></span><span class="mp-line"></span>
+    <span class="mp-dot"></span><span class="mp-line"></span>
+    <span class="mp-dot"></span>
+  </div>
   <div class="quiz-counter" id="quiz-counter"></div>
+
+  <div class="room-mark" id="room-mark">I</div>
 
   <div class="question-container" id="question-container">
     <div class="question-number" id="question-number"></div>
@@ -1859,31 +2788,54 @@
      SCREEN: LOADING
 ============================== -->
 <div id="screen-loading" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S10</div>
-  <div class="loading-title">"Dein Muster wird erkannt..."</div>
-  <div class="loading-orbs">
-    <div class="loading-orb"></div>
-    <div class="loading-orb"></div>
-    <div class="loading-orb"></div>
+  <div style="width:100%;text-align:center;padding:0 24px;">
+    <div class="vision-wrap" id="visionWrap">
+      <div class="vision-aura"></div>
+      <div class="vision-aura vision-aura-2"></div>
+      <svg class="vision-svg" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fffdf8"/>
+            <stop offset="35%" stop-color="#ffeebf"/>
+            <stop offset="100%" stop-color="#e8c06a"/>
+          </radialGradient>
+          <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#d9a93f" stop-opacity="0.15"/>
+            <stop offset="60%" stop-color="#e8c06a" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#fff3d6" stop-opacity="1"/>
+          </linearGradient>
+          <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="2.4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <path id="spiralTrail2" class="vision-trail" d="" fill="none"/>
+        <path id="spiralLine2" class="vision-line" d="" fill="none"/>
+        <circle id="spiralDot2" class="vision-head" cx="100" cy="100" r="3.4"/>
+      </svg>
+      <div class="vision-spark" id="visionSparks"></div>
+    </div>
+    <div class="vd-lines" id="vd-lines">
+      <div class="vd-line">38 Antworten.</div>
+      <div class="vd-line">Fünf Räume.</div>
+      <div class="vd-line">Ein Muster, das <em>älter ist als er</em>.</div>
+      <div class="vd-line">Es hat einen Namen.</div>
+    </div>
   </div>
-  <p style="font-size:13px;color:var(--text-muted);font-style:italic;max-width:320px;line-height:1.7;">
-    38 Antworten. 5 Blöcke. Eine tiefe Wahrheit — die schon immer in dir war.
-  </p>
 </div>
 
 <!-- ==============================
      SCREEN: Q38
 ============================== -->
-<div id="screen-q38" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S11</div>
+<div id="screen-q38" class="screen" style="justify-content:flex-start;padding-top:80px;">
   <div style="max-width:540px;width:100%;text-align:center;padding:0 24px;">
     <div class="q38-intro">Frage 38 · Abschluss</div>
     <h2 class="q38-question">
-      Wenn du diesem Teil von dir, der gekämpft, gehofft, gewartet, sich verborgen oder weggemacht hat — wenn du ihm einen Satz sagen könntest: Was wäre es?
+      Denk jetzt an dein inneres Mädchen. Fühl in deinen Körper. Wenn du ihr nur einen Satz sagen könntest — welcher wäre es?
     </h2>
-    <p class="q38-note">Kein richtiger Satz. Nur deiner. Diese Frage ist für dich — nicht für das System.</p>
-    <div class="answers-grid" id="q38-answers-grid"></div>
-    <button class="btn-primary" style="margin-top:32px;" onclick="showStatus()">Weiter</button>
+    
+    <textarea class="q38-input" id="q38-input" rows="3"></textarea>
+    <button class="btn-primary" onclick="saveQ38AndContinue()">Weiter</button>
   </div>
 </div>
 
@@ -1891,11 +2843,9 @@
      SCREEN: STATUS
 ============================== -->
 <div id="screen-status" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S12</div>
   <div style="max-width:520px;width:100%;text-align:center;padding:0 24px;">
     <div class="ornament" style="margin-bottom:24px;">Eine letzte Frage</div>
     <h2 class="status-title">Wo bist du gerade?</h2>
-    <p class="status-subtitle">Diese Antwort hilft mir, dir genau das zu zeigen, was du jetzt brauchst.</p>
 
     <div class="status-options" id="status-options">
       <button class="status-option" onclick="selectStatus('single')">Single</button>
@@ -1914,28 +2864,28 @@
      SCREEN: RESULT
 ============================== -->
 <div id="screen-result" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S13</div>
 
   <div class="result-hero">
-    <div class="result-type-code" id="result-type-code"></div>
-    <div class="result-label">Dein dominantes Muster</div>
-    <h1 class="result-name" id="result-name"></h1>
-    <div class="result-subname" id="result-subname"></div>
-    <div class="divider" style="margin-bottom:24px;"></div>
-    <p class="result-short" id="result-short"></p>
-    <div id="result-percent-bars" style="max-width:480px;margin:32px auto 0;text-align:left;"></div>
+    <div class="result-type-code rs-a1" id="result-type-code"></div>
+    <div class="result-label rs-a2">Dein dominantes Muster</div>
+    <h1 class="result-name rs-a3" id="result-name"></h1>
+    <div class="result-subname rs-a4" id="result-subname"></div>
+    <div class="divider rs-a5" style="margin-bottom:24px;"></div>
+    <p class="result-short rs-a5" id="result-short"></p>
+    <div id="result-percent-bars" class="rs-a6" style="max-width:480px;margin:32px auto 0;text-align:left;"></div>
   </div>
 
-  <div class="result-body">
-    <div class="result-section-label">Deine Geschichte</div>
-    <div class="result-text" id="result-text"></div>
-
-    <div id="result-second-type" style="display:none;margin-top:32px;padding:24px;border:1px solid rgba(var(--gold-rgb),0.2);background:rgba(var(--gold-rgb),0.04);">
+  <div class="result-body rs-body-anim">
+    <div id="result-second-type" style="display:none;margin-bottom:32px;padding:24px;border:1px solid rgba(var(--gold-rgb),0.2);background:rgba(var(--gold-rgb),0.04);">
       <div style="font-size:10px;letter-spacing:4px;color:var(--gold);margin-bottom:12px;">DEIN ZWEITES MUSTER</div>
       <div id="result-second-name" style="font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:8px;"></div>
       <div id="result-second-percent" style="font-size:13px;color:var(--text-muted);margin-bottom:12px;"></div>
       <div id="result-second-short" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--text-light);line-height:1.6;"></div>
     </div>
+
+    <div class="result-section-label">Deine Geschichte</div>
+    <div class="result-text" id="result-text"></div>
+
 
     <div style="text-align:center;margin-top:40px;">
       <button class="btn-primary" onclick="showScreen('screen-session-prep')">Weiter zur Übung</button>
@@ -1948,9 +2898,8 @@
      SCREEN: SESSION PREP
 ============================== -->
 <div id="screen-session-prep" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S14</div>
   <div class="session-prep-container">
-    <div class="session-prep-label">DEINE TRANSFORMATION</div>
+    <div class="session-prep-label">DEINE VERANKERUNG</div>
     <h2 class="session-prep-title">Du hast erkannt, was dich prägt.</h2>
     <p class="session-prep-subtitle">Jetzt geht es darum, wer du werden willst.</p>
 
@@ -2037,7 +2986,6 @@
      SCREEN: AUDIO (Bilaterale Stimulation)
 ============================== -->
 <div id="screen-audio" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S15</div>
   <div class="audio-screen-content">
     <div class="audio-screen-label">DEINE SESSION</div>
 
@@ -2059,21 +3007,27 @@
 
     <div class="audio-screen-actions">
       <button class="btn-primary" onclick="startBilateralSession()">SESSION STARTEN</button>
-      <button class="btn-order" onclick="showScreen('screen-abschluss')">DAS IST MEINE WAHRHEIT</button>
+      <button class="btn-order" id="truth-btn" onclick="showScreen('screen-abschluss')" style="display:none;">DAS IST MEINE WAHRHEIT</button>
     </div>
+    <p class="audio-hint" id="audio-hint-text">Tippe auf „Session starten" — die Kugel öffnet sich im Vollbild. Folge ihr nur mit den Augen.</p>
+    <p class="audio-disclaimer"><strong>Wichtiger Hinweis:</strong> Menschen mit Epilepsie oder neurologischen Erkrankungen konsultieren bitte vorher ihren Arzt.</p>
   </div>
 </div>
 
 <!-- Fullscreen Bilateral Overlay -->
 <div id="bilateral-overlay" class="bilateral-overlay">
-  <div id="bilateral-ball-overlay" class="bilateral-ball"></div>
+  <div class="bilateral-rotor" id="bilateral-rotor">
+    <div class="bilateral-track">
+      <div id="bilateral-ball-overlay" class="bilateral-ball"></div>
+    </div>
+    <button class="bilateral-end" onclick="endBilateralSession()">Beenden</button>
+  </div>
 </div>
 
 <!-- ==============================
      SCREEN: ABSCHLUSS
 ============================== -->
 <div id="screen-abschluss" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S16</div>
   <div class="abschluss-container">
 
     <div class="abschluss-badge">DANKE, DASS DU SO MUTIG WARST — UND HINGESCHAUT HAST</div>
@@ -2123,24 +3077,23 @@
      SCREEN: OFFERS
 ============================== -->
 <div id="screen-offers" class="screen">
-<div style="position:absolute;top:8px;left:8px;background:red;color:white;font-size:11px;padding:2px 6px;z-index:9999;font-family:monospace;">S17</div>
 
   <div class="result-body">
 
-    <div class="offer-primary" id="offer-primary">
-      <div class="offer-tag">Dein nächster Schritt · Empfohlen für dich</div>
-      <div class="offer-name" id="offer-primary-name"></div>
-      <div class="offer-price" id="offer-primary-price"></div>
-      <div class="offer-desc" id="offer-primary-desc"></div>
-      <button class="btn-offer btn-offer-primary" id="offer-primary-btn">Jetzt entdecken</button>
-    </div>
+    <div class="offer-single">
+      <div class="offer-eyebrow">Dein nächster Schritt</div>
+      <h2 class="offer-headline">Feminin Reset</h2>
+      <p class="offer-sub">30 Tage. Fokus auf dich, dein Ziel, deinen Körper.</p>
 
-    <div class="offer-secondary" id="offer-secondary">
-      <div class="offer-tag">Tiefer gehen · Dein Muster verstehen</div>
-      <div class="offer-name" id="offer-secondary-name"></div>
-      <div class="offer-price" id="offer-secondary-price"></div>
-      <div class="offer-desc" id="offer-secondary-desc"></div>
-      <button class="btn-offer btn-offer-secondary" id="offer-secondary-btn">Mehr erfahren</button>
+      <div class="offer-text">
+        <p>Du hast heute gespürt, welche Kraft in dir steckt — und wie viel von dem, was du erlebst, in deiner Innenwelt beginnt.</p>
+        <p>Im Außen etwas zu verändern fühlt sich oft einfacher an. Eine Strategie befolgen, damit er sich ändert. Ein Tool einsetzen, damit die Beziehung leichter wird. Irgendetwas tun, damit die Einsamkeit aufhört.</p>
+        <p>Aber jede Strategie hält dich auch im alten Muster — in dem leisen Gefühl, dass etwas nicht stimmt.</p>
+        <p>Was, wenn du ab jetzt neu wählen darfst? Nicht aus Mangel, nicht aus Taktik — sondern aus klarer Ausrichtung auf das, was du wirklich willst. Einfach, weil du heute entscheidest: <em>Es darf anders sein.</em></p>
+        <p>Dafür brauchst du nur dich — und eine Unterstützung für dein Nervensystem. Genau das machen wir zusammen. 30 Tage lang.</p>
+      </div>
+
+      <a href="#" id="offer-primary-btn" class="btn-offer btn-offer-primary" style="text-decoration:none;text-align:center;">Ich bin bereit</a>
     </div>
 
   </div>
@@ -2206,49 +3159,49 @@ const QUESTIONS = [
   // BLOCK 1
   { q: 'Schließ kurz die Augen. Denk an ihn. Wo spürst du ihn zuerst — im Körper?', note: 'Nicht was du denkst. Wo sitzt das Gefühl?', answers: ['In der Brust — ein Ziehen, ein Druck, manchmal kaum auszuhalten.','Nirgendwo wirklich. Vielleicht im Kopf — aber der Körper bleibt still.','Überall und nirgendwo. Es wechselt. Mal Wärme, mal Enge, mal beides.','In der Mitte — ruhig, warm, geerdet.'], types: ['S','U','Z','V'] },
   { q: 'Wenn du ehrlich bist — wie viel Prozent deiner täglichen Gedanken gehören ihm?', note: 'Viele Frauen sagen 20% — und meinen 80%.', answers: ['Mehr als mir lieb ist. Er ist fast immer irgendwie da.','Weniger als man denken würde. Ich lasse selten jemanden so nah ran.','Es wechselt extrem — manchmal obsessiv, manchmal komplett abgeschaltet.','Er hat seinen Platz — aber ich habe auch meinen. Es ist ausgewogen.'], types: ['S','U','Z','V'] },
-  { q: 'Er schreibt nicht zurück. Wie lange bevor du anfängst, Erklärungen zu konstruieren?', note: 'Minuten? Stunden? Sofort?', answers: ['Sehr schnell. Ich merke, dass ich anfange, Szenarien zu bauen — obwohl ich weiß, dass es Unsinn ist.','Ich warte. Wenn er will, meldet er sich. Ich brauche das nicht zu verwalten.','Ich wechsle zwischen \'alles okay\' und \'etwas stimmt nicht\' — manchmal innerhalb von Minuten.','Ich gehe davon aus, dass er beschäftigt ist. Wenn es wichtig ist, klärt es sich.'], types: ['S','U','Z','V'] },
-  { q: 'Stell dir vor, du hörst heute Nacht nichts von ihm. Was passiert in dir, kurz bevor du schläfst?', note: '', answers: ['Unruhe. Ich überprüfe das Handy noch einmal. Vielleicht habe ich etwas übersehen.','Nichts Besonderes. Ich schlafe. Das bin ich gewohnt.','Eine Unruhe, die ich nicht benennen kann. Mal Sehnsucht, mal Erleichterung.','Ich vermisse ihn vielleicht — aber ich schlafe trotzdem gut.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn ihr Streit habt — was ist deine erste körperliche Reaktion, noch bevor du ein Wort sagst?', note: 'Der Körper weiß immer zuerst.', answers: ['Enge in der Brust. Panik fast. Ich will den Streit sofort auflösen, koste es, was es wolle.','Distanz. Ich gehe innerlich weg. Der Körper macht dicht.','Chaos. Gleichzeitig kämpfen und weglaufen wollen. Beides.','Anspannung — aber keine Panik. Ich bleibe bei mir.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn die Beziehung gerade gut läuft — wann wartest du auf das, was kommt?', note: 'Eine Klientin sagte: „Wenn es gut ist, mache ich mir die meisten Sorgen."', answers: ['Fast immer. Das Gute fühlt sich wie eine Pause vor dem nächsten Einbruch an.','Ich erwarte das Gute nicht wirklich. Daher warte ich auch nicht darauf, dass es vergeht.','Ich genieße es — aber ein Teil von mir sabotiert es, noch bevor es schief gehen kann.','Ich bin im Guten. Ich warte nicht.'], types: ['S','U','Z','V'] },
-  { q: 'Was ist das Erste, das du tust, wenn du dich bei ihm unsicher fühlst?', note: '', answers: ['Ich suche Bestätigung — durch Nähe, durch ein Gespräch, durch seine Reaktion.','Ich ziehe mich zurück. Unsicherheit verarbeite ich alleine.','Ich wechsle zwischen Nähe suchen und Abstand nehmen — manchmal in derselben Stunde.','Ich spreche es aus. Nicht dramatisch — einfach offen.'], types: ['S','U','Z','V'] },
+  { q: 'Er schreibt nicht zurück. Wie lange bevor du anfängst, Erklärungen zu konstruieren?', note: 'Minuten? Stunden? Sofort?', answers: ['Sehr schnell. Ich baue Szenarien — obwohl ich weiß, dass es Unsinn ist.','Ich warte. Wenn er will, meldet er sich.','\'Alles okay\' und \'etwas stimmt nicht\' — im Minutentakt.','Er wird beschäftigt sein. Wenn es wichtig ist, klärt es sich.'], types: ['S','U','Z','V'] },
+  { q: 'Stell dir vor, du hörst heute Nacht nichts von ihm. Was passiert in dir, kurz bevor du schläfst?', note: '', answers: ['Unruhe. Ich prüfe das Handy nochmal — vielleicht übersehen?','Nichts Besonderes. Ich schlafe. Das bin ich gewohnt.','Unruhe, die ich nicht benennen kann. Sehnsucht, dann Erleichterung.','Ich vermisse ihn vielleicht — aber ich schlafe trotzdem gut.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn ihr Streit habt — was ist deine erste körperliche Reaktion, noch bevor du ein Wort sagst?', note: 'Der Körper weiß immer zuerst.', answers: ['Enge in der Brust. Ich will den Streit sofort auflösen — um jeden Preis.','Distanz. Ich gehe innerlich weg. Der Körper macht dicht.','Chaos. Gleichzeitig kämpfen und weglaufen wollen. Beides.','Anspannung — aber keine Panik. Ich bleibe bei mir.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn es gerade gut ist — wartest du auf den Moment, in dem es kippt?', note: '', answers: ['Fast immer. Das Gute ist nur die Pause vor dem nächsten Einbruch.','Ich erwarte das Gute nicht — also warte ich auch nicht auf sein Ende.','Ich genieße es — und sabotiere es, bevor es schiefgehen kann.','Ich bin im Guten. Ich warte nicht.'], types: ['S','U','Z','V'] },
+  { q: 'Was ist das Erste, das du tust, wenn du dich bei ihm unsicher fühlst?', note: '', answers: ['Ich suche Bestätigung — Nähe, ein Gespräch, seine Reaktion.','Ich ziehe mich zurück. Unsicherheit verarbeite ich alleine.','Ich suche Nähe und nehme Abstand — in derselben Stunde.','Ich spreche es aus. Nicht dramatisch — einfach offen.'], types: ['S','U','Z','V'] },
 
   // BLOCK 2
   { q: 'Wenn er ein Wetter wäre — welches?', note: 'Kein richtiges oder falsches Wetter. Das erste Bild.', answers: ['Wechselhaft. Mal Sonne, mal Sturm. Ich weiß nie, was mich erwartet.','Klar, aber kalt. Schön anzusehen — aber man friert dabei.','Gewitter. Intensiv, elektrisch — und ein bisschen gefährlich.','Bewölkt mit Sonnenstellen. Verlässlich, mit Überraschungen.'], types: ['S','U','Z','V'] },
-  { q: 'Was liebst du an ihm — was du dir selbst verbietest?', note: 'Das, was uns an anderen anzieht, ist oft das, was wir in uns nicht erlauben.', answers: ['Seine Freiheit. Er tut, was er will — ohne Schuldgefühle. Das kenne ich nicht.','Seine Wärme, wenn er sie zeigt. Ich habe verlernt, so offen zu sein.','Seine Intensität. Er fühlt laut — ich habe Angst vor meiner eigenen Lautstärke.','Ich mag, was er ist — aber es ist kein Ersatz für das, was ich selbst bin.'], types: ['S','U','Z','V'] },
-  { q: 'Was stört dich an ihm am meisten — und wo kennst du das an dir selbst?', note: 'Was uns an anderen triggert, zeigt uns oft unsere eigene ungelebte Seite.', answers: ['Dass er sich zurückzieht. Und ich? Ich klammere mich — auch das ist eine Form von Abstand.','Dass er emotional nicht verfügbar ist. Aber bin ich das wirklich selbst?','Dass er unberechenbar ist. Und ich merke: Ich bin es auch — nur anders.','Ich sehe, was mich stört. Und ich frage mich, ob ich das auch kenne.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn er sich verändert — ruhiger, verfügbarer, echter — liebst du ihn dann noch?', note: 'Manche Frauen bemerken: Die Intensität war die Attraktion. Nicht er.', answers: ['Ich hoffe ja — aber ich bin nicht sicher. Die Spannung war immer Teil davon.','Vermutlich nicht. Nähe macht mir Angst — auch wenn ich sie will.','Ich weiß es nicht. Stabilität fühlt sich fremd an. Fast langweilig.','Ja. Ich will den echten Menschen — nicht die Projektion.'], types: ['S','U','Z','V'] },
-  { q: 'Was hat er dir gegeben, das du dir nie selbst gegeben hast?', note: '', answers: ['Das Gefühl, gewählt zu werden. Ich weiß nicht, wie ich mich selbst wähle.','Kurze Momente von Wärme, die ich mir selbst nicht erlaube.','Das Gefühl, wirklich gesehen zu werden — auch wenn es manchmal toxisch war.','Er ergänzt mich. Aber er ersetzt nichts, das ich mir nicht auch geben könnte.'], types: ['S','U','Z','V'] },
+  { q: 'Was liebst du an ihm — was du dir selbst verbietest?', note: 'Das, was uns an anderen anzieht, ist oft das, was wir in uns nicht erlauben.', answers: ['Seine Freiheit. Er tut, was er will — ohne Schuld. Das kenne ich nicht.','Seine Wärme, wenn er sie zeigt. Ich habe verlernt, so offen zu sein.','Seine Intensität. Er fühlt laut — ich fürchte meine eigene Lautstärke.','Ich mag, was er ist — aber es ist kein Ersatz für das, was ich selbst bin.'], types: ['S','U','Z','V'] },
+  { q: 'Was stört dich an ihm am meisten?', note: '', answers: ['Dass er sich zurückzieht. Und ich klammere — auch das ist Abstand.','Dass er emotional nicht verfügbar ist. Aber bin ich das wirklich selbst?','Dass er unberechenbar ist. Und ich merke: Ich bin es auch — nur anders.','Ich sehe, was mich stört. Und ich frage mich, ob ich das auch kenne.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn er sich verändert — ruhiger, verfügbarer, echter — liebst du ihn dann noch?', note: '', answers: ['Ich hoffe — aber die Spannung war immer Teil davon.','Vermutlich nicht. Nähe macht mir Angst — auch wenn ich sie will.','Ich weiß es nicht. Stabilität fühlt sich fremd an. Fast langweilig.','Ja. Ich will den echten Menschen — nicht die Projektion.'], types: ['S','U','Z','V'] },
+  { q: 'Was hat er dir gegeben, das du dir nie selbst gegeben hast?', note: '', answers: ['Nichts. Ich bin verantwortlich für mich.','Kurze Momente von Wärme, die ich mir selbst nicht erlaube.','Das Gefühl, wirklich gesehen zu werden — auch wenn es manchmal toxisch war.','Er ergänzt mich. Aber er ersetzt nichts, was ich mir nicht selbst gebe.'], types: ['S','U','Z','V'] },
   { q: 'Wenn du an euren ersten Moment denkst — was hat dich damals wirklich angezogen?', note: 'Nicht das Offensichtliche. Was darunter.', answers: ['Er hat mich gesehen. Wirklich gesehen. Das war selten in meinem Leben.','Er war distanziert. Es war ein Rätsel. Ich wollte es lösen.','Die Intensität. Es hat sofort gebrannt. Das hat sich vertraut angefühlt.','Er war ruhig. Präsent. Nicht aufgeregt — einfach da.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn er nie mehr zurückschreiben würde — was würde das über dich aussagen?', note: 'Nicht über ihn. Über dich.', answers: ['Dass ich nicht genug war. Dass ich etwas falsch gemacht habe.','Dass Verbindung eben nicht hält. Das kenne ich.','Chaos. Zwischen Verständnis und dem Wunsch, alles zu tun um ihn zurückzuholen.','Dass es vorbei ist. Schmerzhaft — aber ich bliebe trotzdem ich.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn er nie mehr zurückschreiben würde — was würde das über dich aussagen?', note: 'Nicht über ihn. Über dich.', answers: ['Dass ich nicht genug war. Dass ich etwas falsch gemacht habe.','Dass Verbindung eben nicht hält. Das kenne ich.','Chaos. Zwischen Verstehen und dem Drang, ihn zurückzuholen.','Dass es vorbei ist. Schmerzhaft — aber ich bliebe trotzdem ich.'], types: ['S','U','Z','V'] },
 
   // BLOCK 3
-  { q: 'Welcher Teil von dir kämpft darum, diese Beziehung zu halten — und was will dieser Teil wirklich?', note: 'IFS-Technik: Jeder Mensch hat innere „Teile". Der Teil, der klammert, schützt oft einen tieferen Teil, der sich verlassen fühlt.', answers: ['Der Teil, der Angst hat, wieder allein zu sein. Er will Sicherheit, keine Liebe.','Der Teil, der beweisen will, dass er es doch kann — Verbindung halten.','Der Teil, der das Vertraute braucht — auch wenn das Vertraute schmerzt.','Ich kämpfe nicht so sehr. Ich wähle — oder ich lasse los.'], types: ['S','U','Z','V'] },
-  { q: 'Was tust du für ihn, das du niemals für dich selbst tun würdest?', note: 'Eine Frau räumte ihre komplette Wochenplanung um — für jemanden, der sie nie gefragt hatte.', answers: ['Mich verbiegen. Meine Pläne ändern. Meine Meinung zurückhalten.','Zuhören, auch wenn mir nicht danach ist. Nähe zeigen, obwohl es mich kostet.','Alles — in manchen Momenten. Und dann gar nichts. Keine Mitte.','Manchmal mehr als sonst — aber ich verliere mich dabei nicht.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn du dich selbst mit einem Satz beschreiben müsstest — was wärst du ohne eine Liebesgeschichte?', note: 'Was bleibt, wenn kein Mann die Geschichte mitschreibt?', answers: ['Ich weiß es ehrlich gesagt nicht so genau. Viel meines Lebens hat sich um Beziehungen gedreht.','Stärker. Klarer. Aber auch einsamer, als ich zugebe.','Zerrissen auch ohne ihn. Die Beziehung ist vielleicht nicht das Problem.','Ich bin auch ohne ihn ich — vollständig, lebendig, neugierig.'], types: ['S','U','Z','V'] },
-  { q: 'Wann hast du zuletzt etwas getan, das nur dir gehörte — ohne zu denken, was er davon hält?', note: '', answers: ['Ich denke automatisch, was er wohl denken würde. Das passiert unbewusst.','Ich lebe viel für mich — aber manchmal frage ich mich, ob es nicht Flucht ist.','Selten. Entweder ich bin ganz drin in ihm — oder ich spüre mich selbst kaum.','Regelmäßig. Ich brauche das. Das ist nicht Egoismus — das ist Selbstachtung.'], types: ['S','U','Z','V'] },
-  { q: 'Was brauchst du von einer Beziehung — das du dir nie laut gesagt hast?', note: 'Nicht was du dir wünschst. Was du brauchst.', answers: ['Konstanz. Jemanden, der bleibt. Wirklich bleibt.','Raum. Nähe ohne Verlust von mir selbst. Das klingt widersprüchlich.','Sicherheit — aber nicht die langweilige. Sicherheit, die sich noch lebendig anfühlt.','Tiefe. Wachstum. Jemanden, mit dem ich mehr werden kann.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn du dich in einer Beziehung klein machst — wer hat dir beigebracht, dass das Liebe ist?', note: 'Viele Frauen konnten nicht antworten — und dann fiel ihnen ihre Mutter ein.', answers: ['Jemand früh in meinem Leben hat Liebe mit Anpassung verknüpft. Das saß tief.','Niemand hat mir beigebracht, mich klein zu machen — ich habe gelernt, mich wegzumachen.','Die frühen Bezugspersonen haben Liebe widersprüchlich gelebt. Ich auch.','Ich habe gelernt, dass Liebe mich nicht kleiner macht. Das war ein langer Weg.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn deine beste Freundin sich so verhielte wie du — was würdest du zu ihr sagen?', note: 'Sag es ehrlich. Nicht nett.', answers: ['Ich würde ihr sagen, dass sie sich verdient, wirklich gewählt zu werden — nicht abgewartet.','Dass sie das Recht hat, Bedürfnisse zu haben. Und sie auszusprechen.','Dass das Chaos sich nach Liebe anfühlt — aber keins ist.','Ich würde ihr zuhören. Und vielleicht fragen, was sie wirklich will.'], types: ['S','U','Z','V'] },
+  { q: 'Da ist ein Teil in dir, der um diese Beziehung kämpft. Was will dieser Teil wirklich?', note: '', answers: ['Der Teil mit Angst vorm Alleinsein. Er will Sicherheit, nicht Liebe.','Der Teil, der beweisen will, dass er es doch kann — Verbindung halten.','Der Teil, der das Vertraute braucht — auch wenn das Vertraute schmerzt.','Ich kämpfe nicht so sehr. Ich wähle — oder ich lasse los.'], types: ['S','U','Z','V'] },
+  { q: 'Was tust du für ihn, das du niemals für dich selbst tun würdest?', note: '', answers: ['Mich verbiegen. Meine Pläne ändern. Meine Meinung zurückhalten.','Zuhören, obwohl mir nicht danach ist. Nähe zeigen, obwohl es kostet.','Alles — in manchen Momenten. Und dann gar nichts. Keine Mitte.','Manchmal mehr als sonst — aber ich verliere mich dabei nicht.'], types: ['S','U','Z','V'] },
+  { q: 'Wer bist du — ohne eine Liebesgeschichte?', note: 'Was bleibt, wenn kein Mann die Geschichte mitschreibt?', answers: ['Ehrlich — ich weiß es kaum. Mein Leben drehte sich um Beziehungen.','Stärker. Klarer. Aber auch einsamer, als ich zugebe.','Zerrissen auch ohne ihn. Die Beziehung ist vielleicht nicht das Problem.','Ich bin auch ohne ihn ich — vollständig, lebendig, neugierig.'], types: ['S','U','Z','V'] },
+  { q: 'Wann hast du zuletzt etwas getan, das nur dir gehörte — ohne zu denken, was er davon hält?', note: '', answers: ['Ich denke automatisch, was er wohl denken würde. Das passiert unbewusst.','Ich lebe viel für mich — aber ist es manchmal Flucht?','Selten. Ganz in ihm — oder ich spüre mich kaum.','Regelmäßig. Das ist kein Egoismus — das ist Selbstachtung.'], types: ['S','U','Z','V'] },
+  { q: 'Was brauchst du von einer Beziehung — das du dir nie laut gesagt hast?', note: 'Nicht was du dir wünschst. Was du brauchst.', answers: ['Konstanz. Jemanden, der bleibt. Wirklich bleibt.','Raum. Nähe ohne Verlust von mir selbst. Das klingt widersprüchlich.','Sicherheit — aber eine, die sich noch lebendig anfühlt.','Tiefe. Wachstum. Jemanden, mit dem ich mehr werden kann.'], types: ['S','U','Z','V'] },
+  { q: 'Wer hat dir zuerst beigebracht, dass Liebe heißt, sich klein zu machen?', note: '', answers: ['Früh wurde Liebe mit Anpassung verknüpft. Das saß tief.','Nicht klein machen — ich habe gelernt, mich wegzumachen.','Die frühen Bezugspersonen haben Liebe widersprüchlich gelebt. Ich auch.','Liebe macht mich nicht kleiner. Das war ein langer Weg.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn deine beste Freundin sich so verhielte wie du — was würdest du zu ihr sagen?', note: 'Sag es ehrlich. Nicht nett.', answers: ['Dass sie verdient, gewählt zu werden — nicht abgewartet.','Dass sie das Recht hat, Bedürfnisse zu haben. Und sie auszusprechen.','Dass das Chaos sich nach Liebe anfühlt — aber keins ist.','Ich würde ihr zuhören. Und vielleicht fragen, was sie wirklich will.'], types: ['S','U','Z','V'] },
 
   // BLOCK 4
-  { q: 'Wenn du an deine Kindheit denkst — was musstest du tun, damit du geliebt wurdest?', note: 'Nicht was du bekommen hast. Was du leisten musstest.', answers: ['Ich musste lieb sein. Keine Ansprüche stellen. Brav und unauffällig.','Stark sein. Nicht weinen. Alleine klarkommen.','Ich weiß es nicht genau. Die Bedingungen wechselten. Manchmal reichte nichts.','Ich musste nicht so viel leisten. Jemand war einfach da.'], types: ['S','U','Z','V'] },
-  { q: 'Wann hast du zum ersten Mal das Gefühl gehabt, dass du jemanden verlieren könntest — bevor er je dein Freund war?', note: 'Das erste Mal, dass Liebe mit Verlustangst verknüpft war.', answers: ['Sehr früh. Vielleicht als Kind. Ich erinnere mich an das Gefühl, auch wenn ich den Moment nicht kenne.','Ich habe Verlust anders gelernt — durch Abwesenheit, nicht durch Angst.','Früh — aber mit Verwirrung. Verlieren und festgehalten werden gleichzeitig.','Das kam — aber es hat mich nicht definiert.'], types: ['S','U','Z','V'] },
-  { q: 'Deine Mutter und Liebe — was verbindest du da?', note: 'Winnicott: Die erste Erfahrung von Liebe prägt das innere Arbeitsmodell — das Template für alle späteren Beziehungen.', answers: ['Unvorhersehbarkeit. Manchmal viel Wärme — manchmal komplette Abwesenheit.','Kühle. Pflicht. Funktionieren. Liebe war da — aber nicht emotional.','Widerspruch. Schutz und Überwältigung gleichzeitig.','Verlässlichkeit — zumindest im Kern. Nicht perfekt, aber da.'], types: ['S','U','Z','V'] },
-  { q: 'Welches Gefühl aus deiner Kindheit kennst du aus deinen Beziehungen wieder?', note: 'Freud nannte das Wiederholungszwang — wir suchen unbewusst das, was wir kennen.', answers: ['Warten. Auf Bestätigung, auf Rückkehr, auf das Signal, dass ich okay bin.','Alleinsein. Die Überzeugung, es alleine schaffen zu müssen.','Das Unberechenbare. Gleichzeitig angelockt und zurückgestoßen.','Grundsätzliches Vertrauen — auch wenn es Schwierigkeiten gab.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn dein jüngeres Ich sehen würde, wie du dich gerade in Beziehungen verhältst — was würde es sagen?', note: 'Tony Robbins: Die Verbindung zum jüngeren Selbst öffnet oft die tiefste Erkenntnis.', answers: ['Es würde mich verstehen. Es hat dasselbe getan — nur war es damals überlebensnotwendig.','Es würde sich wiedererkennen. Stark sein, nicht zeigen, was man braucht.','Es würde verwirrt sein — und gleichzeitig sehr vertraut damit.','Es würde stolz sein — oder zumindest nicken. Das fühlt sich richtig an.'], types: ['S','U','Z','V'] },
-  { q: 'Welche Geschichte hast du dir über Liebe erzählt — bevor du überhaupt verliebt warst?', note: 'Die Geschichte, die du von Eltern, Märchen, Filmen, der Welt übernommen hast.', answers: ['Dass man kämpfen muss. Dass Liebe nie einfach ist. Dass man sich verdienen muss.','Dass man sich nicht zu sehr braucht. Dass Liebe schwächt.','Dass Liebe intensiv ist — oder sie ist keine. Leidenschaft und Schmerz zusammen.','Dass Liebe sein kann. Nicht perfekt, aber real und verlässlich.'], types: ['S','U','Z','V'] },
-  { q: 'Wenn dein Vater — oder die väterliche Figur in deinem Leben — als Liebespartner aufgetreten wäre: Würde er Ähnlichkeit mit deinen heutigen Partnern haben?', note: 'Statistisch sind die Muster erschreckend konsistent — nicht weil wir schwach sind, sondern weil das Nervensystem das Bekannte sucht.', answers: ['Vielleicht. Die Unzuverlässigkeit, die Wärme-Kälte-Wechsel — das kenne ich.','Ja. Emotional abwesend. Ich habe immer jemanden gesucht, der mir gibt, was er nicht konnte.','Ja — und es erschreckt mich. Das Chaotische, das Unberechenbare.','Zum Teil. Aber ich habe auch gelernt, andere Muster zu wählen.'], types: ['S','U','Z','V'] },
+  { q: 'Wenn du an deine Kindheit denkst — was musstest du tun, damit du geliebt wurdest?', note: 'Nicht was du bekommen hast. Was du leisten musstest.', answers: ['Ich musste lieb sein. Keine Ansprüche stellen. Brav und unauffällig.','Stark sein. Nicht weinen. Alleine klarkommen.','Die Bedingungen wechselten. Manchmal reichte nichts.','Ich musste nicht so viel leisten. Jemand war einfach da.'], types: ['S','U','Z','V'] },
+  { q: 'Wann hattest du zum ersten Mal Angst, jemanden zu verlieren? Lange bevor es um einen Mann ging.', note: 'Das erste Mal, dass Liebe mit Verlustangst verknüpft war.', answers: ['Sehr früh. Ich kenne das Gefühl — nicht den Moment.','Ich habe Verlust anders gelernt — durch Abwesenheit, nicht durch Angst.','Früh — aber mit Verwirrung. Verlieren und festgehalten werden gleichzeitig.','Das kam — aber es hat mich nicht definiert.'], types: ['S','U','Z','V'] },
+  { q: 'Deine Mutter und Liebe — was verbindest du da?', note: 'Die erste Erfahrung von Liebe prägt das innere Muster für alle späteren Beziehungen.', answers: ['Unvorhersehbarkeit. Manchmal viel Wärme — manchmal komplette Abwesenheit.','Kühle. Pflicht. Funktionieren. Liebe war da — aber nicht emotional.','Widerspruch. Schutz und Überwältigung gleichzeitig.','Verlässlichkeit — zumindest im Kern. Nicht perfekt, aber da.'], types: ['S','U','Z','V'] },
+  { q: 'Welches Gefühl aus deiner Kindheit kennst du aus deinen Beziehungen wieder?', note: 'Wir suchen unbewusst das, was wir kennen.', answers: ['Warten. Auf Bestätigung, auf Rückkehr, auf das Signal, dass ich okay bin.','Alleinsein. Die Überzeugung, es alleine schaffen zu müssen.','Das Unberechenbare. Gleichzeitig angelockt und zurückgestoßen.','Grundsätzliches Vertrauen — auch wenn es Schwierigkeiten gab.'], types: ['S','U','Z','V'] },
+  { q: 'Stell dir vor, dein jüngeres Ich sieht dich heute in der Liebe. Was würde es sagen?', note: 'Die Verbindung zum jüngeren Selbst öffnet oft die tiefste Erkenntnis.', answers: ['Es würde mich verstehen. Damals war es überlebensnotwendig.','Es würde sich wiedererkennen. Stark sein, nicht zeigen, was man braucht.','Es würde verwirrt sein — und gleichzeitig sehr vertraut damit.','Es würde stolz sein — oder zumindest nicken. Das fühlt sich richtig an.'], types: ['S','U','Z','V'] },
+  { q: 'Welche Geschichte hast du dir über Liebe erzählt — bevor du überhaupt verliebt warst?', note: 'Die Geschichte, die du von Eltern, Märchen, Filmen, der Welt übernommen hast.', answers: ['Dass man kämpfen muss. Dass man sich Liebe verdienen muss.','Dass man sich nicht zu sehr braucht. Dass Liebe schwächt.','Liebe ist intensiv — oder keine. Leidenschaft und Schmerz zusammen.','Dass Liebe sein kann. Nicht perfekt, aber real und verlässlich.'], types: ['S','U','Z','V'] },
+  { q: 'Wie viel von deinem Vater steckt in den Männern, die du wählst?', note: 'Oder von dem Menschen, der diese Rolle hatte.', answers: ['Vielleicht. Die Unzuverlässigkeit, die Wärme-Kälte-Wechsel — das kenne ich.','Ja. Emotional abwesend. Ich suchte, was er nicht geben konnte.','Ja — und es erschreckt mich. Das Chaotische, das Unberechenbare.','Zum Teil. Aber ich habe auch gelernt, andere Muster zu wählen.'], types: ['S','U','Z','V'] },
 
   // BLOCK 5
-  { q: 'Er ist weg. Morgen früh. Endgültig. Was ist das erste Gefühl — wirklich?', note: 'Nicht was du sagen solltest. Was du fühlen würdest. Manche Frauen sagen „Trauer" — und meinen „Erleichterung". Beides ist erlaubt.', answers: ['Panik. Leere. Ein Gefühl, als würde ein Boden wegbrechen.','Stille. Vielleicht Trauer — aber auch etwas, das sich fast nach Freiheit anfühlt.','Wechsel. Zuerst Chaos — dann vielleicht Erleichterung — dann Sehnsucht. Alles.','Schmerz. Echter, tiefer Schmerz — und trotzdem: Ich bliebe ich.'], types: ['S','U','Z','V'] },
-  { q: 'Was würdest du tun, wenn du wüsstest, dass er nie zurückkommt?', note: 'Nicht was du dir wünschst. Was du wirklich tun würdest.', answers: ['Ich würde wahrscheinlich warten. Hoffen. Vielleicht versuchen, ihn zurückzugewinnen.','Ich würde funktionieren. Nach außen stark sein. Innen — das ist eine andere Frage.','Irgendwas Impulsives — und dann Abschottung. Der Wechsel ist vorhersehbar.','Trauern. Wirklich. Und dann weiterleben. Das weiß ich.'], types: ['S','U','Z','V'] },
-  { q: 'Was hat diese Beziehung dir über dich selbst gezeigt, das du ohne sie nicht gesehen hättest?', note: '', answers: ['Wie sehr ich Bestätigung von außen brauche. Wie wenig ich mir selbst glaube.','Dass ich Nähe will — und gleichzeitig alles tue, um sie zu verhindern.','Dass meine innere Welt widersprüchlicher ist, als ich dachte.','Dass Beziehung mich wachsen lässt — ohne mich aufzulösen.'], types: ['S','U','Z','V'] },
-  { q: 'Stell dir vor: Du in fünf Jahren. Du bist die Frau, die du wirklich sein willst. Wählt sie diese Beziehung?', note: 'Nicht ob sie ihn liebt. Ob sie diese Dynamik wählt.', answers: ['Wahrscheinlich nicht. Diese Version von mir würde sich nicht so viel Angst zumuten.','Sie würde eine Beziehung wählen, in der sie sich zeigen darf. Das hier ist es nicht ganz.','Nein. Sie hätte das Chaos schon lange verlassen.','Sie würde ehrlich hinschauen — und dann entscheiden. Nicht aus Angst.'], types: ['S','U','Z','V'] },
+  { q: 'Er ist weg. Morgen früh. Endgültig. Was ist das erste Gefühl — wirklich?', note: '', answers: ['Panik. Leere. Ein Gefühl, als würde ein Boden wegbrechen.','Stille. Trauer — und etwas, das fast nach Freiheit schmeckt.','Chaos, dann Erleichterung, dann Sehnsucht. Alles auf einmal.','Schmerz. Echter, tiefer Schmerz — und trotzdem: Ich bliebe ich.'], types: ['S','U','Z','V'] },
+  { q: 'Was würdest du tun, wenn du wüsstest, dass er nie zurückkommt?', note: 'Nicht was du dir wünschst. Was du wirklich tun würdest.', answers: ['Warten. Hoffen. Vielleicht versuchen, ihn zurückzugewinnen.','Funktionieren. Außen stark. Innen — andere Frage.','Irgendwas Impulsives — und dann Abschottung. Der Wechsel ist vorhersehbar.','Trauern. Wirklich. Und dann weiterleben. Das weiß ich.'], types: ['S','U','Z','V'] },
+  { q: 'Was hat diese Beziehung dir über dich selbst gezeigt, das du ohne sie nicht gesehen hättest?', note: '', answers: ['Wie sehr ich Bestätigung brauche. Wie wenig ich mir glaube.','Dass ich Nähe will — und gleichzeitig alles tue, um sie zu verhindern.','Dass meine innere Welt widersprüchlicher ist, als ich dachte.','Dass Beziehung mich wachsen lässt — ohne mich aufzulösen.'], types: ['S','U','Z','V'] },
+  { q: 'Stell dir vor: Du in fünf Jahren. Du bist die Frau, die du wirklich sein willst. Wählt sie diese Beziehung?', note: 'Nicht ob sie ihn liebt. Ob sie diese Dynamik wählt.', answers: ['Wohl nicht. Diese Version würde sich so viel Angst nicht zumuten.','Sie wählt eine, in der sie sich zeigen darf. Das hier ist es nicht.','Sie würde ehrlich hinschauen und mehr für sich einstehen.','Sie würde ehrlich hinschauen — und dann entscheiden. Nicht aus Angst.'], types: ['S','U','Z','V'] },
   { q: 'Was wäre das Mutigste, das du dir selbst gegenüber tun könntest — in dieser Situation?', note: '', answers: ['Loslassen — ohne zu wissen, ob jemand anderes kommt.','Zulassen. Wirklich zulassen — ohne Flucht.','Ruhe wählen. Bewusst. Auch wenn sie sich fremd anfühlt.','Ehrlich sein — mit mir und mit ihm. Auch wenn das unbequem wird.'], types: ['S','U','Z','V'] },
   { q: 'Wenn diese Beziehung einen Satz hätte — was wäre er?', note: 'Nicht romantisch. Ehrlich.', answers: ['"Ich hoffe, dass es diesmal anders wird."','"Ich bin dabei — aber nicht ganz."','"Es ist kompliziert — und ich weiß nicht, ob ich das will."','"Wir wachsen. Manchmal gemeinsam, manchmal aneinander."'], types: ['S','U','Z','V'] },
-  { q: 'Was ist das, das du aus dieser Beziehung — egal wie sie ausgeht — mitnehmen willst?', note: 'Viktor Frankl: Selbst im Schmerz liegt Bedeutung. Was ist die deines?', answers: ['Dass ich aufgehört habe, mich um meiner Liebe willen zu verlieren.','Dass ich Nähe zulassen kann — ohne sofort zu flüchten.','Dass Chaos keine Voraussetzung für Liebe ist.','Dass ich gewählt habe — mit offenen Augen.'], types: ['S','U','Z','V'] },
-  { q: 'Was soll in einem Jahr anders sein — nicht in ihm. In dir?', note: '', answers: ['Ich will nicht mehr warten. Auf Nachrichten, auf Klarheit, auf Bestätigung.','Ich will Bedürfnisse fühlen und sie aussprechen — ohne Scham.','Ich will in einer Situation ankommen, die mich nicht zerreißt.','Ich will tiefer sein. In mir und in dem, was ich lebe.'], types: ['S','U','Z','V'] },
-  { q: 'Die Frau, die du werden willst — was würde sie über Liebe sagen, die du dir noch nicht erlaubst zu glauben?', note: 'Das ist vielleicht die wichtigste Frage des ganzen Navigators.', answers: ['Dass Liebe nicht wehtun muss, um echt zu sein.','Dass Nähe nicht Schwäche ist — sondern Mut.','Dass Ruhe sich gut anfühlen darf. Dass Stille nicht leer ist.','Dass ich das, was ich suche, in mir trage. Schon jetzt.'], types: ['S','U','Z','V'] },
+  { q: 'Was ist das, das du aus dieser Beziehung — egal wie sie ausgeht — mitnehmen willst?', note: 'Selbst im Schmerz liegt Bedeutung. Was ist deine?', answers: ['Dass ich aufgehört habe, mich um meiner Liebe willen zu verlieren.','Dass ich Nähe zulassen kann — ohne sofort zu flüchten.','Dass Chaos keine Voraussetzung für Liebe ist.','Dass ich gewählt habe — mit offenen Augen.'], types: ['S','U','Z','V'] },
+  { q: 'Was soll in einem Jahr anders sein — nicht in ihm. In dir?', note: '', answers: ['Ich will nicht mehr warten — auf Nachrichten, auf Bestätigung.','Ich will Bedürfnisse fühlen und sie aussprechen — ohne Scham.','Ich will in einer Situation ankommen, die mich nicht zerreißt.','Ich will tiefer sein. In mir und in dem, was ich lebe.'], types: ['S','U','Z','V'] },
+  { q: 'Denk an die Frau, die du werden willst. Was glaubt sie über Liebe, das du dir noch nicht erlaubst?', note: 'Das ist vielleicht die wichtigste Frage.', answers: ['Dass Liebe nicht wehtun muss, um echt zu sein.','Dass Nähe nicht Schwäche ist — sondern Mut.','Dass Ruhe sich gut anfühlen darf. Dass Stille nicht leer ist.','Dass ich das, was ich suche, in mir trage. Schon jetzt.'], types: ['S','U','Z','V'] },
 ];
 
 const Q38_ANSWERS = {
@@ -2335,7 +3288,7 @@ const RESULTS = {
     subname: 'Das Feuer zwischen den Welten',
     short: 'In dir lebt ein Widerspruch, der so alt ist wie du. Du sehnst dich nach Verschmelzung — einer Liebe, die alles glatt streicht — und im selben Atemzug willst du weglaufen.',
     text: `<p><strong>DER SPIEGEL DEINES HERZENS</strong></p>
-<p>In dir lebt ein Widerspruch, der so alt ist wie du. Du sehnst dich nach Verschmelzung — einer Liebe, die alles glatt streicht, alles heilt — und im selben Atemzug willst du weglaufen.</p>
+<p>In dir lebt ein Widerspruch, der so alt ist wie du. Du sehnst dich nach Verschmelzung — einer Liebe, die alles glatt streicht, alles hält — und im selben Atemzug willst du weglaufen.</p>
 <p><strong style="font-size:1.3em;">Du liebst elektrisch, fast schmerzhaft intensiv, und kippst in der nächsten Stunde in Misstrauen, in Kälte, in Panik. Manchmal innerhalb derselben Umarmung.</strong></p>
 <p><em>Was steigt in dir auf, wenn du das liest?</em></p>
 <p>Du kennst es: Wenn er weg ist, zerreißt es dich. Wenn er da ist, hältst du es nicht aus. Du tust Dinge, von denen du dir nach jeder Trennung schwörst, sie nie wieder zu tun.</p>
@@ -2345,7 +3298,7 @@ const RESULTS = {
 <p><strong>DIE GESCHICHTE DEINES NERVENSYSTEMS</strong></p>
 <p>Die Menschen, die dein sicherer Hafen sein sollten, waren gleichzeitig die Quelle deiner Angst. Vielleicht waren sie unberechenbar. Vielleicht haben sie dich geliebt — und im selben Raum verletzt.</p>
 <p><em>Spür, ob du gerade abtauchen willst. Das ist okay. Das ist ein Schutzreflex. Atme einmal in deine Füße. Komm langsam zurück.</em></p>
-<p><strong>Es entsteht ein Riss, der nicht heilen kann, solange das Kind in dieser Situation lebt — und der sich später in jede Liebesbeziehung einschreibt.</strong></p>
+<p><strong>Es entsteht ein Riss, der sich nicht schließen kann, solange das Kind in dieser Situation lebt — und der sich später in jede Liebesbeziehung einschreibt.</strong></p>
 <p><em>Lies den nächsten Satz langsam.</em></p>
 <p><strong style="font-size:1.3em;">Du bist nicht süchtig nach ihm. Du bist süchtig nach dem Aktivierungsmuster, das er auslöst.</strong></p>
 <p><em>Wut? Trauer? Erkenntnis? Egal was — es ist richtig.</em></p>
@@ -2382,22 +3335,22 @@ const RESULTS = {
 <p><strong style="font-size:1.3em;">Du wächst nicht. Du hältst.</strong></p>
 <p>Und irgendwann beginnst du zu spüren, dass deine Tiefe nirgendwohin fließen darf. Dass deine Wildheit — ja, die ist da — nie eingeladen wurde.</p>
 <p><strong>DER WEG ZUR ENTFALTUNG</strong></p>
-<p><strong style="font-size:1.3em;">Du brauchst keine Heilung. Du brauchst Ausdehnung.</strong></p>
+<p><strong style="font-size:1.3em;">Du musst nichts reparieren. Du brauchst Ausdehnung.</strong></p>
 <p>Deine Aufgabe ist, vom <em>Funktionieren in Sicherheit</em> zur <em>radikalen Verkörperung</em> überzugehen. Eine Liebe zu suchen, die dich nicht nur hält, sondern dich entzündet.</p>
 <p><strong style="font-size:1.3em;">Du bist bereit für das Feuer. Nicht trotz, sondern wegen deiner Wurzeln. Weil du die einzige Frau hier bist, die in der Glut nicht verbrennt, sondern leuchtet.</strong></p>`,
     audio: { title: 'Vertiefung · Verkörperung · Wachstum', subtitle: '12 Hz bilateral · Alpha-Bereich · 60–90 Sek', instruction: '„Schließ die Augen. Atme ein — ruhig, tief, ohne Eile. Folge dem Ton. Du bist bereits geerdet. Lass das jetzt tiefer sinken — in den Bauch, in die Beine, in den Boden unter dir. Das hier ist kein Anfang. Das ist eine Vertiefung."' },
-    typeCTA: 'Du bist die Basis. Jetzt entfalten wir, was schon in dir ist — 30 Tage zurück zu dir. Nicht Heilung. Tiefe.',
+    typeCTA: 'Du bist die Basis. Jetzt entfalten wir, was schon in dir ist — 30 Tage zurück zu dir. Nicht Veränderung. Vertiefung.',
     typeProduct: 'feminin'
   }
 };
 
 const PRODUCTS = {
-  feminin:       { name: 'Feminin Reset',        price: '27€', desc: 'Sanfter Einstieg — 30 Tage zurück zu dir. Nicht Heilung. Tiefe.' },
+  feminin:       { name: 'Feminin Reset',        price: '27€', desc: 'Sanfter Einstieg — 30 Tage zurück zu dir. Nicht Veränderung. Vertiefung.' },
   textHim:       { name: 'TEXT HIM',              price: '47€', desc: 'Curated Answer Library — was du in welcher Situation schreibst. Klar. Souverän. Echt.' },
   situationship: { name: 'Situationship Decode',  price: '47€', desc: 'Die Dynamik von innen verstehen. Damit du zum ersten Mal wirklich entscheiden kannst.' },
   obsession:     { name: 'Obsession Reset',       price: '47€', desc: 'Loslassen, ohne ihn vergessen zu müssen. Für die Frau, die endlich aufhören will zu warten.' },
   trauma:        { name: 'Trauma Bond Erkennen',  price: '47€', desc: 'Das Muster benennen können. Das ist keine Diagnose — es ist der Anfang von Freiheit.' },
-  girlboss:      { name: 'Girlboss Reset',        price: '47€', desc: 'Ankommen, statt zu funktionieren. Für die Frau, die alles hat — und sich trotzdem allein fühlt.' },
+  girlboss:      { name: 'Powerfrau Reset',        price: '47€', desc: 'Ankommen, statt zu funktionieren. Für die Frau, die alles hat — und sich trotzdem allein fühlt.' },
   becomeHer:     { name: 'BECOME HER',            price: '197–297€', desc: 'Das Flaggschiff-Programm. Für die Frau, die weiß, wer sie ist — und bereit ist, die nächste Version zu werden.' }
 };
 
@@ -2443,7 +3396,10 @@ function showScreen(id) {
     stopBreathCycle();
   }
 
-  if (id === 'screen-intro-2') initRaumreise();
+  if (id === 'screen-intro-2') { initRaumreise(); revealOpening(); }
+
+  if (id === 'screen-loading') { startSpiral('spiralLine2', 'spiralDot2'); }
+  else { stopSpiral(); }
 }
 
 let breathTimers = [];
@@ -2454,6 +3410,11 @@ function setBreathText(text) {
 
 function startBreathCycle() {
   stopBreathCycle();
+  // Button erst nach einem Atemzug freigeben
+  document.querySelectorAll('.breath-cta').forEach(b => b.classList.remove('ready'));
+  breathTimers.push(setTimeout(() => {
+    document.querySelectorAll('.breath-cta').forEach(b => b.classList.add('ready'));
+  }, 10000));
   const runCycle = () => {
     setBreathText('Einatmen');
     breathTimers.push(setTimeout(() => setBreathText('Halten'), 4000));
@@ -2479,10 +3440,9 @@ function startQuiz() {
 function showBlockIntro(blockIdx) {
   const block = BLOCKS[blockIdx];
   document.getElementById('block-number-display').textContent = block.number;
-  document.getElementById('block-ornament').textContent = block.ornament;
+  document.getElementById('block-ornament').textContent = 'Raum ' + block.number + ' · ' + block.ornament;
   document.getElementById('block-title-display').innerHTML = block.title;
   document.getElementById('block-desc-display').textContent = block.desc;
-  document.getElementById('block-tech-display').textContent = block.tech;
   showScreen('screen-breath-' + blockIdx);
 }
 
@@ -2503,12 +3463,26 @@ function renderQuestion() {
   // Progress
   document.getElementById('progress-bar').style.width = ((totalDone / total) * 100) + '%';
   document.getElementById('quiz-counter').textContent = totalDone + ' / ' + total;
-  document.getElementById('quiz-block-label').textContent = 'Block ' + BLOCKS[currentBlockIndex].number + ' · ' + BLOCKS[currentBlockIndex].ornament;
 
-  // Question
+  // Raum-Pfad: durchschrittene Räume leuchten, der aktuelle atmet
+  document.querySelectorAll('#mini-path .mp-dot').forEach((dot, idx) => {
+    dot.classList.toggle('done', idx < currentBlockIndex);
+    dot.classList.toggle('now', idx === currentBlockIndex);
+  });
+
+  // Wasserzeichen: römische Raumziffer
+  const NUMERALS = ['I','II','III','IV','V'];
+  document.getElementById('room-mark').textContent = NUMERALS[currentBlockIndex];
+
+  // Frage in Sinneinheiten (wie gesprochen)
   document.getElementById('question-number').textContent = 'Frage ' + (totalDone + 1);
-  document.getElementById('question-text').textContent = q.q;
-  document.getElementById('question-note').textContent = q.note;
+  const qTextEl = document.getElementById('question-text');
+  const marked = q.q.replace(/ — /g, ' — \u0001').replace(/([.!?])\s+/g, '$1\u0001');
+  const units = marked.split('\u0001').filter(u => u.trim());
+  qTextEl.innerHTML = units.map(u => '<span class="unit">' + u.trim() + ' </span>').join('');
+  const noteEl = document.getElementById('question-note');
+  noteEl.classList.remove('on');
+  noteEl.textContent = q.note;
 
   // Answers
   const grid = document.getElementById('answers-grid');
@@ -2523,6 +3497,7 @@ function renderQuestion() {
     [types[i], types[j]] = [types[j], types[i]];
   }
 
+  grid.classList.remove('decided');
   answers.forEach((ans, i) => {
     const btn = document.createElement('button');
     btn.className = 'answer-option';
@@ -2531,12 +3506,29 @@ function renderQuestion() {
     grid.appendChild(btn);
   });
 
+  // Staffelung: Einheiten → Notiz → Antworten
+  rqTimers.forEach(clearTimeout);
+  rqTimers = [];
+  const unitEls = qTextEl.querySelectorAll('.unit');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const STEP_U = reduced ? 0 : 500;
+  unitEls.forEach((u, i) => {
+    rqTimers.push(setTimeout(() => u.classList.add('on'), 250 + i * STEP_U));
+  });
+  const afterUnits = 250 + unitEls.length * STEP_U;
+  rqTimers.push(setTimeout(() => noteEl.classList.add('on'), afterUnits));
+  grid.querySelectorAll('.answer-option').forEach((a, i) => {
+    rqTimers.push(setTimeout(() => a.classList.add('in'), afterUnits + 300 + i * (reduced ? 0 : 130)));
+  });
+
   // Re-animate
   const container = document.getElementById('question-container');
   container.style.animation = 'none';
   container.offsetHeight;
   container.style.animation = '';
 }
+
+let rqTimers = [];
 
 function getTotalDone() {
   let done = 0;
@@ -2548,11 +3540,18 @@ function getTotalDone() {
 function selectAnswer(btn, type) {
   document.querySelectorAll('.answer-option').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
+  btn.closest('.answers-grid').classList.add('decided');
   scores[type]++;
 
+  // Die Antwort darf kurz nachklingen, bevor es weitergeht
+  const container = document.getElementById('question-container');
   setTimeout(() => {
-    nextQuestion();
-  }, 400);
+    container.classList.add('leaving');
+    setTimeout(() => {
+      container.classList.remove('leaving');
+      nextQuestion();
+    }, 400);
+  }, 900);
 }
 
 function nextQuestion() {
@@ -2575,12 +3574,32 @@ function nextQuestion() {
   }
 }
 
+let vdTimers = [];
 function showLoadingThenQ38() {
   showScreen('screen-loading');
-  setTimeout(() => {
+  vdTimers.forEach(clearTimeout);
+  vdTimers = [];
+  const lines = document.querySelectorAll('#vd-lines .vd-line');
+  lines.forEach(l => { l.classList.remove('on'); l.classList.remove('off'); });
+  const STEP = 2600;
+  lines.forEach((line, i) => {
+    // einblenden
+    vdTimers.push(setTimeout(() => {
+      line.classList.remove('off');
+      line.classList.add('on');
+    }, 1000 + i * STEP));
+    // sanft ausblenden (außer der letzten Zeile), bevor die nächste kommt
+    if (i < lines.length - 1) {
+      vdTimers.push(setTimeout(() => {
+        line.classList.remove('on');
+        line.classList.add('off');
+      }, 1000 + i * STEP + (STEP - 700)));
+    }
+  });
+  vdTimers.push(setTimeout(() => {
     calcDominantType();
     showQ38();
-  }, 3000);
+  }, 1000 + lines.length * STEP + 1400));
 }
 
 function calcDominantType() {
@@ -2605,29 +3624,105 @@ function calcDominantType() {
 }
 
 function showQ38() {
-  const grid = document.getElementById('q38-answers-grid');
-  grid.innerHTML = '';
+  const input = document.getElementById('q38-input');
+  input.value = '';
+  input.placeholder = '\u201e' + Q38_ANSWERS[dominantType] + '\u201c';
+  showScreen('screen-q38');
+}
 
-  // Fisher-Yates shuffle (kein Scoring auf Q38)
-  const types = ['S', 'U', 'Z', 'V'];
-  for (let i = types.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [types[i], types[j]] = [types[j], types[i]];
+let q38UserText = '';
+function saveQ38AndContinue() {
+  const input = document.getElementById('q38-input');
+  q38UserText = input ? input.value.trim() : '';
+  showStatus();
+}
+
+/* ===== Q38: Kreis-zu-Spirale ===== */
+let spiralRAF = null;
+let spiralTimer = null;
+function spawnVisionSparks() {
+  const host = document.getElementById('visionSparks');
+  if (!host || host.childElementCount) return;
+  for (let i = 0; i < 14; i++) {
+    const s = document.createElement('i');
+    const ang = Math.random() * Math.PI * 2;
+    const rad = 26 + Math.random() * 38;
+    s.style.left = (50 + Math.cos(ang) * rad) + '%';
+    s.style.top  = (50 + Math.sin(ang) * rad) + '%';
+    s.style.setProperty('--dur', (2.4 + Math.random() * 2.6) + 's');
+    s.style.setProperty('--del', (Math.random() * 3) + 's');
+    host.appendChild(s);
+  }
+}
+
+function startSpiral(lineId, dotId) {
+  stopSpiral();
+  const line = document.getElementById(lineId || 'spiralLine');
+  const dot  = document.getElementById(dotId || 'spiralDot');
+  const trail = document.getElementById('spiralTrail2');
+  if (!line || !dot) return;
+  spawnVisionSparks();
+
+  // Archimedische Spirale, die sich von innen nach außen öffnet — als path d
+  const cx = 100, cy = 100;
+  const TURNS = 3.4;              // Anzahl Windungen
+  const tEnd = TURNS * 2 * Math.PI;
+  const rMax = 78;
+  const rAt = (t) => 6 + (rMax - 6) * (t / tEnd);
+  const xAt = (t) => cx + rAt(t) * Math.cos(t - Math.PI/2);
+  const yAt = (t) => cy + rAt(t) * Math.sin(t - Math.PI/2);
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    let d = `M ${xAt(0).toFixed(1)} ${yAt(0).toFixed(1)}`;
+    for (let t = 0; t <= tEnd; t += 0.08) d += ` L ${xAt(t).toFixed(1)} ${yAt(t).toFixed(1)}`;
+    line.setAttribute('d', d);
+    if (trail) trail.setAttribute('d', d);
+    return;
   }
 
-  types.forEach(type => {
-    const btn = document.createElement('button');
-    btn.className = 'answer-option';
-    btn.textContent = '"' + Q38_ANSWERS[type] + '"';
-    btn.onclick = () => {
-      document.querySelectorAll('.answer-option').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-      setTimeout(showStatus, 400);
-    };
-    grid.appendChild(btn);
-  });
+  let t = 0;
+  const speed = tEnd / (5.2 * 60); // ~5.2s pro Durchlauf bei 60fps
+  let d = `M ${xAt(0).toFixed(1)} ${yAt(0).toFixed(1)}`;
 
-  showScreen('screen-q38');
+  function frame() {
+    t += speed;
+    if (t > tEnd) t = tEnd;
+    const x = xAt(t), y = yAt(t);
+    d += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
+    line.setAttribute('d', d);
+    if (trail) trail.setAttribute('d', d);
+    dot.setAttribute('cx', x.toFixed(1));
+    dot.setAttribute('cy', y.toFixed(1));
+
+    if (t >= tEnd) {
+      // kurz leuchten lassen, sanft verklingen, dann von vorn
+      spiralTimer = setTimeout(() => {
+        line.style.transition = 'opacity 1.6s ease';
+        if (trail) trail.style.transition = 'opacity 1.6s ease';
+        dot.style.transition = 'opacity 1.6s ease';
+        line.style.opacity = '0'; dot.style.opacity = '0';
+        if (trail) trail.style.opacity = '0';
+        spiralTimer = setTimeout(() => {
+          t = 0; d = `M ${xAt(0).toFixed(1)} ${yAt(0).toFixed(1)}`;
+          line.setAttribute('d', ''); if (trail) trail.setAttribute('d', '');
+          line.style.transition = 'none'; dot.style.transition = 'none';
+          if (trail) trail.style.transition = 'none';
+          line.style.opacity = ''; dot.style.opacity = '';
+          if (trail) trail.style.opacity = '';
+          spiralRAF = requestAnimationFrame(frame);
+        }, 1700);
+      }, 1200);
+      return;
+    }
+    spiralRAF = requestAnimationFrame(frame);
+  }
+  spiralRAF = requestAnimationFrame(frame);
+}
+function stopSpiral() {
+  if (spiralRAF) cancelAnimationFrame(spiralRAF);
+  if (spiralTimer) clearTimeout(spiralTimer);
+  spiralRAF = null; spiralTimer = null;
 }
 
 function showStatus() {
@@ -2676,21 +3771,6 @@ function showResult() {
   } else {
     secondTypeBlock.style.display = 'none';
   }
-
-  // Offers
-  const statusProductKey = STATUS_OFFERS[userStatus];
-  const typeProductKey = getTypeOffer(dominantType, statusProductKey);
-
-  const statusProduct = PRODUCTS[statusProductKey];
-  const typeProduct = PRODUCTS[typeProductKey];
-
-  document.getElementById('offer-primary-name').textContent = statusProduct.name;
-  document.getElementById('offer-primary-price').textContent = statusProduct.price;
-  document.getElementById('offer-primary-desc').textContent = statusProduct.desc;
-
-  document.getElementById('offer-secondary-name').textContent = typeProduct.name;
-  document.getElementById('offer-secondary-price').textContent = typeProduct.price;
-  document.getElementById('offer-secondary-desc').textContent = result.typeCTA;
 
   showScreen('screen-result');
 
@@ -2747,8 +3827,13 @@ function renderPercentBars() {
 function goToAudioScreen() {
   const step2 = document.getElementById('step2-textarea');
   const affirmation = document.getElementById('affirmation-text');
-  if (step2 && affirmation && step2.value.trim()) {
-    affirmation.textContent = step2.value.trim();
+  if (affirmation) {
+    const own = (step2 && step2.value.trim()) || q38UserText;
+    if (own) {
+      affirmation.textContent = own;
+    } else if (dominantType && Q38_ANSWERS[dominantType]) {
+      affirmation.textContent = Q38_ANSWERS[dominantType];
+    }
   }
   showScreen('screen-audio');
 }
@@ -2763,10 +3848,24 @@ function startBilateralSession() {
   void ball.offsetHeight;
   ball.classList.add('running');
   if (bilateralTimer) clearTimeout(bilateralTimer);
-  bilateralTimer = setTimeout(() => {
-    overlay.classList.remove('active');
-    ball.classList.remove('running');
-  }, 30000);
+  bilateralTimer = setTimeout(() => { finishBilateralSession(); }, 30000);
+}
+
+function finishBilateralSession() {
+  if (bilateralTimer) clearTimeout(bilateralTimer);
+  const overlay = document.getElementById('bilateral-overlay');
+  const ball = document.getElementById('bilateral-ball-overlay');
+  if (overlay) overlay.classList.remove('active');
+  if (ball) ball.classList.remove('running');
+  // Erst jetzt darf sie weiter — Kugelseite wird nicht mehr übersprungen
+  const truth = document.getElementById('truth-btn');
+  if (truth) truth.style.display = '';
+  const hint = document.getElementById('audio-hint-text');
+  if (hint) hint.textContent = 'Wenn du bereit bist, geh weiter.';
+}
+
+function endBilateralSession() {
+  finishBilateralSession();
 }
 
 function resetQuiz() {
@@ -2775,6 +3874,9 @@ function resetQuiz() {
   currentQuestionIndex = 0;
   currentBlockQuestionIndex = 0;
   userStatus = null;
+  q38UserText = '';
+  const tb = document.getElementById('truth-btn');
+  if (tb) tb.style.display = 'none';
   dominantType = null;
   showScreen('screen-intro');
 }
@@ -2820,6 +3922,32 @@ function rrAdvance(){
 function rrSchedule(){
   clearTimeout(rrTimer);
   rrTimer = setTimeout(rrAdvance, RR_HOLD + RR_TRAVEL);
+}
+
+function revealOpening(){
+  // Reihenfolge der Reise: Eröffnungszeilen → (Pause) → Weg & Räume → (Pause) → Schluss
+  const lines = Array.from(document.querySelectorAll('.rr-line'));
+  const seq = Array.from(document.querySelectorAll('#screen-intro-2 .rr-seq'));
+  [...lines, ...seq].forEach(el => el.classList.remove('on'));
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    [...lines, ...seq].forEach(el => el.classList.add('on'));
+    return;
+  }
+
+  let t = 600;
+  // Eröffnungszeilen — ruhig, mit deutlicher Pause dazwischen
+  lines.forEach((l) => {
+    setTimeout(() => l.classList.add('on'), t);
+    t += 1500;
+  });
+  // Atempause, bevor der Weg sich zeigt
+  t += 900;
+  seq.forEach((el) => {
+    setTimeout(() => el.classList.add('on'), t);
+    t += 1300;
+  });
 }
 
 function initRaumreise(){
